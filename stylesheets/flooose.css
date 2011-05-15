@@ -2,10 +2,20 @@ body {
     align: "center";
 }
 
-h1#page-title{
-    font-family: 'Unkempt';
+#h1-page-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
     color: white;
     background-color: black;
+}
+
+#h2-page-title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.page-title{
+    font-family: 'Unkempt';
     text-align: center;
 }
 
@@ -22,6 +32,12 @@ p {
 
 code {
     font-family: Monospace;
+}
+
+div#header {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
 }
 
 div#sidebar {

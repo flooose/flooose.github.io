@@ -1,5 +1,5 @@
 ---
-title: Screen, GNU-Screen, GNU_Screen and your Terminal
+title: Screen, GNU-Screen, GNU-Screen and you and your Terminal
 layout: base
 ---
 

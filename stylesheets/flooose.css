@@ -1,7 +1,41 @@
+body {
+    align: "center";
+}
+
+h1#page-title{
+    font-family: 'Unkempt';
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+ul {
+    font-family: 'Open Sans';
+    list-style: none;
+}
+
 p {
     color: gray;
+    font-family: 'Quattrocento';
+    font-size: 18px;
 }
 
 code {
     font-family: Monospace;
+}
+
+div#sidebar {
+    display: inline;
+    float: right;
+    width: 30%;
+}
+
+div#content {
+    display: inline;
+    width: 70%;
+}
+
+div#container {
+    width: 800px;
+    margin: auto;
 }

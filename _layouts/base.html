@@ -1,20 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <link rel="stylesheet" href="/stylesheets/flooose.css" type="text/css"> 
+    <link href='http://fonts.googleapis.com/css?family=Unkempt' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>{{; page.title }}</title>
     </head>
     <body>
-        <div class="container">  
-            {{ content }}
-        </div>
-	<div class="sidebar">
-	  <ul class="posts">
-<!--	    {% for post in site.posts %}
-	    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-	    {% endfor %}
--->
-	  </ul>
+      <div id="container" class="container">
+	<div class="header">
+	  <h1 id="page-title">Floess, Fl&ouml;&szlig;, flooose: A man and his thoughts</h1>
 	</div>
+
+	<div id="content" class="content">  
+          {{ content }}
+	</div>
+	<div id="footer" class="footer">
+	</div>
+      </div>
     </body>
 </html>

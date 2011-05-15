@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <link rel="stylesheet" href="/stylesheets/flooose.css" type="text/css"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div class="container">  
+            <h3>What&#8217;s screen? Why this tutorial?</h3>
+<p>Screen is a program that brings the idea of windows to the console/terminal. The man page states this in stronger words (&#8216;Screen  is  a full-screen window manager&#8230;&#8217;), but this tutorial is written to get people running with screen quickly and without all the technical stuff at the beginning because screen is a great tool, but on that took me entirely too long to master on a level that allowed me to practically use it for most of my needs.</p>
+<p>And that&#8217;s exactly why I&#8217;m writing this tutorial: everyone should use it in their day-to-day programming lives. If you work in the console, you should use screen. And you should use a console; you don&#8217;t program in and <span class="caps">IDE</span> do you???</p>
+<p>It should be stated though that technical terms will not be left out all together, I actually have a predilection for technical arcana and minutiae. The technical will just be avoided in the beginning and introduce only as really needed. The documentation for screen is quiet good, but it also helps to get some overhead out of the way first, i.e. simply using it.</p>
+<p>So, I&#8217;ve introduced my motivation and sang the praises of screen, but I feel like it&#8217;s necessary to give a concrete example of why to use screen. Simply put, screen allows you do do the following:</p>
+<pre><code>[my_computer] $ ssh someserver.com
+[their_puter] $ screen
+[their_puter] $ rake import:really:huge:db_dump
+starting import of 1.5 GB sql dump
+ ^A ^D
+[detached]
+[their_puter] $ exit
+Connection to someserver.com closed
+[my_computer] $ </code></pre>
+<p>&#8230;time passes&#8230;</p>
+<pre><code>[my_computer] $ ssh someserver.com
+[their_puter] $ screen -r
+[their_puter] $ rake import:really:huge:db_dump
+starting import of 1.5 GB sql dump
+finishing import of 1.5 GB sql dump. Took 15 hours.
+[their_puter] $</code></pre>
+<p>That&#8217;s not exactly what the code looks like, although you&#8217;ll see everything I&#8217;ve listed. This can essentially be wrapped as follows:</p>
+<p>1. log into some server.com&#8230;nothing new<br />
+2. issue screen command, i.e. start screen<br />
+3. issue really long running command<br />
+4. <b>*disconnect without killing process</b>*<br />
+5. <b>*reconnect 15 hours later to see that the process has finished</b>*</p>
+<p>So for me that was enough motivation to use screen. Every tutorial you read though makes promises about how much more screen can do. What they don&#8217;t do is approach it from I consider to be the right angle, i.e. getting things done (in our domain, I should probably add.</p>
+<p>So after this moment of inspiration, I actually wanted more. Let&#8217;s take the next step and decide that we actually want to have a screen session for every one of our ssh sessions so that if we find ourselves actually issuing an unanticipated long command at the end of the day, we won&#8217;t be forced to kill it just so that we an go home.</p>
+<pre><code>$ echo 'alias ssh='ssh -t screen -R' &gt;&gt; ~/.bashrc</code></pre>
+<p>This creates an alias so that &#8216;ssh&#8217; fires up the screen command upon login. The <code>-R</code> option simply means find the first available screen session (there can be multiple screen sessions at once) and connect to it. If you don&#8217;t find one to connect to, start a new one.</p>
+<p>There are numerous reasons for which this is actually not a recommended way of making ssh sessions also log into screen, but I won&#8217;t go into them because it works for the sake of this tutorial, it&#8217;s similar to the approach I took (I actually create a simple bash script), and it&#8217;s also doesn&#8217;t pose any real dangers.</p>
+<p>So now in principle, we&#8217;re set up to have every ssh session also be a screen session, meaning that we don&#8217;t have to know ahead of time if you&#8217;re going to be running long-running commands that keep you late at work, or force you to kill the job.</p>
+<p>Good.</p>
+<p>But guess what, now that you&#8217;re looking at your screen session, I hope you don&#8217;t need to look at your command output, because screen trampled my console&#8217;s ability to scroll.</p>
+<p>Crap.</p>
+<p>Well, googling will get you the answer, but since our intent is to get you using screen quickly, I&#8217;ll give it to you here:</p>
+<p>When using screen, C-a C-[ gets you into scroll (a.k.a copy) mode. Now you&#8217;ve got vim bindings to scroll up and down. This isn&#8217;t a vim tutorial, so I won&#8217;t go into its bindings, I can give those who aren&#8217;t in the know a hint though: h,j,k,l.</p>
+<p>Okay, scrolling isn&#8217;t really ideal in screen, if you&#8217;ve gotten used to wooshing past lines of code with the scroll-wheel on your mouse, but vim allows for some good alternatives and I have to say, that after taking some time to work with it, I actually felt very unhindered.</p>
+<p>So here&#8217;s what you need to know about reviewing your output.</p>
+<p>1. C-a C-[ gets you into copy-mode.<br />
+2. scrolling is done with the typical vim keys (start with h,j,k,l)<br />
+3. working with the output can&#8217;t be done with the mouse and involves highlighting and copying. Here&#8217;s how you do that<br />
+   1. follow steps 1 and 2 from above<br />
+   2. set two marks<br />
+   3. C-a C-] copies what between the two marks.</p>
+<p>Since this tutorial is meant as a practical introduction, I&#8217;m going to assume that the most you&#8217;re going to do with the output, aside from reading it, is copying full lines to paste some place else. Here&#8217;s a sample session of what you can do with this:</p>
+<pre><code>$ dmesg | tail -10
+PM: resume of devices complete after 3058.648 msecs
+PM: Finishing wakeup.
+Restarting tasks ... done.
+video LNXVIDEO:01: Restoring backlight state
+ADDRCONF(NETDEV_UP): wlan0: link is not ready
+e1000e 0000:00:19.0: irq 46 for MSI/MSI-X
+e1000e 0000:00:19.0: irq 46 for MSI/MSI-X
+ADDRCONF(NETDEV_UP): eth0: link is not ready
+iwlagn 0000:03:00.0: TX Power requested while scanning!
+iwlagn 0000:03:00.0: Error sending TX power (-11)
+$ ^a ^[ kkkkkkkkkk0&lt;space&gt;jjjjjjjjj&lt;space&gt;^a^]</code></pre>
+<p>in case that looks like non-sense, I pressed C-a C-[ then the &#8216;k&#8217; button 10 times, the space button then the &#8216;0&#8217; button once, the &#8216;j&#8217; button 9 times and then the space bar again.</p>
+<p>Now with that out of the way, I can actually open my favorite editor (emacs) in the terminal and then actually copy the text into there.</p>
+<p>Okay, so running screen and coming to grips with dealing with the output differently are taken care of. What next?</p>
+<p>Well, a screen session is cool, but what if you want another terminal open on the same server, say, to tail a log file while you try different things in the original terminal. Do you really have to clutter your workspace with another window and start another screen session in a new ssh session just to be able to take advantage of the features of screen?</p>
+<p>No.</p>
+<p>Gnu-Screen has the concept of windows. Before we get into that though, lets take a moment to reflect on the fact that we want to keep this introduction topical. In order to make the learning of screen&#8217;s concept of windows as painless as possible, we&#8217;re going to add a config entry into <code>~/.screenrc</code>:</p>
+<pre><code>$ cat ~/.screenrc
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+$</code></pre>
+<p>What this does is set up your screen sessions so that you have the console equivalent of a taskbar at the bottom of your screen. My current &#8216;taskbar&#8217; looks as follows:</p>
+<pre><code>[ (none) ][            0$ bash  1$ bash  2-$ bash  (3*$bash)                 ][2011-03-07 18:16 ]</code></pre>
+<p>Don&#8217;t ask me what the <code>[ (none) ]</code> on the left means, I haven&#8217;t figured it out, but the four &#8216;bash&#8217; fields represent the four windows that I have open. <code>(3*$bash)</code> is the current active window. <code>C-a C-n</code> and <code>C-a C-p</code> choose the next window and the previous window respectively.</p>
+        </div>
+	<div class="sidebar">
+	  <ul class="posts">
+<!--	    
+	    <li><span>23 Feb 2011</span> &raquo; <a href="/2011/02/23/screen-gnu-screen-gnu-screen-and-your-terminal.html">Screen, GNU-Screen, GNU_Screen and your Terminal</a></li>
+	    
+-->
+	  </ul>
+	</div>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-  <link rel="stylesheet" href="/stylesheets/flooose.css" type="text/css"> 
+  <link rel="stylesheet" href="/stylesheets/flooose.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Unkempt' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -14,11 +14,11 @@
 	  <h2 id="h2-page-title" class="page-title">A linux and open source page</h2>
 	</div>
 
-	<div id="content" class="content">  
+	<div id="content" class="content">
           <h3>What&#8217;s screen? Why this tutorial?</h3>
-<p>Screen is a program that brings the idea of windows to the console/terminal. The man page states this in stronger words (&#8216;Screen  is  a full-screen window manager&#8230;&#8217;), but this tutorial is written to get people running with screen quickly and without all the technical stuff at the beginning because screen is a great tool, but on that took me entirely too long to master on a level that allowed me to practically use it for most of my needs.</p>
-<p>And that&#8217;s exactly why I&#8217;m writing this tutorial: everyone should use it in their day-to-day programming lives. If you work in the console, you should use screen. And you should use a console; you don&#8217;t program in and <span class="caps">IDE</span> do you???</p>
-<p>It should be stated though that technical terms will not be left out all together, I actually have a predilection for technical arcana and minutiae. The technical will just be avoided in the beginning and introduce only as really needed. The documentation for screen is quiet good, but it also helps to get some overhead out of the way first, i.e. simply using it.</p>
+<p>Screen is a program that brings the idea of windows to the console/terminal. The man page states this in stronger words (&#8216;Screen  is  a full-screen window manager&#8230;&#8217;), but this tutorial is written to get people running quickly and without all the technical stuff at the beginning because screen is a great tool, but one that took me entirely too long to master on a level that allowed me to practically use it for most of my needs.</p>
+<p>And that&#8217;s exactly why I&#8217;m writing this tutorial: everyone can use it in their day-to-day programming lives. If you work in the console, you should use screen. And you should use a console; you don&#8217;t program in and <span class="caps">IDE</span> do you???</p>
+<p>It should be stated though that technical terms will not be left out all together, I actually have a predilection for technical arcana and minutiae. The technical stuff will just be avoided in the beginning and introduced only as really needed. The documentation for screen is quiet good, but it also helps to get some overhead out of the way first, i.e. simply using it.</p>
 <p>So, I&#8217;ve introduced my motivation and sang the praises of screen, but I feel like it&#8217;s necessary to give a concrete example of why to use screen. Simply put, screen allows you do do the following:</p>
 <pre><code>[my_computer] $ ssh someserver.com
 [their_puter] $ screen
@@ -28,7 +28,7 @@ starting import of 1.5 GB sql dump
 [detached]
 [their_puter] $ exit
 Connection to someserver.com closed
-[my_computer] $ </code></pre>
+[my_computer] $</code></pre>
 <p>&#8230;time passes&#8230;</p>
 <pre><code>[my_computer] $ ssh someserver.com
 [their_puter] $ screen -r
@@ -88,6 +88,24 @@ $</code></pre>
 <pre><code>[ (none) ][            0$ bash  1$ bash  2-$ bash  (3*$bash)                 ][2011-03-07 18:16 ]</code></pre>
 <p>Don&#8217;t ask me what the <code>[ (none) ]</code> on the left means, I haven&#8217;t figured it out, but the four &#8216;bash&#8217; fields represent the four windows that I have open. <code>(3*$bash)</code> is the current active window. <code>C-a C-n</code> and <code>C-a C-p</code> choose the next window and the previous window respectively.</p>
 	</div>
+	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'flooose'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = '/2011/02/23/screen-gnu-screen-gnu-screen-and-your-terminal.html';
+    // var disqus_url = '/2011/02/23/screen-gnu-screen-gnu-screen-and-your-terminal.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 	<div id="footer" class="footer">
 	</div>
       </div>

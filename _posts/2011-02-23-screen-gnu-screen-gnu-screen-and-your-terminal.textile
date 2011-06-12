@@ -1,17 +1,17 @@
 ---
-title: Screen, GNU-Screen, GNU-Screen and you and your Terminal
+title: Hands off! An attempt at a mouseless work-flow with Gnu Screen
 layout: post
 ---
 
-h3. What's screen? Why this tutorial?
+h2. What's screen? Why this tutorial?
 
-p. Screen is a program that brings the idea of windows to the console/terminal. The man page states this in stronger words ('Screen  is  a full-screen window manager...'), but this tutorial is written to get people running quickly and without all the technical stuff at the beginning because screen is a great tool, but one that took me entirely too long to master on a level that allowed me to practically use it for most of my needs.
+Screen is a program that brings the idea of windows to the console/terminal. The man page states that 'Screen  is  a full-screen window manager...',
+but for the purposes of this experiment, it's enough to know that it has the concept of windows and that once started, gnu screen can be disconnected
+from and reconnnected to at will, with previously running programs left uninterrupted. Perhaps the most immediate motivation for using screen, is
+that it can be started remotely, where the previously mentioned features can be taken advantage of to allow one to start long running programs
+without the risk of having them killed by the system once the network connection with the server is broken.
 
-And that's exactly why I'm writing this tutorial: everyone can use it in their day-to-day programming lives. If you work in the console, you should use screen. And you should use a console; you don't program in and IDE do you???
-
-It should be stated though that technical terms will not be left out all together, I actually have a predilection for technical arcana and minutiae. The technical stuff will just be avoided in the beginning and introduced only as really needed. The documentation for screen is quiet good, but it also helps to get some overhead out of the way first, i.e. simply using it.
-
-So, I've introduced my motivation and sang the praises of screen, but I feel like it's necessary to give a concrete example of why to use screen. Simply put, screen allows you do do the following:
+Here's a sample of what screen session on a remote server might look like:
 
 bc. [my_computer] $ ssh someserver.com
 [their_puter] $ screen
@@ -29,85 +29,72 @@ bc. [my_computer] $ ssh someserver.com
 [their_puter] $ screen -r
 [their_puter] $ rake import:really:huge:db_dump
 starting import of 1.5 GB sql dump
-finishing import of 1.5 GB sql dump. Took 15 hours.
+finished import of 1.5 GB sql dump. Took 15 hours.
 [their_puter] $
 
-That's not exactly what the code looks like, although you'll see everything I've listed. This can essentially be wrapped as follows:
+p. The motivation for this experiment came simply after discovering screen and wondering if I could eliminate reaching for the mouse while I'm
+programing. I don't use the mouse much to begin with and I find that it interrupts my work flow when I do have to reach for it.
 
-1. log into some server.com...nothing new
-2. issue screen command, i.e. start screen
-3. issue really long running command
-4. ***disconnect without killing process***
-5. ***reconnect 15 hours later to see that the process has finished***
+h3. Next steps, going beyond the basics.
 
-So for me that was enough motivation to use screen. Every tutorial you read though makes promises about how much more screen can do. What they don't do is approach it from I consider to be the right angle, i.e. getting things done (in our domain, I should probably add.
+p. The sample session above is dead simple. I learned it the first day and although it solved a concrete problem for me, it didn't get me far
+beyond wondering IF it could be used in terms of this experiment. So what's the next step?
 
-So after this moment of inspiration, I actually wanted more. Let's take the next step and decide that we actually want to have a screen session for every one of our ssh sessions so that if we find ourselves actually issuing an unanticipated long command at the end of the day, we won't be forced to kill it just so that we an go home.
+p. Well what I mainly do in the terminal is run programs and watch output (e.g. log files). My editor is usually in another window and that can
+be switched to with @alt + tab@, so if you're running a program in your screen session, then you can't tail a log file at the same time, right?
 
-bc. $ echo 'alias ssh='ssh -t screen -R' >> ~/.bashrc
+h3. Windows
 
-This creates an alias so that 'ssh' fires up the screen command upon login. The @-R@ option simply means find the first available screen session (there can be multiple screen sessions at once) and connect to it. If you don't find one to connect to, start a new one.
+This is where screen's ability to manage windows comes in. In screen you can get another window by pressing @^a ^c@. @^a ^n@ and @^a ^p@ can
+be used to cycle backward and forward through the windows. On the one hand this does solve the problem of doing two things within one screen
+session, but most terminal programs have tabbing capabilities and ways of cycing through those tabs without using the mouse. So does screen
+offer anything to sweeten the deal?
 
-There are numerous reasons for which this is actually not a recommended way of making ssh sessions also log into screen, but I won't go into them because it works for the sake of this tutorial, it's similar to the approach I took (I actually create a simple bash script), and it's also doesn't pose any real dangers.
+Well for starters, a screen window can be split, i.e. two windows are displayed at the same time, meaning that you can input commands on one
+side and, for instance, tail that log on the other side.
 
-So now in principle, we're set up to have every ssh session also be a screen session, meaning that we don't have to know ahead of time if you're going to be running long-running commands that keep you late at work, or force you to kill the job.
+Pretty sweet. I know that other terminal emulators offer this too, but it's nice to see that screen offers this as well as things that other
+terminals don't. The experiment goes on
 
-Good.
+h3. Some configuration
 
-But guess what, now that you're looking at your screen session, I hope you don't need to look at your command output, because screen trampled my console's ability to scroll.
-
-Crap.
-
-Well, googling will get you the answer, but since our intent is to get you using screen quickly, I'll give it to you here:
-
-When using screen, C-a C-[ gets you into scroll (a.k.a copy) mode. Now you've got vim bindings to scroll up and down. This isn't a vim tutorial, so I won't go into its bindings, I can give those who aren't in the know a hint though: h,j,k,l.
-
-Okay, scrolling isn't really ideal in screen, if you've gotten used to wooshing past lines of code with the scroll-wheel on your mouse, but vim allows for some good alternatives and I have to say, that after taking some time to work with it, I actually felt very unhindered.
-
-So here's what you need to know about reviewing your output.
-
-1. C-a C-[ gets you into copy-mode.
-2. scrolling is done with the typical vim keys (start with h,j,k,l)
-3. working with the output can't be done with the mouse and involves highlighting and copying. Here's how you do that
-   1. follow steps 1 and 2 from above
-   2. set two marks
-   3. C-a C-] copies what between the two marks.
-
-Since this tutorial is meant as a practical introduction, I'm going to assume that the most you're going to do with the output, aside from reading it, is copying full lines to paste some place else. Here's a sample session of what you can do with this:
-
-bc. $ dmesg | tail -10
-PM: resume of devices complete after 3058.648 msecs
-PM: Finishing wakeup.
-Restarting tasks ... done.
-video LNXVIDEO:01: Restoring backlight state
-ADDRCONF(NETDEV_UP): wlan0: link is not ready
-e1000e 0000:00:19.0: irq 46 for MSI/MSI-X
-e1000e 0000:00:19.0: irq 46 for MSI/MSI-X
-ADDRCONF(NETDEV_UP): eth0: link is not ready
-iwlagn 0000:03:00.0: TX Power requested while scanning!
-iwlagn 0000:03:00.0: Error sending TX power (-11)
-$ ^a ^[ kkkkkkkkkk0<space>jjjjjjjjj<space>^a^]
-
-in case that looks like non-sense, I pressed C-a C-[ then the 'k' button 10 times, the space button then the '0' button once, the 'j' button 9 times and then the space bar again.
-
-Now with that out of the way, I can actually open my favorite editor (emacs) in the terminal and then actually copy the text into there.
-
-Okay, so running screen and coming to grips with dealing with the output differently are taken care of. What next?
-
-Well, a screen session is cool, but what if you want another terminal open on the same server, say, to tail a log file while you try different things in the original terminal. Do you really have to clutter your workspace with another window and start another screen session in a new ssh session just to be able to take advantage of the features of screen?
-
-No.
-
-Gnu-Screen has the concept of windows. Before we get into that though, lets take a moment to reflect on the fact that we want to keep this introduction topical. In order to make the learning of screen's concept of windows as painless as possible, we're going to add a config entry into @~/.screenrc@:
+I discovered something else. Screen is pretty configurable. For instance, you don't really get an overview of your windows as you create them
+in screen. This can be a little disorienting as you start getting comfortable using it and start opening more than just one second window.
+Luckily I found this config:
 
 bc. $ cat ~/.screenrc
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 $
 
-What this does is set up your screen sessions so that you have the console equivalent of a taskbar at the bottom of your screen. My current 'taskbar' looks as follows:
+This will get you something like this at the bottom of each one of your screen windows
 
 bc. [ (none) ][            0$ bash  1$ bash  2-$ bash  (3*$bash)                 ][2011-03-07 18:16 ]
 
-Don't ask me what the @[ (none) ]@ on the left means, I haven't figured it out, but the four 'bash' fields represent the four windows that I have open. @(3*$bash)@ is the current active window. @C-a C-n@ and @C-a C-p@ choose the next window and the previous window respectively.
+It's easy to see that this is more or less the equivalent of a console based windows panel. In the middle you see that there art four (bash)
+windows and that @(3*$bash)@ is the active one. You even get a clock on the right.
+
+h3. Working with the console output
+
+I mentioned above that I mainly run programs and tail log file in the terminal. At this point I know how to do both at the same time in one
+screen session by taking advantage of its windowing functionality, but I quickly realized that this came at a cost: scrolling with the mouse
+ceases to work.
+
+This is probably the one thing that I did enjoy doing with the mouse. Scrolling up and down through the terminal with the flip of a finger
+is always pretty satisfying for me, so I guess it never really felt like something that affected my work flow. Now that I was without it, it
+felt like something was missing.
+
+By pressing @^a ^[@ you enter 'copy' mode in screen, which allows you to navigate the screen content as if it were a vim or emacs buffer,
+in fact, you even navigate the buffer with vim key bindings (i.e. h,j,k,l). After navigating to your desired part of the buffer, @space@
+activates highlighting. You then navigate to another part of the buffer, press @space@ again, and you've got everything in the highlighted
+reqion copied. Now pressing @^a^]@ in any program in any window within your screen session (mutt, ttytter, emacs, vim, etc.) pastes the
+content.
+
+Once I overcame the inertia of trying to scroll with the mouse, I actually to took to this part of screen pretty well. It seems sort of
+clunky at first, but I quickly took copying stuff form one window to another for granted.
+
+In practice though, I quickly took to it. This was mainly because the shock of not being able to scroll with the ease of a flick of a finger
+on the mouse was replaced by some great advantages. For instance, I was able to navigate through the scroll back history with k (aka a vi
+navigation), set a mark with the space bar, scroll further back or forward with 'k' or 'j' respectively, and hit the space bar again to copy
+the text a buffer that could be pasted into any of the other screen windows, including emacs or vim sessions within these windows.
 

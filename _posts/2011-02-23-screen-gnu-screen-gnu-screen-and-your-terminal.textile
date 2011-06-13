@@ -5,46 +5,61 @@ layout: base
 
 h3. What's screen? Why this tutorial?
 
-p. Screen is a program that brings the idea of windows to the console/terminal. The man page states this in stronger words ('Screen  is  a full-screen window manager...'), but this tutorial is written to get people running with screen quickly and without all the technical stuff at the beginning because screen is a great tool, but on that took me entirely too long to master on a level that allowed me to practically use it for most of my needs.
+Screen is a program that brings the idea of windows to the console/terminal. The man page states this in stronger words ('Screen  is  a full-screen window manager...'), but for the sake of this tutorial, that's not important. Gnu-screen is a great tool and we're going to focus on getting you working quickly and without overloading you with the technical stuff at the beginning.
 
-And that's exactly why I'm writing this tutorial: everyone should use it in their day-to-day programming lives. If you work in the console, you should use screen. And you should use a console; you don't program in and IDE do you???
+It should be stated though that technical terms will not be left out all together, I actually have a predilection for technical arcana and minutiae, but that's another blog post. The technical stuff will just be avoided in the beginning and introduce only as really needed. The documentation for screen is quiet good, but it also helps to get some overhead out of the way first, i.e. simply using it.
 
-It should be stated though that technical terms will not be left out all together, I actually have a predilection for technical arcana and minutiae. The technical will just be avoided in the beginning and introduce only as really needed. The documentation for screen is quiet good, but it also helps to get some overhead out of the way first, i.e. simply using it.
-
-So, I've introduced my motivation and sang the praises of screen, but I feel like it's necessary to give a concrete example of why to use screen. Simply put, screen allows you do do the following:
-
-bc. [my_computer] $ ssh someserver.com
-[their_puter] $ screen
-[their_puter] $ rake import:really:huge:db_dump
-starting import of 1.5 GB sql dump
- ^A ^D
-[detached]
-[their_puter] $ exit
-Connection to someserver.com closed
-[my_computer] $ 
- 
-...time passes...
-
-bc. [my_computer] $ ssh someserver.com
-[their_puter] $ screen -r
-[their_puter] $ rake import:really:huge:db_dump
-starting import of 1.5 GB sql dump
-finishing import of 1.5 GB sql dump. Took 15 hours.
-[their_puter] $
-
-That's not exactly what the code looks like, although you'll see everything I've listed. This can essentially be wrapped as follows:
+So, now that we've introduced screen, let give my concrete motivation for starting with screen: Simply put, I wanted (needed) to do the following:
 
 1. log into some server.com...nothing new
-2. issue screen command, i.e. start screen
 3. issue really long running command
-4. ***disconnect without killing process***
-5. ***reconnect 15 hours later to see that the process has finished***
+4. ***disconnect without killing process ***
+5. ***reconnect 15 hours later to see that the process has finished ***
 
-So for me that was enough motivation to use screen. Every tutorial you read though makes promises about how much more screen can do. What they don't do is approach it from I consider to be the right angle, i.e. getting things done (in our domain, I should probably add.
+This is exactly what screen allows you to do. Here's what such a screen session might look like in the terminal:
 
-So after this moment of inspiration, I actually wanted more. Let's take the next step and decide that we actually want to have a screen session for every one of our ssh sessions so that if we find ourselves actually issuing an unanticipated long command at the end of the day, we won't be forced to kill it just so that we an go home.
+<div class="code">
+
+bc. [my_computer] $ ssh someserver.com
+ [their_puter] $ screen
+ [their_puter] $ rake import:really:huge:db_dump
+ starting import of 1.5 GB sql dump
+  ^A ^D
+ [detached]
+ [their_puter] $ exit
+ Connection to someserver.com closed
+ [my_computer] $ 
+
+</div>
+
+...time passes...
+
+<div class="code">
+
+bc. [my_computer] $ ssh someserver.com
+ [their_puter] $ screen -r
+ [their_puter] $ rake import:really:huge:db_dump
+ starting import of 1.5 GB sql dump
+ finishing import of 1.5 GB sql dump. Took 15 hours.
+ [their_puter] $
+
+</div>
+
+At the beginning, that was enough for me and the relevant commands at the moment are simply 'screen', a variation of screen, 'screen -r', 'control-a' and 'control-d'.
+
+Every tutorial you read though makes promises about how much more screen can do and it was only a matter of time before curiosity had me looking at what that was. Unfortunately, there aren't ***a lot *** of tutorials that guide you through that though, at least not that I was satisfied with.
+
+So let's consider the next thing that came to mind at that time: "Wouldn't it be great if every ssh session could automatically be a screen session???" Well, here's a way to do that
+
+<div class="code">
 
 bc. $ echo 'alias ssh='ssh -t screen -R' >> ~/.bashrc
+
+</div>
+
+
+after this moment of inspiration, I actually wanted more. Let's take the next step and decide that we actually want to have a screen session for every one of our ssh sessions so that if we find ourselves actually issuing an unanticipated long command at the end of the day, we won't be forced to kill it just so that we an go home.
+
 
 This creates an alias so that 'ssh' fires up the screen command upon login. The @-R@ option simply means find the first available screen session (there can be multiple screen sessions at once) and connect to it. If you don't find one to connect to, start a new one.
 
@@ -75,6 +90,8 @@ So here's what you need to know about reviewing your output.
 
 Since this tutorial is meant as a practical introduction, I'm going to assume that the most you're going to do with the output, aside from reading it, is copying full lines to paste some place else. Here's a sample session of what you can do with this:
 
+<div class="code">
+
 bc. $ dmesg | tail -10
 PM: resume of devices complete after 3058.648 msecs
 PM: Finishing wakeup.
@@ -88,6 +105,8 @@ iwlagn 0000:03:00.0: TX Power requested while scanning!
 iwlagn 0000:03:00.0: Error sending TX power (-11)
 $ ^a ^[ kkkkkkkkkk0<space>jjjjjjjjj<space>^a^]
 
+</div>
+
 in case that looks like non-sense, I pressed C-a C-[ then the 'k' button 10 times, the space button then the '0' button once, the 'j' button 9 times and then the space bar again.
 
 Now with that out of the way, I can actually open my favorite editor (emacs) in the terminal and then actually copy the text into there.
@@ -100,14 +119,22 @@ No.
 
 Gnu-Screen has the concept of windows. Before we get into that though, lets take a moment to reflect on the fact that we want to keep this introduction topical. In order to make the learning of screen's concept of windows as painless as possible, we're going to add a config entry into @~/.screenrc@: 
 
+<div class="code">
+
 bc. $ cat ~/.screenrc
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 $
 
+</div>
+
 What this does is set up your screen sessions so that you have the console equivalent of a taskbar at the bottom of your screen. My current 'taskbar' looks as follows:
 
+<div class="code">
+
 bc. [ (none) ][            0$ bash  1$ bash  2-$ bash  (3*$bash)                 ][2011-03-07 18:16 ]
+
+</div>
 
 Don't ask me what the @[ (none) ]@ on the left means, I haven't figured it out, but the four 'bash' fields represent the four windows that I have open. @(3*$bash)@ is the current active window. @C-a C-n@ and @C-a C-p@ choose the next window and the previous window respectively.
 

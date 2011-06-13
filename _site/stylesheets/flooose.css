@@ -14,7 +14,11 @@ body {
     margin-top: 0px;
 }
 
-.page-title{
+h3 {
+    font-family: 'Open Sans';
+}
+
+.page-title {
     font-family: 'Unkempt';
     text-align: center;
 }
@@ -25,13 +29,20 @@ ul {
 }
 
 p {
-    color: gray;
+    color: #43664B;
     font-family: 'Quattrocento';
     font-size: 18px;
 }
 
+.code {
+    background-color: #E9F5EB;
+    width: 90%;
+    margin: auto;
+}
+
 code {
-    font-family: Monospace;
+    font-family: 'Droid Sans Mono';
+    padding: 10px;
 }
 
 div#header {

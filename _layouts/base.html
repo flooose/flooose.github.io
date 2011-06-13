@@ -3,6 +3,7 @@
     <link href='http://fonts.googleapis.com/css?family=Unkempt' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>{{; page.title }}</title>
@@ -13,7 +14,13 @@
 	  <h1 id="h1-page-title" class="page-title">floess. fl&ouml;&szlig;. flooose.</h1>
 	  <h2 id="h2-page-title" class="page-title">A linux and open source page</h2>
 	</div>
-
+	<div id="sidebar" class="sidebar">
+	  <ul id="posts" class="posts">
+	    {% for post in site.posts %}
+	    <li>&raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+	    {% endfor %}
+	  </ul>
+	</div>
 	<div id="content" class="content">  
           {{ content }}
 	</div>

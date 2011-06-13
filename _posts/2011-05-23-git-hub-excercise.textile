@@ -1,0 +1,35 @@
+---
+title: Git in real life
+layout: base
+published: false
+---
+
+h3. Beyond the basics
+
+You did @git merge --no-ff master@ and ended up with a very difficult merge conflict
+You resolved it to the best of your abiltities, but the test suite is broken, so the conflict wasn't properly resolved
+You
+1. don't have a good way of reevaluating the conflict
+2. don't don't know how to abort a delete
+3. don't have a way of looking at what the two branches and their recent commits look like
+4. solve problems agilely, but you're suddenly face with a non-agile problem (agile debugging might be another post)
+5. while the test suite is runnig, you can't examine other parts of the conflict if they involve editing the code
+6. you don't really understand diffs and merges
+
+Problems directly tied to ignorance of git:
+
+1. you don't know exactly what REFSPECS are
+2. you don't know how to examine git-specifics for a given repository
+3. git-flow facilitates collaboration, but there is no good structure defined for local work
+4. you don't know how branches work on repositories cloned from the local file system
+5. you don't know if git repositories from local file systems are considered 'remotes' in the git sense
+6. you don't know how to properly manage stashes
+7. you don't know how to use git merge
+8. you don't know how to patch
+9. are there alternatives to git mergetool?
+10.you don't know how to checkout a specific commit and then go back to where you were
+
+Sometimes to have a copy of your local copy of the git repository. Git allows cloning from paths on the local file system. How do you bring along the non-committed changes?
+
+1. Clone from local file system is dead simple:
+   * git clone ~/my_project/ Documents/workspace/ruby/my_project_tmp

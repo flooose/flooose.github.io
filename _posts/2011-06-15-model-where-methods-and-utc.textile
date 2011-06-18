@@ -1,0 +1,19 @@
+---
+title: The 'where' method in Rails models and time
+layout: post.html
+published: false
+---
+
+h2. The Rails model 'where' methods and time zones
+
+We have some code in one of our projects that reads something like this
+
+@ @tasks = @contact.tasks.where("private = false OR (private = true AND user_id = #{current_user.id})").where("done = false or updated_at > '#{Time.now.utc - 1.day}'").where("resource_type NOT LIKE 'ActionPlan'").order('sort, created_at') @
+
+It basically sets the @tasks variable to all tasks associated with a given resource and which are not done OR are done less than a day ago.
+
+After we had implemented this, we realized that we had to update our application to make it capable of handling different time zones. This isn't difficult. It's something that was solved in Rails a long time ago and it doesn't seem to have changed much, if at all, since then.
+
+For anyone who doesn't have experience with this, the idea is that you set a @before_filter@ in @application_controller.rb@, which sets the time zone to that of @current_user@'s @time_zone@ setting. After that, all times, saved in the database by default in UTC time, will be adjusted to the @current_user@'s time zone.
+
+I did get hung up on one thing that I felt was worth writing down though. In the

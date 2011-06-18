@@ -1,0 +1,29 @@
+---
+title: A repeated mistake with rails url helpers
+layout: post.html
+published: false
+---
+
+I was writing a test today and needed to do something along the lines of @assert_equal page.current_path == participant_deal_path...@. I threw what I thought the code
+should be in my test and ran it, only to get
+
+@
+ActionController::RoutingError Exception: No route matches {:deal=>1, :controller=>"deals", :action=>"show", :participant=>1}
+@
+
+I did have a resource defined for such a route, but couldn't figure out why I kept getting this error. I fumbled around with this for way too long and in the end I finally
+realized that my parameters were wrong! The route looks like this:
+
+@
+flippy@linux $ rake routes
+<snip>
+participant_deal GET    /:participant_id/deals/:id(.:format)
+<snip>
+flippy@linux $
+@
+
+What the hell is @:deal@ and @:participant@ in my version of the method call??
+
+Perhaps this is where I'm too thick headed for DSLs and conventions, I actually forget sometimes that what you're doing there is calling a real method with real parameters.
+
+Anyway, since the title makes it clear that I've made this mistake before, I'm jotting it down here. Hopefully this will never happen again.

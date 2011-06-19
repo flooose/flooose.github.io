@@ -2,24 +2,27 @@ body {
     align: "center";
 }
 
+h1, h2, h3 {
+    font-family: 'Goudy Bookletter 1911';
+    color: #282A2A;
+}
+
 #h1-page-title {
     margin-top: 0px;
     margin-bottom: 0px;
     color: white;
-    background-color: black;
+    background-color: #262A2A;
 }
 
 #h2-page-title {
     margin-bottom: 0px;
     margin-top: 0px;
-}
-
-h3 {
-    font-family: 'Open Sans';
+    color: #1B1E1E;
+    background-color: #C2C5C2;
 }
 
 .page-title {
-    font-family: 'Unkempt';
+    font-family: 'Goudy Bookletter 1911';
     text-align: center;
 }
 
@@ -29,24 +32,31 @@ ul {
 }
 
 p {
-    color: #43664B;
+    color: #3A463D;
     font-family: 'Quattrocento';
     font-size: 18px;
 }
 
+p.section-title {
+    font-family: 'Quattrocento';
+    color: #282A2A;
+    font-weight: 600;
+}
+
 .code {
-    background-color: #E9F5EB;
+    background-color: #E9F4E9;
     width: 90%;
     margin: auto;
+    font-family: 'Droid Sans Mono';
+    font-size: 0.81em;
 }
 
 code {
-    font-family: 'Droid Sans Mono';
-    padding: 10px;
+    background-color: #E9F4E9;
 }
 
 div#header {
-    border-color: black;
+    border-color: #262A2A;
     border-width: 1px;
     border-style: solid;
 }

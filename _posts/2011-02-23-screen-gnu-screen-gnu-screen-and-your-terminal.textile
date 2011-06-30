@@ -11,11 +11,9 @@ Screen is a program that brings the idea of windows to the console/terminal. The
 
 Perhaps the most immediate motivation for using screen, is that it can be started remotely, where the previously mentioned features can be taken advantage of to allow one to start long running programs without the risk of having them killed by the system once the network connection with the server is broken.
 
-Here's a sample of what screen session on a remote server might look like:
+Here's an example of what a screen session on a remote server might look like:
 
-<div class="code">
-
-bc. [my_computer] $ ssh someserver.com
+p(code). [my_computer] $ ssh someserver.com
 [their_puter] $ screen
 [their_puter] $ rake import:really:huge:db_dump
 starting import of 1.5 GB sql dump
@@ -25,20 +23,14 @@ starting import of 1.5 GB sql dump
 Connection to someserver.com closed
 [my_computer] $
 
-</div>
-
 ...time passes...
 
-<div class="code">
-
-bc. [my_computer] $ ssh someserver.com
+p(code). [my_computer] $ ssh someserver.com
 [their_puter] $ screen -r
 [their_puter] $ rake import:really:huge:db_dump
 starting import of 1.5 GB sql dump
 finished import of 1.5 GB sql dump. Took 15 hours.
 [their_puter] $
-
-</div>
 
 p. The motivation for this experiment came simply after discovering screen and wondering if I could eliminate reaching for the mouse while I'm programing. I don't use the mouse much to begin with and I find that it interrupts my work flow when I do have to reach for it.
 
@@ -67,14 +59,22 @@ I discovered something else. Screen is pretty configurable. For instance, you do
 in screen. This can be a little disorienting as you start getting comfortable using it and start opening more than just one second window.
 Luckily I found this config:
 
+<div class='code'>
+
 bc. $ cat ~/.screenrc
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 $
 
+</div>
+
 This will get you something like this at the bottom of each one of your screen windows
 
+<div class='code'>
+
 bc. [ (none) ][            0$ bash  1$ bash  2-$ bash  (3*$bash)                 ][2011-03-07 18:16 ]
+
+</div>
 
 It's easy to see that this is more or less the equivalent of a console based windows panel. In the middle you see that there art four (bash)
 windows and that @(3*$bash)@ is the active one. You even get a clock on the right.

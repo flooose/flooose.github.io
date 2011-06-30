@@ -1,0 +1,34 @@
+---
+title: Hands off! An attempt at a mouseless work-flow with Gnu Screen
+layout: post
+published: false
+---
+In this post I'm exploring object oriented development. As a young programmer whose formal education in programming of course covers OOD and who in some ways finds OOD very intuitive, I've also learned that I'm prone to certain pitfalls that I think a lot of you developers experience as they start putting their skills to work and gaining more experience.
+
+While I was learning to program at University, I was taught that in an object oriented development process, you can start planning the "Objects" that will exist in you project by identifying the nouns in you specification. Likewise, the verbs associated with the nouns would be the methods associated with that object. This was of course prefaced with all of the usual warning that this is not a panacea for specing out the specifics of your application, but it was delivered this way nonetheless.
+
+Here's an example that (if I remember correctly) was actually proferred
+
+You are to develop a jukebox program that has the ability import songs, create playlists, assign album are, play mp3s, etc...
+
+Your typical music app. In planning out our project, we came up with the following further break down of the problem (again, if I remember correctly).
+
+ul.
+	li. Objects
+	    ol.
+		li. Jukebox
+		li. Song
+		li. Playlist
+		li. Album
+	li. Methods (with corresponding class)
+	    ol.
+		li. importSongs (Jukebox)
+	    	li. loadPlaylist (Jukebox)
+		li. songLength (Song)
+		li. getSongs (Album and Playlist)
+
+Now mind you, it's been a while since I did this, so there are holes, but I think this is sufficient to illustrate the point.
+
+We dutifully did what we were told/taught, and we ended up with a (mostly object-oriented) project, and an 'A' for our dutiful efforts. Well, time has passed and I've started working as a developer and continued to work like this. The problem is, that inside of my objects, I take a decidedly unobject-oriented approach.
+
+I realized this after doing some reflection of my coding techniques and also after reading http://www.jbrains.ca/permalink/the-four-elements-of-simple-design.

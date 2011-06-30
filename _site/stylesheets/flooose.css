@@ -1,63 +1,75 @@
 body {
+    font-size: 10px;
     align: "center";
 }
 
+div#container {
+    width: auto;
+    max-width: 1024px;
+    margin: auto;
+    font-size: 1.6em;
+}
+
 h1, h2, h3 {
-    font-family: 'Goudy Bookletter 1911';
+    font-family: 'Vollkorn';
     color: #282A2A;
 }
 
 #h1-page-title {
     margin-top: 0px;
     margin-bottom: 0px;
-    color: white;
-    background-color: #262A2A;
+    background-color: #EFEFF1;
+    font-size: 1.8em;
 }
 
 #h2-page-title {
     margin-bottom: 0px;
     margin-top: 0px;
     color: #1B1E1E;
-    background-color: #C2C5C2;
+    background-color: #EFEFF1;
+    font-size: 1.4em;
 }
 
 .page-title {
-    font-family: 'Goudy Bookletter 1911';
+    font-family: 'Vollkorn';
     text-align: center;
 }
 
 ul {
     font-family: 'Open Sans';
+    font-size: 1em;
     list-style: none;
 }
 
 p {
     color: #3A463D;
-    font-family: 'Quattrocento';
-    font-size: 18px;
+    font-family: 'Open Sans';
+    font-size: 1.4em;
 }
 
 p.section-title {
-    font-family: 'Quattrocento';
+    font-family: 'Vollkorn';
     color: #282A2A;
     font-weight: 600;
+    font-size: 1.4em;
 }
 
 .code {
-    background-color: #E9F4E9;
-    width: 90%;
+    background-color: #F1F6EA;
+    width: 85%;
     margin: auto;
-    font-family: 'Droid Sans Mono';
-    font-size: 0.81em;
+    font-size: 1.2em;
 }
 
 code {
-    background-color: #E9F4E9;
+    font-size: 1em;
+    font-family: 'Vollkorn';
+    background-color: #CACBC9;
 }
 
 div#header {
     border-color: #262A2A;
-    border-width: 1px;
+    border-width: 0px;
     border-style: solid;
 }
 
@@ -69,10 +81,4 @@ div#sidebar {
 
 div#content {
     display: inline;
-    width: 70%;
-}
-
-div#container {
-    width: 800px;
-    margin: auto;
 }

@@ -1,6 +1,7 @@
 body {
     font-size: 10px;
     align: "center";
+    color: #3A463D;
 }
 
 div#container {
@@ -36,14 +37,14 @@ h1, h2, h3 {
 }
 
 ul {
-    font-family: 'Open Sans';
+    font-family: 'Vollkorn';
     font-size: 1em;
     list-style: none;
 }
 
 p {
     color: #3A463D;
-    font-family: 'Open Sans';
+    font-family: sans-serif;
     font-size: 1.4em;
 }
 
@@ -55,30 +56,83 @@ p.section-title {
 }
 
 .code {
-    background-color: #F1F6EA;
+    background-color: #EFEFF1;
     width: 85%;
-    margin: auto;
+    margin-left: 5%;
     font-size: 1.2em;
+    font-family: monospace;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 code {
     font-size: 1em;
-    font-family: 'Vollkorn';
-    background-color: #CACBC9;
+    font-family: monospace;
+    background-color: #F1F6EA;
+    width: inherit;
+}
+
+table {
+    margin-left: 5%;
+    color: #3A463D;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #EFEFF1;
+    font-size: 1.2em;
+}
+
+td,th {
+    padding: 10px;
+}
+
+tr.odd code {
+    background-color: white;
+}
+
+td.even {
+    border-style: solid;
+    border-width: 1px;
+
+}
+
+tr.even {
+    background-color: #EFEFF1;
+}
+
+tr.even code {
+    background-color: #EFEFF1;
+}
+
+p code {
+    font-size: .82em;
 }
 
 div#header {
     border-color: #262A2A;
     border-width: 0px;
     border-style: solid;
+    width: 70%
 }
 
 div#sidebar {
-    display: inline;
     float: right;
-    width: 30%;
+    width: 27%;
+    margin-top: 28px;
+}
+
+#task-bar {
+    font-size: 0.75em;
+    width: auto;
+    horizontal-align: center;
+}
+
+div#disqus_thread {
+    display: block;
 }
 
 div#content {
-    display: inline;
+    float: left;
+    width: 70%;
 }

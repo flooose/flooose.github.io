@@ -1,0 +1,11 @@
+---
+title: Learning to program with emacs
+layout: post
+published: false
+---
+
+I've always been on linux or FreeBSD and switched from vim to emacs for no good reason. I still like and use them both, but emacs has become my editor of choice. When I got a mac at my new job, I started using TextMate. I've used it for some time now and it offers some great features (cmd-t is the example people always give, but this won't be about recreating cmd-t), but, those features aside, I still feel emacs is the better way to edit.
+
+This series of posts will look at some things that I've had problems fixing when they don't work 'out of the box' in emacs. Examples include how tabs (the text character, not that thing used for buffer navigation) work, how 'cwd' can be manipulated for ack, or at least knowing which directory you're acking from, how to use dired effectively, and finally, how to override keybindings in your .emacs config.
+
+I'll be covering these topics, as well as others, so let's get started.

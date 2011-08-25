@@ -1,0 +1,11 @@
+---
+title: abstracting an existing activerecord association to take advantage of it in a different model
+layout: post
+published: false
+---
+
+This is a quick rundown about how I took the acts_as_taggable_on gem and abstracted the implications of it's database relationships to allow me to use them in a different model. It serves as a way of saying "Given relation A to B and relation B to C, what's A's relationship to C"
+
+Basically, we have a Participant model (A) that has many Contacts (B). The Contacts act as taggable, but in order to get an auto-complete in a tags text field, we want all the Tags (C) that the contact's participant has ever used.
+
+The use case is simple and this post will act as a sort of reinforcement of the meaning of activerecord associations by looking at them from a different angle.

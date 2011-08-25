@@ -1,0 +1,7 @@
+---
+title: Exploring the config pattern in ruby
+layout: post
+published: false
+---
+
+In this post I'd like to write about my experience with object oriented configuration for a little application I've written.

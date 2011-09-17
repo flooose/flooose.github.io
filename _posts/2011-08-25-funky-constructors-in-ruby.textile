@@ -1,0 +1,9 @@
+---
+title: Funky constructros in ruby
+layout: post
+published: false
+---
+
+Have you ever wondered how a constructor like @Hash[some_array]@ is written in ruby?
+
+We're going to be exploring that this time.

@@ -3,32 +3,18 @@ title: Hands off! An attempt at a mouseless work-flow with Gnu Screen
 layout: post
 published: false
 ---
-In this post I'm exploring object oriented development. As a young programmer whose formal education in programming of course covers OOD and who in some ways finds OOD very intuitive, I've also learned that I'm prone to certain pitfalls that I think a lot of you developers experience as they start putting their skills to work and gaining more experience.
+I'm a (junior) Ruby on Rails developer. That means, one, that I work with Rails, and, two, that I program in Ruby, and yes all that at a junior level. Among other things, this indicates taht I work with and in an object oriented environment. Still, I'm completely bewildered by object oriented program design and problem solving.
 
-While I was learning to program at University, I was taught that in an object oriented development process, you can start planning the "Objects" that will exist in you project by identifying the nouns in you specification. Likewise, the verbs associated with the nouns would be the methods associated with that object. This was of course prefaced with all of the usual warning that this is not a panacea for specing out the specifics of your application, but it was delivered this way nonetheless.
+I've realized this for a while, so I've done my best to come up with simple, but appropriate code exercises to get better at this, to no avail. My most recent such exercise is a simple program whose aim it is to check if my ip address has changed and publish it via a git commit and push when it does change.
 
-Here's an example that (if I remember correctly) was actually proferred
+I've been planning this project in my head for quite some time, and because I can't come up with the design details, I haven't been able to move forward. The program will obviously be simple: @if ip has changed, update git repository with new ip address, make commit and make push@
 
-You are to develop a jukebox program that has the ability import songs, create playlists, assign album are, play mp3s, etc...
+This has led me to a design where there would be an @Ip@ class and a @Git@ class. These would be in my 'lib/' directory. There would be an executable in the 'bin/' directory that would run and accomplish the above stated goals by invoking instances of these two classes.
 
-Your typical music app. In planning out our project, we came up with the following further break down of the problem (again, if I remember correctly).
+On the one hand, the design seems simple enough, but on the other hand, I get confused about what the @Ip@ class should do. Should it be instantiated with an ip string? Where would that come from (I had envisioned a @Config@ object as a further exercise in this project)? Should it have an ip state based on existing information and update, if the ip address had changed? Should it do the update upon instantiation, or should it do it when an Ip#update method is called?
 
-ul.
-	li. Objects
-	    ol.
-		li. Jukebox
-		li. Song
-		li. Playlist
-		li. Album
-	li. Methods (with corresponding class)
-	    ol.
-		li. importSongs (Jukebox)
-	    	li. loadPlaylist (Jukebox)
-		li. songLength (Song)
-		li. getSongs (Album and Playlist)
+The @Ip@ class was the first element of this program that I thought of and the @Git@ object has would have just as many open question if it were the first element of the program that I thought of. Furthermore, because I thought of the @Git@ object second, its unknowns are confounded by the @Ip@ unknowns.
 
-Now mind you, it's been a while since I did this, so there are holes, but I think this is sufficient to illustrate the point.
 
-We dutifully did what we were told/taught, and we ended up with a (mostly object-oriented) project, and an 'A' for our dutiful efforts. Well, time has passed and I've started working as a developer and continued to work like this. The problem is, that inside of my objects, I take a decidedly unobject-oriented approach.
-
-I realized this after doing some reflection of my coding techniques and also after reading http://www.jbrains.ca/permalink/the-four-elements-of-simple-design.
+************************************
+for the time being, I'm convinced that the Ip object should take no parameters upon instantiation. It should create a nil @address instance variable. The update method should fill update set the variable

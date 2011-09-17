@@ -57,7 +57,7 @@ Again, other terminal emulators offer split-screen too, but it's less common and
 
 p(section-title). Disconnecting from screen
 
-Once I could do the above, I had everything necessary to do some real work. Now, how do we not interrupt that when it's time to go home after work or to go work when we started working at home? @^a ^d@ gets that done. After issuing this command, it's safe to completely close your terminal or sever the ssh session. When you're ready to reconnect, you simply log into your server and issue the command @screen -r@. If you've got multiple screen sessions running (also a possibility), this command will fail and show you a list of running sessions similar to:
+Once I could do the above, I had everything necessary to do some real work. Now, how do we not interrupt that when it's time to go home after work? @^a ^d@ gets that done. After issuing this command, it's safe to completely close your terminal or sever the ssh session. When you're ready to reconnect, you simply log into your server and issue the command @screen -r@. If you've got multiple screen sessions running (also a possibility), this command will fail and show you a list of running sessions similar to:
 
 p(code). [my_computer] $ screen -r
 There are several suitable screens on:
@@ -65,7 +65,7 @@ There are several suitable screens on:
       57888.ttys002.my_computer	(Multi, detached)
 Type "screen [-d] -r [pid.]tty.host" to resume one of them.
 
-You get some instructions about reconnecting to one of them, but I've discovered that the digits directly before the "tty..." part of each item in the list is the PID of the process and simply issuing the command @screen -r 29594@ will get you reconnected to that session. So in summary:
+You get some instructions about reconnecting to one of them, but I've discovered that the number directly before the "tty..." part of each item in the list is the PID of the process and simply issuing the command @screen -r 29594@ will get you reconnected to that session. So in summary:
 
 |_.Description|_.Command|
 (even). |Disconnect from current session  | @^a ^d@   |
@@ -105,7 +105,7 @@ p(section-title). Copy-mode to the rescue
 
 I discovered that "scrolling" is accomplished in screen by entering "copy-mode".
 
-By pressing @^a ^[@ you enter 'copy-mode' in screen, which allows you to navigate the screen content as if it were a vim or emacs buffer, in fact, you even navigate the buffer with vim key bindings (i.e. h,j,k,l). At first this felt like a somewhat sluggish and unsatisfactory way of reviewing command output, but I soon discovered that it actually offered some real advantages and that it pays off once you overcame the inertia of trying to scroll with the mouse. I'll explain that in just a bit.
+By pressing @^a ^[@ you enter 'copy-mode' in screen, which allows you to navigate the screen content as if it were a vim or emacs buffer, in fact, you even navigate the buffer with vim key bindings (i.e. h,j,k,l). At first this felt like a somewhat sluggish and unsatisfactory way of reviewing command output, but I soon discovered that it actually offered some real advantages and that it pays off once you overcome the inertia of trying to scroll with the mouse. I'll explain that in just a bit.
 
 So, as I said, @^a ^[@ got me into copy mode and once you're there, you navigate the buffer with vim key bindings. h,j,k and l move you left, down, up and right one unit respectively and @c-u@ and @c-d@ page up and page down respectively. That's really all the scrolling I need. @esc@ got me out of copy-mode and back to the prompt, ready to type commands normally.
 

@@ -84,13 +84,13 @@ finished import of 1.5 GB sql dump. Took 15 hours.<br />
 	</tr>
 </table>
 <p class="section-title">Disconnecting from screen</p>
-<p>Once I could do the above, I had everything necessary to do some real work. Now, how do we not interrupt that when it&#8217;s time to go home after work or to go work when we started working at home? <code>^a ^d</code> gets that done. After issuing this command, it&#8217;s safe to completely close your terminal or sever the ssh session. When you&#8217;re ready to reconnect, you simply log into your server and issue the command <code>screen -r</code>. If you&#8217;ve got multiple screen sessions running (also a possibility), this command will fail and show you a list of running sessions similar to:</p>
+<p>Once I could do the above, I had everything necessary to do some real work. Now, how do we not interrupt that when it&#8217;s time to go home after work? <code>^a ^d</code> gets that done. After issuing this command, it&#8217;s safe to completely close your terminal or sever the ssh session. When you&#8217;re ready to reconnect, you simply log into your server and issue the command <code>screen -r</code>. If you&#8217;ve got multiple screen sessions running (also a possibility), this command will fail and show you a list of running sessions similar to:</p>
 <p class="code">[my_computer] $ screen -r<br />
 There are several suitable screens on:<br />
       29594.ttys007.my_computer	(Multi, detached)<br />
       57888.ttys002.my_computer	(Multi, detached)<br />
 Type &#8220;screen [-d] -r [pid.]tty.host&#8221; to resume one of them.</p>
-<p>You get some instructions about reconnecting to one of them, but I&#8217;ve discovered that the digits directly before the &#8220;tty&#8230;&#8221; part of each item in the list is the <span class="caps">PID</span> of the process and simply issuing the command <code>screen -r 29594</code> will get you reconnected to that session. So in summary:</p>
+<p>You get some instructions about reconnecting to one of them, but I&#8217;ve discovered that the number directly before the &#8220;tty&#8230;&#8221; part of each item in the list is the <span class="caps">PID</span> of the process and simply issuing the command <code>screen -r 29594</code> will get you reconnected to that session. So in summary:</p>
 <table>
 	<tr>
 		<th>Description</th>
@@ -133,7 +133,7 @@ $</p>
 <p>This is probably the one thing that I did enjoy doing with the mouse. Scrolling up and down through the terminal with the flip of a finger is a great way to look through terminal output, especially if you&#8217;re looking for a specific pattern (i.e. error messages), so I guess it never really felt like something that affected my work flow. Now that I was without it, it felt like something was missing.</p>
 <p class="section-title">Copy-mode to the rescue</p>
 <p>I discovered that &#8220;scrolling&#8221; is accomplished in screen by entering &#8220;copy-mode&#8221;.</p>
-<p>By pressing <code>^a ^[</code> you enter &#8216;copy-mode&#8217; in screen, which allows you to navigate the screen content as if it were a vim or emacs buffer, in fact, you even navigate the buffer with vim key bindings (i.e. h,j,k,l). At first this felt like a somewhat sluggish and unsatisfactory way of reviewing command output, but I soon discovered that it actually offered some real advantages and that it pays off once you overcame the inertia of trying to scroll with the mouse. I&#8217;ll explain that in just a bit.</p>
+<p>By pressing <code>^a ^[</code> you enter &#8216;copy-mode&#8217; in screen, which allows you to navigate the screen content as if it were a vim or emacs buffer, in fact, you even navigate the buffer with vim key bindings (i.e. h,j,k,l). At first this felt like a somewhat sluggish and unsatisfactory way of reviewing command output, but I soon discovered that it actually offered some real advantages and that it pays off once you overcome the inertia of trying to scroll with the mouse. I&#8217;ll explain that in just a bit.</p>
 <p>So, as I said, <code>^a ^[</code> got me into copy mode and once you&#8217;re there, you navigate the buffer with vim key bindings. h,j,k and l move you left, down, up and right one unit respectively and <code>c-u</code> and <code>c-d</code> page up and page down respectively. That&#8217;s really all the scrolling I need. <code>esc</code> got me out of copy-mode and back to the prompt, ready to type commands normally.</p>
 <table>
 	<tr>

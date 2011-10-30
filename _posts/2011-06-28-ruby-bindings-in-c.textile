@@ -4,16 +4,34 @@ layout: post
 published: false
 ---
 
-I'm beginning today a series of posts related to extending Ruby in C. I'm new at this and I'm doing it to document some of the challenges I've faced since starting to try to get my feet wet with something a little more 'low level' with ruby.
+I'm beginning today a series of posts related to extending Ruby in C. I'm doing this to document some of the challenges I've met trying to figure out this stuff on my own.
+
+There are plenty of articles out there about extending ruby with C, but when I started tinkering with programming ruby in C, there weren't that many that went far beyond the Pixax book, which is by no means insufficient, but complementary material is always helpful.
+
+Specifically, I'm going to be writing ruby bindings for an existing library. I believe this comes with its own challenges, but with a little insight, it allows a person to make great contributions to the ruby community by making libraries available in ruby.
 
 The library in question is libalpm, a package management library responsible for the functionaly behind the pacman package manager of the Arch linux distribution. I chose this library because:
-    a. I'm a big arch linux fan. It was the first linux distro that suited my tastes, as I started to migrate away from FreeBSD
+    a. I'm a big Arch linux fan. It was the first linux distro that suited my tastes as I started to migrate away from FreeBSD
     b. The library came across as pretty well organised and also relatively easy for someone such as myself to navigate.
 
-Point be above here is pretty important. I'm not a well versed C programmer. I had to take a course in C in my final semester of my Bachelor's. There we covered all of the things that people normally cover in a 15 week course. Linked lists, header files, structs, pointers, and the most fundamental parts of the language such as strings, chars, arrays, loops, etc. were all covered, but anything that counts towards real world C experience, which can't be taught anyway, was not part of the curriculum.
+A short point about my C programming skills, although I took a semester of it at University, I don't have any "real world" C experience. I really just have an affinity for it and see this project, in part as an opportunity to polish my C skills.
 
-Why did I decided to try my hand at this then? Well, there are several reasons. First, digging into the various Ruby resources out there, quickly puts you in contact with various tools, both simple and complex, that were implemented for Ruby in C. Second, I have an affinity for C. It's a simple language whose power can best be measured in its continued relevance some 40 years after it's original release. Ruby itself is written in C. Third, you don't have to write Nokogiri, or the libxml ruby bindings to write a RELEVANT extension in C.
+So, with some preliminaries about the way, here's how I will approach this. I had already started this a while back, and gotten bogged down, so the first part of this series will reapproach this work. I'll rework some of this earlier code and then move on. This should be enough to get readers up to speed and (hopefully) comfortable with the following parts.
 
-Finally, why this article? Well, because while there are plenty of resources about writing ruby in C and writing extensions, they're all either very trivial, or quite advanced. Take "Programming Ruby" for instance. It's a great way to get your feet and it doesn't shy away from the advanced stuff, but it's really just meant to get your feet wet. On the other hand, Tenderlove's post about this is quite advanced, but also incomplete. I took a lot from his post, mostly about setting up a work environment, and I had hoped, that combining that with the "Programming Ruby" book, I'd be able to come up with my bindings for libalpm.
+I don't see any of this getting complicated, so should mostly be a familiarization with the Ruby API.
 
-Unfortunately, after some early success, I started to stumble. I'll outline the specifics as we go along. They've revealed some interesting shortcomings on my part, which had less to do with the C than with my understanding of program design, the ruby object model, and transaction oriented bindings writing.
+So so before starting, here's a little more detail about the anticipated work flow:
+
+1. Refactor what I have. I started out okay, but looking at other people's projects got me confused and caused me throw the code into disarray. This will include
+   * Removing the name spacing. I don't think this is necessary for a first prototype.
+   * Get simple instantiation to work. This is really simple and boils down recreating what's covered in the pickax book.
+2. Cover the basic requirements of running a transaction in with lib_alpm. According to the HACKING file in the libalpm sources ammounts to covering these prerequisites:
+   a. Call alpm_initialize()
+   b. Run transaction specifics
+   c. Call alpm_release()
+3. Implement basic querying and configuration funtionality.
+
+At this point I plan to finish this series once these steps have been completed because I feel like my understanding of programming ruby in C will be far enough and anyone interested in doing the same will have gotten what they need.
+
+
+

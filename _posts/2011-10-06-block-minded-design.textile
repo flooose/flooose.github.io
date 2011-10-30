@@ -1,0 +1,31 @@
+---
+title: Block-minded design
+layout: post
+published: false
+---
+h2. Learning to use blocks in your application design
+
+I've been programming Ruby for a couple of years now. This, after being educated and taught in Java exposed me to the many benefits of Ruby that you don't get or are taught while your are learning in Java. Among these benefits is the block. Blocks, also known as procs and lambdas are not uncommon in the world of dynamic languages. As a ruby programmer you encounter them almost as soon as you start dealing with arrays.
+
+I've been pretty studious in learning Ruby, reading many books, blog posts, howtos, etc., and understanding a block isn't that difficult, but learning when to implement blocks in my own projects has proved to be friutless.
+
+I've spent a lot of times trying to come up with my own use cases for them and I finally came up with a way to break down the barrier. The aha moment came when I simply asked myself, "What does a block do? Don't try to get creative or ask yourself, 'Would Dave Thomas use a block here?', or 'How would a seasoned Rubyist implement this with a block?', just answer the question, What does a block do"
+
+The immediate answer from myself was, "it transfers scope to another context", and that's where this post comes from. It's my first attempt at implementing a block into one of my projects, based solely on what I now of them.
+
+Specifically, I'm going to look at a small library I've been contemplating. It's a library that implements log rotation in a ruby way. I want it to be able to be dropped into capistrano, run from cron, from the whenever gem, or be able to be used in it's own binary.
+
+In terms of design, I came up with a the need for a LogFile object and a LogSchema object.
+
+The first thing I struggled with, is whether or not this was a situation to which using a block could reasonably be applied. Without good reason, aside from gut feeling, I always came back to "Yes". The question then was, "how?"
+
+Well, my first thought was that maybe a the LogFile object would have a #apply_schema method.
+
+Here's what my proof of concept code looks like:
+
+<p class='code'>
+# lib/lg_rtt/log_file.rb
+
+def apply_schema
+  yield
+end

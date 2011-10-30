@@ -1,0 +1,159 @@
+---
+title: Getting Started with Jasmine and Backbone.js on Rails 3.1
+layout: post
+published: true
+---
+h2. Getting Started with Jasmine and Backbone.js on Rails 3.1
+
+ok, it took me way too long to figure this out. Maybe this will help others who are having into difficulties getting started with the asset pipeline.
+
+I wanted to get some experience with Backbone.js and thought creating a simple, throw-away rails application would be a great place to do it.
+
+Little did I know how hard it would be to do just that.
+
+There are lots of tutorials out there about Rails (of course), Backbone and Jasmine, but none of them seemed to help me in this particular constellation:
+
+Rails >= 3.1 (i.e. the asset pipeline) + Jasmine + Backbone
+
+Again, there are tutorials out there, but I was running into errors about my Backbone model not being defined and about Backbone not being found. Everything was there, it just wasn't hooked up correctly.
+
+So let's get started. I wanted a barebones app so I could really focus on the Backbone part, and how to make Javascript MVC work for me.
+
+p(code). $ rails new trashy_blog # get it? I'll be throwing it away later, so it's trash(y)
+...a bunch of familiar output
+$ cd trashy_blog
+
+Of course, I develop test driven and I believe test writing also facilitates learning, so I added "gem 'jasmine'" to my Gemfile. I wanted this to be the only additional gem in the Gemfile.
+
+Keeping with this, I thought I'd be able to just add @backbone-min.js@ and its dependency @underscore-min.js@ to my vendor/assets/javascripts folder. That flopped and it was the first place where I ran into problems. Let's take a closer look
+
+ <p class="code" > $ bundle install
+...more familiar output
+$ bundle exec jasmine init
+Jasmine has been installed with example specs.
+
+To run the server:
+
+rake jasmine
+
+To run the automated CI task with Selenium:
+</p>
+
+After that, I wrote my first spec. It should be noted here that a lot of this code is taken and adapted from "here":http://tinnedfruit.com/2011/03/25/testing-backbone-apps-with-jasmine-sinon-2.html , an excellent post covering the same material but without the asset pipeline.
+
+Here's what the spec looks like:
+
+<pre>$ cat spec/javascripts/backbone/post.spec.js
+describe('Post model', function() {
+
+    describe('when instantiated', function() {
+
+        it('should exhibit attributes', function() {
+            var post = new Post({
+                title: 'Rake leaves'
+            });
+            expect(post.get('title'))
+                .toEqual('Rake leaves');
+        });
+
+    });
+
+});
+</pre>
+
+I know that most people are using Coffeescript to do their Javascript development. I don't have any experience with it, so I'd rather get this running and deal with switching to coffeescript when I refactor my running code.
+
+Of course this test fails because we haven't even written the code we're testing.
+
+This test should pass with one simple line in one simple file (this, incidentally, is what the rest of this post will be focused on solving.):
+
+p(code). $ cat app/assets/javascripts/models/post.js
+var Todo = Backbone.Model.extend();
+
+Let's see what Jasmine has to say about this. First let's start the server:
+
+p(code). $ rake jasmine
+
+This starts a test server, which has to be visited in your browser. If you're just reading along, here's the significant part of the output:
+
+p(code). ReferenceError: Post is not defined in http://localhost:8888/__spec__/backbone/post.spec.js (line 6)
+
+Okay, Jasmine isn't finding my source files.
+
+I never found out how to get Jasmine to add @app/assets/javascripts/**/*.js@ to the load path. I'm sure it can be done and it seems like it would be a good way to do your development. Instead of compiling my assets everytime, it would be nice if Jasmine could handle this. Whatever. I'm new at this. There's probably a good reason not to do it.
+
+Moving on, I decided to go the compiling route.
+
+p(code). $ rake assets:precompile
+
+Back at the Jasmine test output page nothing changed. I got the same error as above.
+
+At this point, my intuition felt like it hit a brick wall, so I looked at the files in @spec/@. Ahhh, @bundle exec jasmine init@ created some files...imagine that! Looking at @spec/javascripts/support/jasmine.yml@ seems to define where to look for files AND @public/assets/*.js@ isn't included.
+
+Great! So I added it.
+
+<p class="code"> $ grep -A 5 -B 5 'assets' spec/javascripts/support/jasmine.yml
+#   - lib/source1.js
+#   - lib/source2.js
+#   - dist/**/*.js
+#
+src_files:
+  - public/assets/*.js
+  - public/javascripts/prototype.js
+  - public/javascripts/effects.js
+  - public/javascripts/controls.js
+  - public/javascripts/dragdrop.js
+  - public/javascripts/application.js
+</p>
+
+Still no dice though, the Jasmine output window still shows the same error. Up until this point, I felt that there was no need to even have the Rails models, controllers, etc. for my Post resource because I'm only testing javascript. Desperate times call for desperate measures. I ran the scaffold generator to see what the browser's javascript console tells me.
+
+p(code). $ rails g scaffold Post title:string content:text
+...familiar output
+$ rake db:create db:migrate
+$ rails s
+
+Navigating to @localhost:3000/posts/new@ and looking at the javascript console's output revealed this error @Backbone is not defined@. Hmm, I checked that the above mention javascript files were indeed in @vendor/assets/javascripts@, thinking that maybe it would make a difference if I moved them out of the @javascripts@ folder and simply kept them in @vendor/assets/@ proved not to work out either.
+
+Desperate times call for desperate measures. I broke down and decided to use the @rails-backbone@ gem:
+
+p(code). $ echo "gem 'rails-backbone'" >> Gemfile
+$ bundle install
+...familiar output
+
+I restarted the server, but to no avail.
+
+Desperate times  call for desperate measures. What do desperate people do at this point?
+
+After more head scratching, I decided to go through the Rails "asset pipeline":http://guides.rubyonrails.org/asset_pipeline.html guide one more time.
+
+I was starting to wonder if I'd need to read up on Sprockets to get to the bottom of this when I came across "this":http://guides.rubyonrails.org/asset_pipeline.html#manifest-files-and-directives . It references @app/assets/javascripts/application.js@ and mentions that this is where we specify which files are to be included. I added two lines to @application.js@
+
+pre.. //= require underscore-min
+//= require backbone-min
+
+p.  (I think order is important here and the "Backbone site":http://documentcloud.github.com/backbone/ mentions that Underscore JS is the only "hard dependency"). Then I gave it another try.
+
+WTF!?! No errors in the browsers javascript console; the error about @Backbone is not defined@ has gone away! Let's look at @http://localhost:8888@, our Jasmine server. That shit's also green!
+
+Ok, litmus test time. If I create an app, create a js-spec @spec/javascripts/backbone/somefile.spec.js@, add 'gem jasmine' to my Gemfile, make the following changes in my app:
+
+# Add @underscore-min.js@ and @backbone-min.js@ to @vendor/assets/javascripts@
+# Edit @app/assets/javascripts/application.js@ to include these files, repectively
+# Edit @spec/javascripts/support/jasmine.yml@ to include @public/assets/**/*.js@
+
+then precompile the assets, Jasmine should be able to make my tests pass AND rails should be able to load my Backbone.js files so that I can have client-side MVC.
+
+I'm tryin' it!
+
+p(code). ...time passes
+
+It worked! I created trashy_blog2, followed the 3 steps just mentioned and it worked, without the overhead of 'rails-backbone', which isn't actually that much overhead, I just wanted to make it work without it.
+
+Nice. Badass.
+
+So the lesson here is that files in @vendor/assets/javascript@ have to be manually <code>require</code>d, while files in @app/assets/javascripts/@ are automatically picked up.
+
+It took all of this just to start working with Backbone. Don't even ask me about Backbone.Routers and Backbone.Views. I'll cover that and the refactoring in another post when I actually do some concrete Backbone development.
+
+

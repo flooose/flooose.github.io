@@ -180,3 +180,17 @@ div#caveats-list {
 div#caveats-list li{
     padding-bottom: 7px;
 }
+
+ol {
+    font-family: sans-serif;
+    font-size: 1.3em;
+}
+
+pre {
+    background-color: #EFEFF1;
+    font-family: monospace;
+    font-size: 1.2em;
+    margin-left: 5%;
+    padding: 5px 10px;
+    width: 90%;
+}

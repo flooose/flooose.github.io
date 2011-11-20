@@ -1,0 +1,121 @@
+---
+title: Setting up Jasmine and Backbone in Rails 3.1
+layout: post
+published: true
+---
+h2. Setting up Jasmine and Backbone in Rails 3.1
+
+I recently wrote an "article":http://flooose.github.com/2011/10/26/getting-started-with-jasmine-and-backone-on-rails-31.html about my struggles in setting up Backbone.js and Jasmine in Rails 3.1. After writing it, I had solved one problem thinking that I had solved the entire problem. It turns out that there were actually some issues that weren't resolved, so I decided to take the time to outline the entire process of getting an error-free setup so that you're javascript development in your Rails 3.1 project can be tested just as thoroughly and seemlessly as all your other project's components.
+
+Unlike in my previous post, I won't spend a bunch of time outlining the errors I made. Instead, I'm just going straight to getting the setup done. So:
+
+We'll start with generic rails app
+
+<pre>
+$ rails new trashy_blog
+familiar output...
+
+$
+</pre>
+
+p. Now, the idea was learning Backbone, but in a test driven way, so first I needed Jasmine:
+
+<pre>
+$ echo "gem 'jasmine'" >> Gemfile
+$ bundle install
+familiar output...
+
+$ bundle exec jasmine init
+</pre>
+
+At this point, you should be able to @rake jasmine@ and navigate to @localhost:8888@ and see that the Jasmine server is running and that the example models are green.
+
+Okay, now we're ready to address the point of this post: we're using the asset pipeline, but I don't want to compile my assets to test the Backbone models and routes as I develop them, i.e., Jasmine should be configured to read my javascripts from @#{Rails.root}/**/assets/javascripts/*.js@ *NOT* from @#{Rails.root}/public/assets/javascripts/*.js@.
+
+It took a lot of work to get that done. You can read my previous "post":http://flooose.github.com/2011/10/26/getting-started-with-jasmine-and-backone-on-rails-31.html to get an idea of what I went through, but in the end, my problems didn't end there and, that it even worked (I went on to discover) was purely an accident. So it's probably best to follow further along with this post.
+
+Anyway, let's get the "Backbone source":http://documentcloud.github.com/backbone/backbone-min.js file and it's dependency "Underscore":http://documentcloud.github.com/underscore/underscore-min.js and save them to @#{Rails.root}/vendor/assets/javascripts/@ In my case, this resulted in the files @backbone-min.js@ and @underscore-min.js@ files in this directory:
+
+<pre>
+]$ ls vendor/assets/javascripts/
+backbone-min.js         underscore-min.js
+$
+</pre>
+
+Let's configure Jasmine now. First, we'll create a simple Backbone model. I used "this":http://tinnedfruit.com/2011/03/25/testing-backbone-apps-with-jasmine-sinon-2.html howto a lot to help me get started. I suggest you use the Todo model there, or create a simple one based on what's used there to get you started.
+
+In my case, I had a Student model and it looks like this:
+
+<pre>
+$ cat app/assets/javascripts/models/student.js
+var Student = Backbone.Model.extend();
+
+$
+</pre>
+
+Here's the corresponding spec:
+
+<pre>
+$ cat app/assets/javascripts/models/student.js
+describe('Student model', function() {
+    describe('when instantiated', function() {
+        it('should exhibit attributes', function() {
+            var student = new Student({
+                givenname: 'Ron'
+            });
+            expect(student.get('givenname'))
+                .toEqual('Ron');
+        });
+    });
+});
+
+$
+</pre>
+
+All really simple.
+
+Navigating to @localhost:8888@ should yield an error about your model not being defined. This is because Jasmine's default configuration doesn't look in @app/assets/javascripts/@ for its source files.
+
+Let's make it do that by adding @app/assets/javascripts/**/*.js@ to the @src_files@ array in the @spec/javascripts/support/jasmine.yml@ file. Here's what the array looked like after I added this line:
+
+<pre>
+$ ack '^src_files:' -A 8 spec/javascripts/support/jasmine.yml
+src_files:
+  - app/assets/javascripts/**/*.js
+  - public/javascripts/prototype.js
+  - public/javascripts/effects.js
+  - public/javascripts/controls.js
+  - public/javascripts/dragdrop.js
+  - public/javascripts/application.js
+  - public/javascripts/**/*.js
+
+$
+</pre>
+
+Reloading the Jasmine test results page should now yield an error something along the lines of @Student is not a constructor@. The trick here is to open the javascript console. There you should see an error along the lines of @Backbone.Model.extend is not a function@. This is because Jasmine not finding the Backbone sources.
+
+To get Jasmine to find Backbone, we have to edit the same array we just edited. This time we're going to add @vendor/assets/javascripts/underscore-min.js@ and @vendor/assets/javascripts/backbone-min.js@ to the array.
+
+<pre>
+$ ack '^src_files:' -A 10 spec/javascripts/support/jasmine.yml
+src_files:
+  - vendor/assets/javascripts/underscore-min.js
+  - vendor/assets/javascripts/backbone-min.js
+  - app/assets/javascripts/**/*.js
+  - public/javascripts/prototype.js
+  - public/javascripts/effects.js
+  - public/javascripts/controls.js
+  - public/javascripts/dragdrop.js
+  - public/javascripts/application.js
+  - public/javascripts/**/*.js
+
+$
+</pre>
+
+There are a couple of important notes about the output here:
+# We've actually added two lines to the array. The @underscore-min.js@ line had to be added as well as @backbone-min.js@ because @underscore-min.js@ is a dependency of Backbone.
+# Although both @underscore-min.js@ and @backbone-min.js@ are under @app/assets/javascripts/@, we can't use the glob notation @vendor/assets/javascripts**/*.js@ to include them because the order of the files in this array is important and there is no way to control that with globs. This was particularly troublesome for me and I believe my last post flopped for exactly this reason.
+
+If you reload your Jasmine page now, you should see no errors.
+
+So, that's it. You can now develop your Backbone files as you wish. I'll be developing my project further, so keep an eye out for further posts about issues and experiences with Backbone, Rails, Jasmine and the asset pipeline.

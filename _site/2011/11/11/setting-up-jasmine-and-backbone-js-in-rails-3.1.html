@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <link rel="stylesheet" href="/stylesheets/flooose.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911&v1' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn&v1' rel='stylesheet' type='text/css'>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <script src='/javascripts/jquery-1.5.2.js'></script>
+
+    <head>
+        <title></title>
+    </head>
+    <body>
+      <div id="container" class="container">
+	<div id='header' class="header">
+	  <h1 id="h1-page-title" class="page-title"><a href="http://flooose.github.com">flooose.github.com</a></h1>
+	  <h2 id="h2-page-title" class="page-title">linux and open source</h2>
+	</div>
+	<div id="sidebar" class="sidebar">
+	  <ul id="posts" class="posts">
+	    
+	    <li><a href="/2011/11/11/setting-up-jasmine-and-backbone-js-in-rails-3.1.html">Setting up Jasmine and Backbone in Rails 3.1</a></li>
+	    
+	    <li><a href="/2011/10/26/getting-started-with-jasmine-and-backone-on-rails-31.html">Getting Started with Jasmine and Backbone.js on Rails 3.1</a></li>
+	    
+	    <li><a href="/2011/02/23/screen-gnu-screen-gnu-screen-and-your-terminal.html">Hands off! An attempt at a mouseless work-flow with Gnu Screen</a></li>
+	    
+	  </ul>
+	  <div id="social-feeds">
+	    <ul id="social-feeds-list">
+	      <li>
+		<a href="https://twitter.com/flooose" class="twitter-follow-button" data-show-count="false">Follow @flooose</a>
+		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+	<br />
+	<div id="content" class="content">
+          <h2>Setting up Jasmine and Backbone in Rails 3.1</h2>
+<p>I recently wrote an <a href="http://flooose.github.com/2011/10/26/getting-started-with-jasmine-and-backone-on-rails-31.html">article</a> about my struggles in setting up Backbone.js and Jasmine in Rails 3.1. After writing it, I had solved one problem thinking that I had solved the entire problem. It turns out that there were actually some issues that weren&#8217;t resolved, so I decided to take the time to outline the entire process of getting an error-free setup so that you&#8217;re javascript development in your Rails 3.1 project can be tested just as thoroughly and seemlessly as all your other project&#8217;s components.</p>
+<p>Unlike in my previous post, I won&#8217;t spend a bunch of time outlining the errors I made. Instead, I&#8217;m just going straight to getting the setup done. So:</p>
+<p>We&#8217;ll start with generic rails app</p>
+<pre>
+$ rails new trashy_blog
+familiar output...
+
+$
+</pre>
+<p>Now, the idea was learning Backbone, but in a test driven way, so first I needed Jasmine:</p>
+<pre>
+$ echo "gem 'jasmine'" &gt;&gt; Gemfile
+$ bundle install
+familiar output...
+
+$ bundle exec jasmine init
+</pre>
+<p>At this point, you should be able to <code>rake jasmine</code> and navigate to <code>localhost:8888</code> and see that the Jasmine server is running and that the example models are green.</p>
+<p>Okay, now we&#8217;re ready to address the point of this post: we&#8217;re using the asset pipeline, but I don&#8217;t want to compile my assets to test the Backbone models and routes as I develop them, i.e., Jasmine should be configured to read my javascripts from <code>#{Rails.root}/**/assets/javascripts/*.js</code> <strong><span class="caps">NOT</span></strong> from <code>#{Rails.root}/public/assets/javascripts/*.js</code>.</p>
+<p>It took a lot of work to get that done. You can read my previous <a href="http://flooose.github.com/2011/10/26/getting-started-with-jasmine-and-backone-on-rails-31.html">post</a> to get an idea of what I went through, but in the end, my problems didn&#8217;t end there and, that it even worked (I went on to discover) was purely an accident. So it&#8217;s probably best to follow further along with this post.</p>
+<p>Anyway, let&#8217;s get the <a href="http://documentcloud.github.com/backbone/backbone-min.js">Backbone source</a> file and it&#8217;s dependency <a href="http://documentcloud.github.com/underscore/underscore-min.js">Underscore</a> and save them to <code>#{Rails.root}/vendor/assets/javascripts/</code> In my case, this resulted in the files <code>backbone-min.js</code> and <code>underscore-min.js</code> files in this directory:</p>
+<pre>
+]$ ls vendor/assets/javascripts/
+backbone-min.js         underscore-min.js
+$
+</pre>
+<p>Let&#8217;s configure Jasmine now. First, we&#8217;ll create a simple Backbone model. I used <a href="http://tinnedfruit.com/2011/03/25/testing-backbone-apps-with-jasmine-sinon-2.html">this</a> howto a lot to help me get started. I suggest you use the Todo model there, or create a simple one based on what&#8217;s used there to get you started.</p>
+<p>In my case, I had a Student model and it looks like this:</p>
+<pre>
+$ cat app/assets/javascripts/models/student.js
+var Student = Backbone.Model.extend();
+
+$
+</pre>
+<p>Here&#8217;s the corresponding spec:</p>
+<pre>
+$ cat app/assets/javascripts/models/student.js
+describe('Student model', function() {
+    describe('when instantiated', function() {
+        it('should exhibit attributes', function() {
+            var student = new Student({
+                givenname: 'Ron'
+            });
+            expect(student.get('givenname'))
+                .toEqual('Ron');
+        });
+    });
+});
+
+$
+</pre>
+<p>All really simple.</p>
+<p>Navigating to <code>localhost:8888</code> should yield an error about your model not being defined. This is because Jasmine&#8217;s default configuration doesn&#8217;t look in <code>app/assets/javascripts/</code> for its source files.</p>
+<p>Let&#8217;s make it do that by adding <code>app/assets/javascripts/**/*.js</code> to the <code>src_files</code> array in the <code>spec/javascripts/support/jasmine.yml</code> file. Here&#8217;s what the array looked like after I added this line:</p>
+<pre>
+$ ack '^src_files:' -A 8 spec/javascripts/support/jasmine.yml
+src_files:
+  - app/assets/javascripts/**/*.js
+  - public/javascripts/prototype.js
+  - public/javascripts/effects.js
+  - public/javascripts/controls.js
+  - public/javascripts/dragdrop.js
+  - public/javascripts/application.js
+  - public/javascripts/**/*.js
+
+$
+</pre>
+<p>Reloading the Jasmine test results page should now yield an error something along the lines of <code>Student is not a constructor</code>. The trick here is to open the javascript console. There you should see an error along the lines of <code>Backbone.Model.extend is not a function</code>. This is because Jasmine not finding the Backbone sources.</p>
+<p>To get Jasmine to find Backbone, we have to edit the same array we just edited. This time we&#8217;re going to add <code>vendor/assets/javascripts/underscore-min.js</code> and <code>vendor/assets/javascripts/backbone-min.js</code> to the array.</p>
+<pre>
+$ ack '^src_files:' -A 10 spec/javascripts/support/jasmine.yml
+src_files:
+  - vendor/assets/javascripts/underscore-min.js
+  - vendor/assets/javascripts/backbone-min.js
+  - app/assets/javascripts/**/*.js
+  - public/javascripts/prototype.js
+  - public/javascripts/effects.js
+  - public/javascripts/controls.js
+  - public/javascripts/dragdrop.js
+  - public/javascripts/application.js
+  - public/javascripts/**/*.js
+
+$
+</pre>
+<p>There are a couple of important notes about the output here:</p>
+<ol>
+	<li>We&#8217;ve actually added two lines to the array. The <code>underscore-min.js</code> line had to be added as well as <code>backbone-min.js</code> because <code>underscore-min.js</code> is a dependency of Backbone.</li>
+	<li>Although both <code>underscore-min.js</code> and <code>backbone-min.js</code> are under <code>app/assets/javascripts/</code>, we can&#8217;t use the glob notation <code>vendor/assets/javascripts**/*.js</code> to include them because the order of the files in this array is important and there is no way to control that with globs. This was particularly troublesome for me and I believe my last post flopped for exactly this reason.</li>
+</ol>
+<p>If you reload your Jasmine page now, you should see no errors.</p>
+<p>So, that&#8217;s it. You can now develop your Backbone files as you wish. I&#8217;ll be developing my project further, so keep an eye out for further posts about issues and experiences with Backbone, Rails, Jasmine and the asset pipeline.</p>
+	    <div id="disqus_thread">
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'flooose'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = '/2011/11/11/setting-up-jasmine-and-backbone-js-in-rails-3.1.html';
+    // var disqus_url = '/2011/11/11/setting-up-jasmine-and-backbone-js-in-rails-3.1.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+	    </div>
+
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+	<div id="footer" class="footer"></div>
+      </div>
+    </body>
+</html>

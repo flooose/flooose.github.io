@@ -21,6 +21,8 @@
 	<div id="sidebar" class="sidebar">
 	  <ul id="posts" class="posts">
 	    
+	    <li><a href="/2011/11/11/setting-up-jasmine-and-backbone-js-in-rails-3.1.html">Setting up Jasmine and Backbone in Rails 3.1</a></li>
+	    
 	    <li><a href="/2011/10/26/getting-started-with-jasmine-and-backone-on-rails-31.html">Getting Started with Jasmine and Backbone.js on Rails 3.1</a></li>
 	    
 	    <li><a href="/2011/02/23/screen-gnu-screen-gnu-screen-and-your-terminal.html">Hands off! An attempt at a mouseless work-flow with Gnu Screen</a></li>
@@ -39,7 +41,7 @@
 	<div id="content" class="content">
           <h2>Getting Started with Jasmine and Backbone.js on Rails 3.1</h2>
 <p>ok, it took me way too long to figure this out. Maybe this will help others who are having into difficulties getting started with the asset pipeline.</p>
-<p>I wanted to get some experience with Backbone.js and thought creating a simple, throw-away rails application would be a great place to do it.</p>
+<p>I wanted to get some experience with Backbone.js and thought creating a simple, throw-away Rails application would be a great place to do it.</p>
 <p>Little did I know how hard it would be to do just that.</p>
 <p>There are lots of tutorials out there about Rails (of course), Backbone and Jasmine, but none of them seemed to help me in this particular constellation:</p>
 <p>Rails &gt;= 3.1 (i.e. the asset pipeline) + Jasmine + Backbone</p>
@@ -131,7 +133,7 @@ $ bundle install<br />
 	<li>Edit <code>app/assets/javascripts/application.js</code> to include these files, repectively</li>
 	<li>Edit <code>spec/javascripts/support/jasmine.yml</code> to include <code>public/assets/**/*.js</code></li>
 </ol>
-<p>then precompile the assets, Jasmine should be able to make my tests pass <span class="caps">AND</span> rails should be able to load my Backbone.js files so that I can have client-side <span class="caps">MVC</span>.</p>
+<p>then precompile the assets, Jasmine should be able to make my tests pass <span class="caps">AND</span> Rails should be able to load my Backbone.js files so that I can have client-side <span class="caps">MVC</span>.</p>
 <p>I&#8217;m tryin&#8217; it!</p>
 <p class="code">&#8230;time passes</p>
 <p>It worked! I created trashy_blog2, followed the 3 steps just mentioned and it worked, without the overhead of &#8216;rails-backbone&#8217;, which isn&#8217;t actually that much overhead, I just wanted to make it work without it.</p>

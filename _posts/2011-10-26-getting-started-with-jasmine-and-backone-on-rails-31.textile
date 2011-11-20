@@ -7,7 +7,7 @@ h2. Getting Started with Jasmine and Backbone.js on Rails 3.1
 
 ok, it took me way too long to figure this out. Maybe this will help others who are having into difficulties getting started with the asset pipeline.
 
-I wanted to get some experience with Backbone.js and thought creating a simple, throw-away rails application would be a great place to do it.
+I wanted to get some experience with Backbone.js and thought creating a simple, throw-away Rails application would be a great place to do it.
 
 Little did I know how hard it would be to do just that.
 
@@ -142,7 +142,7 @@ Ok, litmus test time. If I create an app, create a js-spec @spec/javascripts/bac
 # Edit @app/assets/javascripts/application.js@ to include these files, repectively
 # Edit @spec/javascripts/support/jasmine.yml@ to include @public/assets/**/*.js@
 
-then precompile the assets, Jasmine should be able to make my tests pass AND rails should be able to load my Backbone.js files so that I can have client-side MVC.
+then precompile the assets, Jasmine should be able to make my tests pass AND Rails should be able to load my Backbone.js files so that I can have client-side MVC.
 
 I'm tryin' it!
 

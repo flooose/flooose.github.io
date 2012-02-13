@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <link rel="stylesheet" href="/stylesheets/flooose.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911&v1' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn&v1' rel='stylesheet' type='text/css'>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <script src='/javascripts/jquery-1.5.2.js'></script>
+
+    <head>
+        <title></title>
+    </head>
+    <body>
+      <div id="container" class="container">
+	<div id='header' class="header">
+	  <h1 id="h1-page-title" class="page-title"><a href="http://flooose.github.com">flooose.github.com</a></h1>
+	  <h2 id="h2-page-title" class="page-title">linux and open source</h2>
+	</div>
+	<div id="sidebar" class="sidebar">
+	  <ul id="posts" class="posts">
+	    
+	    <li><a href="/2012/02/09/get-the-js-lead_out.html">Get the (js) lead out</a></li>
+	    
+	    <li><a href="/2011/11/11/setting-up-jasmine-and-backbone-js-in-rails-3.1.html">Setting up Jasmine and Backbone in Rails 3.1</a></li>
+	    
+	    <li><a href="/2011/10/26/getting-started-with-jasmine-and-backone-on-rails-31.html">Getting Started with Jasmine and Backbone.js on Rails 3.1</a></li>
+	    
+	    <li><a href="/2011/02/23/screen-gnu-screen-gnu-screen-and-your-terminal.html">Hands off! An attempt at a mouseless work-flow with Gnu Screen</a></li>
+	    
+	  </ul>
+	  <div id="social-feeds">
+	    <ul id="social-feeds-list">
+	      <li>
+		<a href="https://twitter.com/flooose" class="twitter-follow-button" data-show-count="false">Follow @flooose</a>
+		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+	<br />
+	<div id="content" class="content">
+          <h2>Get the (js) lead out</h2>
+<p>Okay, it&#8217;s been pretty long since I&#8217;ve posted something, but I&#8217;m back.<br />
+My most recent posts were javascript oriented and specifically dealt<br />
+with Backbone.</p>
+<p>Looking back at them, I&#8217;m actually tempted to take them offline because<br />
+they&#8217;re simply inaccurate in far too many ways. Because they represent<br />
+a learning process, and ultimately led me to this post, I&#8217;m going<br />
+to leave them though.</p>
+<p>In this post I&#8217;m going further with javascript. I&#8217;m going to explore<br />
+how to get inline javascript out of your project. I&#8217;ve read plenty<br />
+about the fact that you&#8217;re not supposed to write it, but haven&#8217;t found<br />
+anything about how to get it out.</p>
+<p>Let&#8217;s start with the typical blog app, do the scaffolding for Posts<br />
+and then starting experimenting with my <code>.coffee</code> files.</p>
+<p>so:</p>
+<script src="https://gist.github.com/1809695.js?file=gistfile1.txt"></script><p>We&#8217;ll start simple. Let&#8217;s see if we can just add jQuery selectors to<br />
+our <code>posts.js.coffee</code></p>
+<script src="https://gist.github.com/1809646.js"> </script><p>Nice. I suck at coffee script, so this actually took me a while, but<br />
+it works.</p>
+<p>I&#8217;ll look at building on this the next time, and I&#8217;ll add the links<br />
+here.</p>
+<p>Perhaps exploring things like if jQueryUI (i.e. sortable) or if more<br />
+complex views with multiple partials will work will need to be<br />
+addressed first, but ultimately, I want to deal with abscractions<br />
+dealing with <code>data-</code> attributes</p>
+	    <div id="disqus_thread">
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'flooose'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = '/2012/02/09/get-the-js-lead_out.html';
+    // var disqus_url = '/2012/02/09/get-the-js-lead_out.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+	    </div>
+
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+	<div id="footer" class="footer"></div>
+      </div>
+    </body>
+</html>

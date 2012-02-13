@@ -1,0 +1,45 @@
+---
+title: Get the (js) lead out
+layout: post
+published: true
+---
+h2. Get the (js) lead out
+
+Okay, it's been pretty long since I've posted something, but I'm back.
+My most recent posts were javascript oriented and specifically dealt
+with Backbone.
+
+Looking back at them, I'm actually tempted to take them offline because
+they're simply inaccurate in far too many ways. Because they represent
+a learning process, and ultimately led me to this post, I'm going
+to leave them though.
+
+In this post I'm going further with javascript. I'm going to explore
+how to get inline javascript out of your project. I've read plenty
+about the fact that you're not supposed to write it, but haven't found
+anything about how to get it out.
+
+Let's start with the typical blog app, do the scaffolding for Posts
+and then starting experimenting with my @.coffee@ files.
+
+so:
+
+<script src="https://gist.github.com/1809695.js?file=gistfile1.txt"></script>
+
+We'll start simple. Let's see if we can just add jQuery selectors to
+our @posts.js.coffee@
+
+<script src="https://gist.github.com/1809646.js"> </script>
+
+Nice. I suck at coffee script, so this actually took me a while, but
+it works.
+
+I'll look at building on this the next time, and I'll add the links
+here.
+
+Perhaps exploring things like if jQueryUI (i.e. sortable) or if more
+complex views with multiple partials will work will need to be
+addressed first, but ultimately, I want to deal with abscractions
+dealing with @data-@ attributes
+
+

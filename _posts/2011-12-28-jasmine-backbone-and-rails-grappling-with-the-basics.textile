@@ -1,0 +1,38 @@
+---
+title: "Jasmine, Backbone and Rails: grappling with the basics."
+layout: post
+published: false
+---
+h2. Jasmine, Backbone and Rails: grappling with the basics.
+
+In my previous
+"post":http://flooose.github.com/2011/11/11/setting-up-jasmine-and-backbone-js-in-rails-3.1.html
+I covered some of the difficulties I encountered in setting up
+Backbone with Rails and in turn Jasmine with both of of them.
+
+I've spent some time with this since then, well actually a lot of
+time, thinking mainly.
+
+The idea was to do all of my development test driven, just like the
+"article":http://tinnedfruit.com/2011/03/25/testing-backbone-apps-with-jasmine-sinon-2.html
+that I used as a reference point. At some point, I realized that all
+of this stuff is just too new for me. Only allowing myself to advance
+test-driven was keeping me from advancing at all because I didn't have
+the conceptual prerequisites to know what to test.
+
+One such point of missing know-how was the idea of views and
+templates, how they worked, did they work with ruby, was there going
+to be a need to mix ruby and javascript templates, etc. All of this
+will be addressed today. I'm going to throw together some
+proof-of-concept code and then retroactively follow up with testing
+afterwards.
+
+So, now a bit of background. After the last post, I had really not
+gotten that far. I was developing a school registration program and
+had really just set up the testing environment and a Student model.
+
+In order to get a feel for how views work, I'm going to define one
+that gets loaded and sent along when someone opens the landing page of
+the application. It will be bound to a link and then displayed when
+that link gets clicked.
+

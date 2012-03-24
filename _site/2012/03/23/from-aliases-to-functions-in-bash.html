@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <link rel="stylesheet" href="/stylesheets/flooose.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911&v1' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn&v1' rel='stylesheet' type='text/css'>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <script src='/javascripts/jquery-1.5.2.js'></script>
+
+    <head>
+        <title></title>
+    </head>
+    <body>
+      <div id="container" class="container">
+	<div id='header' class="header">
+	  <h1 id="h1-page-title" class="page-title"><a href="http://flooose.github.com">flooose.github.com</a></h1>
+	  <h2 id="h2-page-title" class="page-title">linux and open source</h2>
+	</div>
+	<div id="sidebar" class="sidebar">
+	  <ul id="posts" class="posts">
+	    
+	    <li><a href="/2012/03/23/from-aliases-to-functions-in-bash.html">From Aliases to Functions. An introduction to bash Functions.</a></li>
+	    
+	    <li><a href="/2012/02/09/get-the-js-lead_out.html">Get the (js) lead out</a></li>
+	    
+	    <li><a href="/2011/11/11/setting-up-jasmine-and-backbone-js-in-rails-3.1.html">Setting up Jasmine and Backbone in Rails 3.1</a></li>
+	    
+	    <li><a href="/2011/10/26/getting-started-with-jasmine-and-backone-on-rails-31.html">Getting Started with Jasmine and Backbone.js on Rails 3.1</a></li>
+	    
+	    <li><a href="/2011/02/23/screen-gnu-screen-gnu-screen-and-your-terminal.html">Hands off! An attempt at a mouseless work-flow with Gnu Screen</a></li>
+	    
+	  </ul>
+	  <div id="social-feeds">
+	    <ul id="social-feeds-list">
+	      <li>
+		<a href="https://twitter.com/flooose" class="twitter-follow-button" data-show-count="false">Follow @flooose</a>
+		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+	      </li>
+	    </ul>
+	  </div>
+	</div>
+	<br />
+	<div id="content" class="content">
+          <h2>From aliases to functions</h2>
+<p>I&#8217;m writing this post because I&#8217;ve recently found myself writing a function in bash and ran into some small problems that might make some reluctant bash users give up and come up with some other solution, like a custom wrapper script written in some language with which they are more comfortable and which they then store in <code>~/bin</code>. This in essence is fine, but when bash is perfectly capable of doing this, why not use bash.</p>
+<p>I say reluctant because I know a lot of programmers who work in their terminals every day, but only because it is a &#8220;necessary evil&#8221;. I&#8217;m quite novice at bash myself. I&#8217;ve done a fair amount of customizing of command line, custom key bindings and such, but never spent any amount of time really programming in it. The difference between the other programmers in my circles and I is really just that I, unlike they, am not a reluctant, but rather a very interested bash user.</p>
+<p>So, if you&#8217;re still here, let&#8217;s establish the motivation for writing a function in bash. Here&#8217;s a very simple use case:</p>
+<p>I&#8217;m sure even most people who don&#8217;t have experience writing functions in bash have some aliases. The typical aliases I&#8217;ve seen are, for example, the most common git commands, perhaps: git checkout =&gt; git co, git branch =&gt; git b, or git commit =&gt; git c</p>
+<p>The entries in your .bashrc would then look as follows:</p>
+<pre>
+$ cat ~/.bashrc | grep alias
+alias gitco='git checkout'
+alias gitc='git commit'
+alias gitb='git branch'
+$
+</pre>
+<p>Okay fine, but where do functions come in? Well, what happens if you want to alias to a command that runs longer. For instance, you&#8217;ve installed program from homebrew and Mac&#8217;s &#8220;spotlight&#8221; (<code>cmd-space</code>) doesn&#8217;t find it. One options is to start it at the terminal, where you have control of the <code>PATH</code> variable.</p>
+<p>Great. Then since it runs a long time, if you wanted to get it out of the way, you could alias the command like so: <code>alias mycommand='mycommand &amp;'</code>, which would get the command to run in the back ground every time you use it.</p>
+<p>There is still a problem though. What if you have to pass arguments to the command? The above alias won&#8217;t work. I haven&#8217;t been able to figure out why the <code>&amp;</code> at the end of the alias makes it not be able to take arguments, but I&#8217;ve found that an alias to any command that will be run in the background will not take arguments.</p>
+<p>So there it is, there&#8217;s our motivation. In my specific case, I wanted to use homebrew&#8217;s <code>emacs</code>, and I was trying to write an alias along the lines of <code>alias em='emacs &amp;'</code>, but I was easily able to recreate it with <code>mvim</code>, and you could choose any other long running program that doesn&#8217;t daemonize. Here is a rather contrived <code>mvim</code> example:</p>
+<pre>
+$ cat ~/.bashrc | grep mvim
+alias mvim='mvim -f &amp;'
+$
+</pre>
+<p>Here we&#8217;re overwriting the mvim command to call <code>mvim -f &amp;</code>. The <code>-f</code> is telling mvim to run in the foreground because it by default runs in the background, and we need something running in the foreground for this example (again, we had to contrive the example :).</p>
+<p>So after setting this alias, running the command with an argument results in:</p>
+<pre>
+$ mvim Gemfile
+[2] 11028
+-bash: Gemfile: command not found
+$
+</pre>
+<h2 class="section-title">Function Fundamentals</h2>
+<p>So, yeah, use case for functions. Googling for an answer to this will result in the bash masters recommending functions as well. So let&#8217;s write one. In bash it&#8217;s dead simple. We&#8217;ll start by writing one right on the command line:</p>
+<pre>
+$ function blah(){
+&gt; echo hah
+&gt; }
+</pre>
+<p>We can also write it in one line like this:</p>
+<pre>
+$ function blah(){ echo 'hah'; }
+</pre>
+<p>If you do it like this, it&#8217;s important to know, that the <code>;</code> before the <code>}</code> is <span class="caps">NOT</span> optional and that the space before <code>echo</code> and after <code>;</code> are also <span class="caps">NOT</span> optional.</p>
+<p>Finally, if you prefer, the <code>function</code> keyword is also optional. So your one line function could actually look like:</p>
+<pre>
+blah(){ echo hah; }
+</pre>
+<p>We can now execute the function the same way we&#8217;d call any other command:</p>
+<pre>
+$ blah
+hah
+$
+</pre>
+<h2 class="section-title">Making it useful</h2>
+<p>I guess we want our command to do something though. Let&#8217;s do the (almost) simplest thing possible and just try running our <code>emacs</code> command from it. If you&#8217;re not an emacs user, but want to stick to my example, there is just one emacs command you need to know: <code>C-x C-c</code> or <code>^x ^c</code>, depending on which type of notation you&#8217;re used to. This command exits emacs and since we&#8217;ll be starting it a lot, you&#8217;ll have to exit it a lot.</p>
+<pre>
+$ cat blah.bash
+function blah(){
+    emacs
+}
+$
+</pre>
+<p>As you can see, I&#8217;m editing the function in a file now. I&#8217;m doing this because in the next step, we&#8217;re going to have a little more code and I find it easier to edit in a text editor. Let&#8217;s run what we&#8217;ve got first though:</p>
+<pre>
+$ source blah.bash
+$ blah
+Warning: arch-dependent data dir (/private/tmp/homebrew-emacs-23.3b-wol7/emacs-23.3/nextstep/Emacs.app/Contents/MacOS/libexec/emacs/23.3/x86_64-apple-darwin10.8.0/) does not exist.
+</pre>
+<p>It works, although not really in a desirable way. Press <code>C-c</code> to kill the process. In case you don&#8217;t know it, the <code>source blah.bash</code> line above is how we load the contents of that file into our environment.</p>
+<p>Now, let&#8217;s get this running a bit better:</p>
+<pre>
+$ cat blah.bash
+function blah(){
+    EMACS='/Users/chris/.homebrew/Cellar/emacs/23.3b/Emacs.app/Contents/MacOS/Emacs'
+    $EMACS &amp;
+}
+$
+</pre>
+<p>This time I&#8217;ve set an <code>EMACS</code> variable and invoked it with <code>$EMACS</code>. Since we&#8217;ve got the <code>&amp;</code> at the end of that line, we know it will run in the background again. So let&#8217;s <code>source</code> our file again and run the command:</p>
+<pre>
+$ source blah.bash
+$ blah
+[1] 72929
+$
+</pre>
+<p>Wow, that was a great next step. Now we can start emacs with our function and it doesn&#8217;t lock up our terminal. I ran into a couple of difficulties at this step that I think are worth pointing out. First I wasn&#8217;t sure how to run the actual command. Historically I&#8217;ve only used variables to store data, so it didn&#8217;t occur to me that a variable could be executed as well. With this in mind I was thinking in terms of psuedo code like <code>exec "$EMACS"</code> or some similar variations. It took a bit of time and some googling before I finally thought to try the very simple <code>$EMACS</code>.</p>
+<p>The second problem that I ran into was that I didn&#8217;t know how to use the <code>&amp;</code> after the command. In bash you can optionally put a <code>;</code> after a line of code and when I started, I was putting a <code>;</code> at the end of each line, which looked something like <code>$EMACS &amp;;</code> and resulted in errors. I&#8217;ll leave it up to the reader to find out when lines of code should have <code>;</code> after them and when not.</p>
+<p>So, with that out of the way, let&#8217;s get our function to do something with arguments passed to it. Currently if we do <code>blah somefile.rb</code>, the editor gets started, but it won&#8217;t open the file.</p>
+<p>Arguments to functions were also sort of counter intuitive for me. I didn&#8217;t see anyone doing, for instance:</p>
+<pre>
+function blah(arg1, arg2) {
+    # all my code
+}
+</pre>
+<p>Not wanting to get too distracted from the task at hand, I decided to go on the hunt for some sort of &#8220;splat&#8221; operator that just takes all the arguments to function and hands them off to the command. It turns out this operator is simply <code>$*</code>. Here is the updated and final version of our function:</p>
+<pre>
+$ cat blah.bash
+function blah(){
+    EMACS='/Users/chris/.homebrew/Cellar/emacs/23.3b/Emacs.app/Contents/MacOS/Emacs'
+    $EMACS $* &amp;
+}
+$
+</pre>
+<p>Again, if you don&#8217;t know it, there are many special parameters in bash. If you&#8217;re interested, just do <code>man bash</code> and search for &#8220;Special Parameters&#8221;</p>
+<p>That&#8217;s it. If we reload our source file once more, we can use our function as that smarter alias we needed that would run in the back ground <span class="caps">AND</span> accept arguments.</p>
+<pre>
+$ source blah.bash
+$ blah somefile
+[1] 72929
+$
+</pre>
+<p>I hope this helps someone or makes them less reluctant to script a little something in bash. I also if other language, say Ruby (in my case), could have written this more concisely.</p>
+	    <div id="disqus_thread">
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'flooose'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+    // var disqus_identifier = '/2012/03/23/from-aliases-to-functions-in-bash.html';
+    // var disqus_url = '/2012/03/23/from-aliases-to-functions-in-bash.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+	    </div>
+
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+	<div id="footer" class="footer"></div>
+      </div>
+    </body>
+</html>

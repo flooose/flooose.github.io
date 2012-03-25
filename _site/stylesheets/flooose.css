@@ -12,6 +12,8 @@ div#container {
     font-family: 'Vollkorn';
     color: #282A2A; }
   div#container #header {
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
     background-color: #EFEFF1;
     border: none;
     width: 70%; }
@@ -35,6 +37,8 @@ div#container {
     width: 27%;
     margin-top: 28px; }
     div#container #sidebar ul {
+      margin: 2.857em 0.0em 0.0em 0.0em;
+      padding-left: 0;
       font-family: 'Vollkorn';
       font-size: 1em;
       list-style: none; }

@@ -9,6 +9,12 @@ div#container {
   max-width: 1024px;
   margin: auto;
   font-size: 1.4em;
+  span.italic {
+    font-style: italic;
+    code {
+      font-size: 1.0em;
+    }
+  }
   h1, h2, h3 {
     font-family: 'Vollkorn';
     color: #282A2A;

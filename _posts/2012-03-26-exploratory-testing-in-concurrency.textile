@@ -1,0 +1,18 @@
+---
+title: Exploratory Testing in Concurrency
+layout: post
+published: false
+---
+
+h1. Exploratory Testing in Concurrency
+
+I've heard a lot about concurrency lately. Ruby is not that good at it. Clojure is good at it. Node.js is good at it. I've heard it enough to get me wondering about the fact that I don't really understand.
+
+Sure, it get's tricky when two processes try to access the same record the same time, but beyond that, I had no real idea about how a situation like that might come up in my day-to-day programming.
+
+At some point, I managed to wrap my head around the fact that this doesn't have to be about file system access or database access, but could simple come down to two processes trying to access the same object at the same time.
+
+In this post, I'm going to use that as my starting point to first set up a concurrency situation, and the explore ways to deal with it.
+
+I'll do it in Ruby, and decide if other languages should be brought in further expand on the material.
+

@@ -1,4 +1,4 @@
-server: true
 auto: true
+server: true
 permalink: date
 markdown: textile

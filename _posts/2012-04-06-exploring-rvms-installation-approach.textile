@@ -3,7 +3,7 @@ title: Exploring RVM's bash invocation
 layout: post
 published: true
 ---
-h2. Exploring RVM's Installation %(italic)@bash@% Call.
+h2. Exploring the RVM Installation's %(italic)@bash@% Call.
 
 I've not done a lot of shell scripting, but I've done enough to know that it interests me and that I'm not very proficient at it. Since my day-to-day work doesn't take me beyond the basic scripts that I've written, I try to take advantage of any opportunity to learn a little more about it.
 
@@ -27,7 +27,7 @@ playing the "recursive dictionary" game, we need to look up what a "list" is. Go
 
 p(code). A list is a sequence of one or more pipelines separated by one of the operators ;, &, &&, or ||, and optionally terminated by one of ;, &, or <newline>.
 
-Okay, we could go on playing the game and look up "pipeline", but for simplicity, we'll just spill the beans and mention that a 'pipeline' is exactly what we expect:
+Okay, we could go on playing the game and look up "pipeline", but for simplicity, we'll just spill the beans and mention that a "pipeline" is exactly what we expect:
 
 <pre>
 $ cat some_huge.file | grep 'ordinary_word'

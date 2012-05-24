@@ -1,7 +1,7 @@
 ---
 title: Setting up Jasmine and Backbone in Rails 3.1
 layout: post
-published: true
+published: false
 ---
 h2. Setting up Jasmine and Backbone in Rails 3.1
 

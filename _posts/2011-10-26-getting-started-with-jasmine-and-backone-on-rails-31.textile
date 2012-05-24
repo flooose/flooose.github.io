@@ -1,7 +1,7 @@
 ---
 title: Getting Started with Jasmine and Backbone.js on Rails 3.1
 layout: post
-published: true
+published: false
 ---
 h3. *** NOTICE: This post has a been revised "here":http://flooose.github.com/2011/11/11/setting-up-jasmine-and-backbone-js-in-rails-3.1.html . You'd probably be better of reading it, if you want a less befuddled introduction to all of this. ***
 

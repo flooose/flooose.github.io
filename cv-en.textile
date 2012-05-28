@@ -1,0 +1,90 @@
+---
+layout: cv
+---
+
+table(key-value).
+|_. Name |Christopher Floess|
+|_. Geboren |04.07.1978|
+|_. Aktuell | Ruby on Rails Developer|
+|_. Education	|Bachelor of Arts German Studies, Minor: Computer Science|
+|_. Citizenship |German/American Dual Citizenship|
+|_. Contact|+49.0176.77307255 or chris.floess@gmail.com|
+
+h2(cv). Professional Career
+
+table(key-value).
+|_. 2011 - 2012|Ruby on Rails Developer – Propertybase GmbH|
+|_. 2009 - 2011|System Administrator/Developer – advaBusiness Software GmbH|
+|_. 2005 - 2009|Supervisor for Special events and sound – The University of Arizona University Bookstores|
+|_. 2002 - 2005|Production Supervisor OfficeMax Copy Center|
+|_. 2000 - 2002|Stock clerk Publix Supermarkets – Responsible for receiving, ordering, and inventory of the frozen food department|
+|_. 1997 - 2000|Receiver at Petsmart, Inc.|
+
+h2(cv). Career Highlights
+
+table(key-value).
+|_. 2012 |Cofounder Rubyshift Ruby user group in Munich|
+|_. 2011 |Introduce Backbone.js for more maintainable and structured client-side application development|
+|_. 2011 |Migrated our application development from Ruby 1.8.x to Ruby 1.9.x  ensuring future compatibility with the language its libraries|
+|_. 2010 |Introduced Puppet server management to  automate the maintenance of our application stack|
+
+h2(cv). Technology Skills
+
+<div class="cv-container">
+*(cv) Languages / Frameworks
+** Ruby 1.8.x – 1.9.x
+** Rails 2.3.5 – 3.2.x
+** Javascript / Coffeescript
+** HTML5 / CSS3
+** Puppet server management framework
+** C (limited)
+** Java (limited)
+
+*(cv) Databases
+** MySQL
+** Postgresql
+** SQL Server
+
+*(cv) Operationg Systems
+** Linux / FreeBSD – 10 Years
+** OSX
+</div>
+
+h2(cv). Methodology Skills
+
+<div class="cv-container">
+*(cv) Scrum/Agile
+*(cv) Test driven design and development
+*(cv) Behavior-driven outside-in development (Cucumber)
+</div>
+
+h2(cv). Academic Background
+
+table(key-value).
+|_. 2005-2010 |University of Arizona, Tucson, Arizona, USA – Major: German Studies, Minor: Computer Science|
+|_. 2003-2005 |Pima Community College, Tucson, Arizona, USA – Welding Technology|
+|_. 2002-2003 |University of Arizona, Tucson, Arizona, USA – Major, Mathematics|
+|_. 1999-2002 |Santa Fe Community College, Gainesville, Florida, USA|
+|_. 1997-1998 |Brevard Community College, Melbourne, Florida, USA|
+
+h2(cv). Academic Achievements and Acknoledgements
+
+<div class="cv-container">
+*(cv) Charles Polzer, S. J., Grant for contributing to the translation of letters of the Swiss missionary Phillipp Segesser
+*(cv) Participant in the STORK research project for secure package management – www.cs.arizona.edu/stork/packagemanagersecurity
+</div>
+
+h2(cv). Languages
+
+<div class="cv-container">
+*(cv) English (native)
+*(cv) German
+</div>
+
+h2(cv). Hobbies
+
+<div class="cv-container">
+*(cv) Running
+*(cv) Surfing
+*(cv) Bouldering
+</div>

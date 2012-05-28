@@ -14,11 +14,16 @@ div#container {
     code {
       font-size: 1.0em;
     }
-  }
+  };
   h1, h2, h3 {
     font-family: 'Vollkorn';
     color: #282A2A;
   }
+  h1, h2 {
+		&.cv {
+			margin: 0.286em 0;
+		}
+	};
   #header {
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
@@ -63,6 +68,27 @@ div#container {
   #content {
     float: left;
     width: 70%;
+		table.key-value {
+			width: 42em;
+			border-radius: 0.36em;
+			margin: 0em 0em 0em 0em;
+			tr {
+				vertical-align: top;
+			};
+			th {
+				text-align: left;
+				width: 7.3em;
+			}
+		};
+		li {
+			&.cv {
+				font-size: 1.286em;
+			}
+		};
+    div.cv-container {
+			border: solid 1px #EFEFF1;
+			border-radius: 0.36em;
+		}
     div.gist {
       width: 90%;
       margin-left: auto;

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <link rel="stylesheet" href="/stylesheets/flooose.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911&v1' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+
+        <script src='/javascripts/jquery-1.5.2.js'></script>
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-30657456-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+    </head>
+    <body>
+			 
+      <div id="container" class="container">
+	<div id='header' class="header">
+	  <h1 id="h1-page-title" class="page-title">flooose.github.com</h1>
+	  <h2 id="h2-page-title" class="page-title">linux and open source</h2>
+	</div>
+	<div id="sidebar" class="sidebar">
+	  <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+          <script>
+          new TWTR.Widget({
+            version: 2,
+            type: 'profile',
+            rpp: 4,
+            interval: 30000,
+            width: 250,
+            height: 300,
+            theme: {
+              shell: {
+                background: '#373b3b',
+                color: '#efeff1'
+              },
+              tweets: {
+                background: '#494f4f',
+                color: '#efeff1',
+                links: '#4aed05'
+              }
+            },
+            features: {
+              scrollbar: false,
+              loop: false,
+              live: false,
+              behavior: 'all'
+            }
+          }).render().setUser('flooose').start();
+          </script>
+
+
+	  <ul id="posts" class="posts">
+	    
+	    <li><a href="/2012/04/06/exploring-rvms-installation-approach.html">Exploring RVM's bash invocation</a></li>
+	    
+	    <li><a href="/2012/03/23/from-aliases-to-functions-in-bash.html">From Aliases to Functions. An introduction to bash Functions.</a></li>
+	    
+	    <li><a href="/2012/02/09/get-the-js-lead_out.html">Get the (js) lead out</a></li>
+	    
+	    <li><a href="/2011/09/20/getting-familiar-with-openssl-programming-in-c-for-fun-and-profit.html">Openssl in C for fun and profit.</a></li>
+	    
+	    <li><a href="/2011/09/18/config-objects-in-ruby.html">Config obects in Ruby</a></li>
+	    
+	    <li><a href="/2011/02/23/screen-gnu-screen-gnu-screen-and-your-terminal.html">Hands off! An attempt at a mouseless work-flow with Gnu Screen</a></li>
+	    
+	  </ul>
+	</div>
+	<div id="content" class="content">
+		<h2>Exploring the <span class="caps">RVM</span> Installation&#8217;s <span class="italic"><code>bash</code></span> Call.</h2>
+<p>I&#8217;ve not done a lot of shell scripting, but I&#8217;ve done enough to know that it interests me and that I&#8217;m not very proficient at it. Since my day-to-day work doesn&#8217;t take me beyond the basic scripts that I&#8217;ve written, I try to take advantage of any opportunity to learn a little more about it.</p>
+<p>That&#8217;s what this post is going to be about.</p>
+<p>If you&#8217;ve intalled Wayne Seguin&#8217;s excellent <a href="http://beginrescueend.com/rvm/install/">Ruby Version Manager</a> (<span class="caps">RVM</span>) recently, there&#8217;s a pretty good chance that you executed the following</p>
+<p class="code">$ bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)</p>
+<p>Well, the <code>bash</code> part of it is pretty straight forward for me, and so is the <code>&lt;</code>. The <code>curl -s https://rvm.beginrescueend.com/install/rvm</code> is also obviously a command being executed. What&#8217;s no so clear though, is why it&#8217;s executed from within <code>&lt;()</code>. Let&#8217;s dig in!</p>
+<h2>Exploring the Documentation</h2>
+<p>You don&#8217;t have to read far into the <code>bash</code> <a href="http://www.linuxmanpages.com/man1/bash.1.php">man-page</a> before you stumble upon the section <code>Compound Commands</code></p>
+<p>Among the things mentioned in this section is the following:</p>
+<p class="code">(list) list  is  executed in a subshell environment (see <span class="caps">COMMAND</span> <span class="caps">EXECUTION</span> <span class="caps">ENVIRONMENT</span> below).  Variable assignments and builtin commands that affect the shell&#8217;s environment do not remain in effect after the command completes.  The return status is the exit status of list.</p>
+<p>playing the &#8220;recursive dictionary&#8221; game, we need to look up what a &#8220;list&#8221; is. Good thing that was mentioned just above in the appropriatly named section &#8216;Lists&#8217;:</p>
+<p class="code">A list is a sequence of one or more pipelines separated by one of the operators ;, &amp;, &amp;&amp;, or ||, and optionally terminated by one of ;, &amp;, or <newline>.</p>
+<p>Okay, we could go on playing the game and look up &#8220;pipeline&#8221;, but for simplicity, we&#8217;ll just spill the beans and mention that a &#8220;pipeline&#8221; is exactly what we expect:</p>
+<pre>
+$ cat some_huge.file | grep 'ordinary_word'
+</pre>
+<p>There are other pipelines, but I think everyone is familiar with this pattern.</p>
+<h2>Trying Some Stuff Out</h2>
+<p>So let&#8217;s move on. We now know that our command <code>curl</code> is being executed in a subshell.</p>
+<p>My understanding of the <code>&lt;</code> directly in front of the subshell command now seems a bit limited. I&#8217;ve generally used the <code>&lt;</code> operator in situations similar to the following:</p>
+<p class="code">$ mysql -u username database_name &lt; sql_dump.sql</p>
+<p>where <code>sql_dump.sql</code> is always a file name. If I take this example and think of <code>&lt; sql_dump.sql</code> to mean, &#8220;feed a bunch of text to the <code>mysql</code> command&#8221;, then the  <code>&lt;(curl -s https://rvm.beginrescueend.com/install/rvm)</code> could also be seen as feeding a bunch of text to something, but for that, there is already an input redirection there, followed by this strange <code>&lt;(...)</code> list construction, so it&#8217;s not simply about redirection.</p>
+<p>I did a little exercise:</p>
+<pre>
+$ cat ~/rvm_fun
+echo '##### LISTING DIRECTORY CONTENTS #####'
+ls
+$ bash rvm_fun
+##### LISTING DIRECTORY CONTENTS #####
+Desktop		Downloads	Library		Movies		Pictures	Public		VirtualBox VMs	hardcopy.0	pgadmin.log	trash
+Documents	Dropbox		Mail		Music		Projects	Sites		alpm_ruby	nina		rvm_fun
+$ bash &lt;(cat rvm_fun)
+##### LISTING DIRECTORY CONTENTS #####
+Desktop		Downloads	Library		Movies		Pictures	Public		VirtualBox VMs	hardcopy.0	pgadmin.log	trash
+Documents	Dropbox		Mail		Music		Projects	Sites		alpm_ruby	nina		rvm_fun
+$ bash &lt; &lt;(cat rvm_fun)
+##### LISTING DIRECTORY CONTENTS #####
+Desktop		Downloads	Library		Movies		Pictures	Public		VirtualBox VMs	hardcopy.0	pgadmin.log	trash
+Documents	Dropbox		Mail		Music		Projects	Sites		alpm_ruby	nina		rvm_fun
+</pre>
+<p>So, I saved some commands in <code>rvm_fun</code> and used two different forms of file redirection. First I did it the way that looked more familiar to me, i.e. like the sql_dump example above. Surprisingly, it worked. Next I tried it their way, which yielded the same result.</p>
+<h2>An <span class="italic">&#8220;Aha!&#8221;</span> Moment</h2>
+<p>I suspected that all of this was covered in the <code>REDIRECTION</code> section of the man page. I had spent some time reading it and decided that I just didn&#8217;t get it all, so I experimented with the different versions of the command. There was one more thing I could do to make my version of the <span class="caps">RVM</span> command, <code>bash &lt;(cat rvm_fun)</code> look more like my version of the sql command, <code>mysql -u username database_name &lt; sql_dump.sql</code>. What happens if my version of the <span class="caps">RVM</span> command has a space after <code>&lt;</code>, like in the sql command:</p>
+<p class="code">$ bash &lt; (cat rvm_fun)<br />
+-bash: syntax error near unexpected token `(&#8217;</p>
+<p>Aha! So this isn&#8217;t just a simple <code>bash</code> list, being modified by a <code>&lt;</code> operator.</p>
+<p>The first order of business was getting an understanding for file descriptors. Here again, I felt that I had an intuition about what they were, but based on the issues I was running into above, I realized that I needed a more concrete understanding for what they actually are. For this, I had to cheat a little and turn a way from the <code>bash</code> man page. I turned my attention the <span class="italic"><a href="http://tldp.org/LDP/abs/html/">Advanced Bash-Scripting Guide</a></span>, an excellent, example driven book that is freely available on the internet.</p>
+<p>Chapter 19 of <code>Advanced Bash-Scripting Guide</code> concretely states:</p>
+<p class="code">A file descriptor is simply a number that the operating system assigns to an open file to keep track of it. Consider it a simplified type of file pointer. It is analogous to a file handle in C.</p>
+<p>Great. This is in sync with my intuition about what a file descriptor is. Within the same chapter, I was also reminded that that <code>stdin</code>, <code>stdout</code>, and <code>stderr</code> also have file descriptors. This seems like it could be important later on.</p>
+<p>Chapter 19 was quite interesting, but I didn&#8217;t find my solution. I got a little further when I stumbled over Chapter 22 <code>Process Substitution</code>. There it was in black and white: the <code>&lt;(some_command)</code> construct is actually a central part of <code>bash</code>, a language construct not a composite of a list and some other operator. It goes on to point out some things specific to this post. First, <code>bash &lt;(rvm_fun)</code> is the same as <code>cat rvm_fun | bash</code>, which I verified and it worked. So why <code>bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)</code> instead of simply <code>bash &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)</code>?</p>
+<p>Chapter 22 goes further. It gives other examples of &#8220;Process Subsitution&#8221;. One specific example stands out:</p>
+<pre>
+read -a list &lt; &lt;( od -Ad -w24 -t u2 /dev/urandom )
+# Read a list of random numbers from /dev/urandom,
+# process with "od"
+# and feed into stdin of "read" . . .
+</pre>
+<h2>First Conclusions</h2>
+<p>So my current understanding is that the</p>
+<pre>
+@bash &lt; &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)@
+</pre>
+<p>feeds the output of the curl command into the <code>stdin</code> of <code>bash</code>, i.e. it redirects it to the <code>stdin</code> of the <code>bash</code> command, while the</p>
+<pre>
+@bash &lt;(curl -s https://rvm.beginrescueend.com/install/rvm)@
+</pre>
+<p>presents it as a command line argument to the <code>bash</code> command.</p>
+<p>There is still something a little unsettling about this though. I did a little more research and decided that finding the difference between <code>&lt;(...)</code> and <code>$(...)</code> (or <code>`...`</code>, as some people know it) must give the ultimate insight into all of this.</p>
+<p>It turns out that this is the difference between Process Substitution and Command Substitution, the latter of which is covered in Chapter 11 of the Advanced Bash-Scripting Guide:http://tldp.org/<span class="caps">LDP</span>/abs/html/.</p>
+<p>Now that we know the difference by name, figuring out the difference in practice is almost trivial and can be summed up as follows:</p>
+<p>Command substitution works by executing some command in a subshell and placing the output on the command line of some other command. Process substitution works by executing some command in a subshell and placing the output in a file descriptor, i.e. a file, from which it&#8217;s output is read.</p>
+<p>Instead of putting the output directly on the command line, the output is put in a file, which is then given to the command line. The simplest use case for this is for commands that expect files. Here&#8217;s an example: <code>diff</code> can&#8217;t compare two strings</p>
+<pre>
+$ diff "abc123" "cdf456"
+diff: abc123: No such file or directory
+diff: cdf456: No such file or directory
+&lt;pre&gt;
+
+or even
+
+&lt;pre&gt;
+$ diff $(echo "abc123") $(echo "cdf456")
+diff: abc123: No such file or directory
+diff: cdf456: No such file or directory
+</pre>
+<p>but if we do:</p>
+<pre>
+$ diff &lt;(echo "abc123") &lt;(echo "cdf456")
+1c1
+&lt; abc123
+---
+&gt; cdf456
+</pre>
+<p>it works. Diff needs files from which to read.</p>
+<h2>Conclusion</h2>
+<p>So now my previously stated current understanding must be refined from &#8220;&#8230;presents it as a command line argument&#8230;&#8221; to &#8220;&#8230;presents it as a command line argument in the form of a file&#8230;&#8221;</p>
+<p>Now, we&#8217;ve almost completed the exercise. We just need to answer the question, why to use <code>bash &lt; &lt;(...)curl</code> as opposed to something else.</p>
+<p>With our new found knowledge of the <code>&lt;(...)</code> construct we can use it in place of anywhere where we might stick a file.</p>
+<p>In the case of <code>bash</code>, since it can be invoked with input piped to it with <code>|</code>, redirected with <code>&lt;</code> or simply given a file name, we should be able to do the following, respectively:</p>
+<pre>
+$ cat &lt;(curl...) | bash
+</pre>
+
+<pre>
+$ bash &lt; &lt;(curl...)
+</pre>
+
+<pre>
+$ bash &lt;(curl...)
+</pre>
+<p>and each time, the result should be a successful install of <span class="caps">RVM</span>. It turns out that that&#8217;s exactly true. The final two examples are really worth touching on though. The first of these two is of course the very command that inspired this article, but notice that the second of these two doesn&#8217;t have the contents of <code>&lt;(curl...)</code> fed to <code>bash</code> via the <code>&lt;</code> input redirector. This is because <code>bash</code>, unlike <code>diff</code> can be fed a file directly.</p>
+<p>So as far as I can tell, the question of why one would choose one form over another, seems really to be one of a matter of taste.</p>
+<p>That&#8217;s it. A long article, but it certainly cleared a lot of things up. I actually feel pretty confident about any <code>bash</code> scripting I might undertake in the future. Perhaps a follow-up article about data manipulation is in order now.</p>
+	</div>
+	<div id="footer" class="footer">
+	</div>
+      </div>
+    </body>
+</html>

@@ -3,7 +3,7 @@ layout: cv
 ---
 
 table(key-value).
-|_. Name |Christopher Floess|
+|_. Name |Christopher Flöß|
 |_. Geboren |04.07.1978|
 |_. Aktuell | Softwareentwickler Ruby on Rails|
 |_. Studium Abschluss	|Bachelor of Arts Germanistik, Nebenfach: Computerwissenschaft|

@@ -4,6 +4,7 @@ log/*.log
 .sass-cache/
 tmp/**/*
 *.*~
+_site/
 .rvmrc
 *~
 *#

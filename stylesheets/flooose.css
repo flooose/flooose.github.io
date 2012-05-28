@@ -8,9 +8,15 @@ div#container {
   max-width: 1024px;
   margin: auto;
   font-size: 1.4em; }
+  div#container span.italic {
+    font-style: italic; }
+    div#container span.italic code {
+      font-size: 1.0em; }
   div#container h1, div#container h2, div#container h3 {
     font-family: 'Vollkorn';
     color: #282A2A; }
+  div#container h1.cv, div#container h2.cv {
+    margin: 0.286em 0; }
   div#container #header {
     border-top-left-radius: 0.5em;
     border-top-right-radius: 0.5em;
@@ -45,6 +51,20 @@ div#container {
   div#container #content {
     float: left;
     width: 70%; }
+    div#container #content table.key-value {
+      width: 42em;
+      border-radius: 0.36em;
+      margin: 0em 0em 0em 0em; }
+      div#container #content table.key-value tr {
+        vertical-align: top; }
+      div#container #content table.key-value th {
+        text-align: left;
+        width: 7.3em; }
+    div#container #content li.cv {
+      font-size: 1.286em; }
+    div#container #content div.cv-container {
+      border: solid 1px #EFEFF1;
+      border-radius: 0.36em; }
     div#container #content div.gist {
       width: 90%;
       margin-left: auto;
@@ -64,7 +84,7 @@ div#container {
       background-color: #EFEFF1;
       width: 90%;
       margin-left: 5%;
-      font-size: 1.17em;
+      font-size: 1.2em;
       font-family: monospace;
       padding-left: 10px;
       padding-right: 10px;
@@ -83,7 +103,7 @@ div#container {
       overflow-x: auto;
       background-color: #EFEFF1;
       font-family: monospace;
-      font-size: 1.17em;
+      font-size: 1.2em;
       margin-left: 5%;
       padding: 5px 10px;
       width: 90%; }

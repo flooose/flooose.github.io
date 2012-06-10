@@ -1,0 +1,10 @@
+---
+title: Openssl in C for fun and profit.
+layout: post
+published: false
+---
+h2. Openssl in C for fun and profit
+
+I'm going to write a small password utility in C. It's going to read a string from the command line and password encrypt it. It will also have the abilitiy to decrypt said string. I'm doing this because I'm writing a small library that requires some encryption and I haven't been able to make it work with the help of google searches and ruby documentation. There is more Openssl documentation out there in C than Ruby, so if I can make it work here, then I think I'll stand a better chance of making work in my ruby project.
+
+Besides, it will give me an excuse to brush up on C, and who doesn't want that.

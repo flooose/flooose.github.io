@@ -1,0 +1,22 @@
+---
+title: On finding a new job as a Rails developer.
+layout: post
+published: false
+---
+h2. On finding a new job as a Rails developer.
+
+I recently started looking for a new job as a Rails developer and I wanted to reflect a bit on how it evolved. I know there Rails developers are still really in demand, so lack of work wasn't an issue.
+
+What was sort of an issue though, was where to look for the open positions. Rails companies don't always recruit in the standard ways, i.e. job boards and so on, so that can be a little unnerving.
+
+h2. Stake out the most obvious resources.
+
+I'm currently in Munich, Germany and when I started my search for a job, I knew that I preferred staying here. Relocating was an option, but if possible, I did wanted to avoid a move.
+
+Aside from the "common":https://jobs.github.com/ "resources":http://jobs.37signals.com/ that most Rails developers know, there was just one Rails specific job "site":http://b-simple.de/jobs that I knew of that focused specifically on the German market. At a "ruby user group":http://munich.rubyshift.org/ I met someone else who recommended one other "site":http://munichbeta.de/ as a possible resource, but basically this is how things started for my search.
+
+
+
+
+
+

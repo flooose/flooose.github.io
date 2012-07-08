@@ -48,6 +48,8 @@ div#container {
       font-family: 'Vollkorn';
       font-size: 1em;
       list-style: none; }
+    div#container #sidebar .bitcoin {
+      margin-top: 1.5em; }
   div#container #content {
     float: left;
     width: 70%; }

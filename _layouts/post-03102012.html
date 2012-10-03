@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<link rel="stylesheet" href="/stylesheets/flooose-03102012.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911&v1' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Vollkorn&v1' rel='stylesheet' type='text/css' />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<script src='/javascripts/jquery-1.5.2.js'></script>
+	<head>
+		<title>{{; page.title }}</title>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-30657456-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</head>
+	<body>
+		<div id="container" class="container">
+			<header>
+				<div id='header' class="header">
+					<h1 id="h1-page-title" class="page-title"><a href="http://flooose.github.com">flooose.github.com</a></h1>
+					<h2 id="h2-page-title" class="page-title">linux and open source</h2>
+				</div>
+			</header>
+			<div id="sidebar" class="sidebar">
+				<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+				<script>
+					new TWTR.Widget({
+					version: 2,
+					type: 'profile',
+					rpp: 4,
+					interval: 30000,
+					width: 250,
+					height: 300,
+					theme: {
+					shell: {
+					background: '#373b3b',
+					color: '#efeff1'
+					},
+					tweets: {
+					background: '#494f4f',
+					color: '#efeff1',
+					links: '#4aed05'
+					}
+					},
+					features: {
+					scrollbar: false,
+					loop: false,
+					live: false,
+					behavior: 'all'
+					}
+					}).render().setUser('flooose').start();
+				</script>
+				<ul id="posts" class="posts">
+					{% for post in site.posts %}
+					<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+					{% endfor %}
+				</ul>
+				<div class="bitcoin">
+					<a href="javascript:void(0);" onclick="javascript:window.prompt ('Please copy-paste my Bitcoin address to your Bitcoin software - I cannot do it automatically.\nTo copy it, right-click the selected text and select \'Copy\'.\nThen right-click the address field in your Bitcoin software and select \'Paste\'.', '1Enbv8L6SkzookNwdp7cb2dYY3AmprLRv3');">
+						<img src="http://www.ecogex.com/bitcoin/pack/ribbonDonateBitcoin.svg" width="104" height="26" alt="Donate Bitcoin" />
+					</a>
+				</div>
+			</div>
+			<br />
+			<section>
+				<div id="content" class="content">
+					{{ content }}
+					<div id="disqus_thread">
+						<script type="text/javascript">
+							/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+							var disqus_shortname = 'flooose'; // required: replace example with your forum shortname
+
+							// The following are highly recommended additional parameters. Remove the slashes in front to use.
+							// var disqus_identifier = '{{page.url}}';
+							// var disqus_url = '{{page.url}}';
+
+							/* * * DON'T EDIT BELOW THIS LINE * * */
+							(function() {
+							var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+							dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+							(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+							})();
+						</script>
+					</div>
+
+					<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+					<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+				</div>
+			</section>
+			<div id="footer" class="footer"></div>
+		</div>
+	</body>
+</html>

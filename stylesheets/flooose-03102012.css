@@ -69,11 +69,11 @@ div#container {
     div#container #content div.cv-container {
       border: solid 1px #efeff1;
       border-radius: 0.36em; }
-    div#container #content div.gist {
+    div#container #content .gist {
       width: 90%;
       margin-left: auto;
       margin-right: auto; }
-      div#container #content div.gist.gist .gist-data.gist-syntax {
+      div#container #content .gist.gist .gist-data.gist-syntax {
         width: 100% !important; }
     div#container #content p {
       color: #3a463d;
@@ -85,6 +85,7 @@ div#container {
         font-weight: 600;
         font-size: 1.4em; }
     div#container #content .code {
+      overflow-x: scroll;
       background-color: #efeff1;
       width: 90%;
       margin-left: 5%;
@@ -107,7 +108,7 @@ div#container {
       overflow-x: auto;
       background-color: #efeff1;
       font-family: monospace;
-      font-size: 1.2em;
+      font-size: 1.17em;
       margin-left: 5%;
       padding: 5px 10px;
       width: 90%; }

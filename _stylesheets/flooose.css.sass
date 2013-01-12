@@ -55,7 +55,6 @@ div#container
       margin-top: 1.5em
   #content
     float: left
-    width: 70%
     h1
       margin-top: 1.4em
     table.key-value
@@ -175,3 +174,22 @@ ol
 section
   h1
     font-size: 2em
+
+@media screen and (max-width: 600px)
+  #sidebar
+    float: none
+    clear: both
+    width: 100%
+    ul
+      list-style: none
+    #twtr-widget-1
+      display: none
+  #container.container
+    header
+      width: 100%
+    section
+      width: 100%
+    #sidebar
+      float: none
+      clear: both
+      width: 100%

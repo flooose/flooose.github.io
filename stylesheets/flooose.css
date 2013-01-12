@@ -51,8 +51,7 @@ div#container {
     div#container #sidebar .bitcoin {
       margin-top: 1.5em; }
   div#container #content {
-    float: left;
-    width: 70%; }
+    float: left; }
     div#container #content h1 {
       margin-top: 1.4em; }
     div#container #content table.key-value {
@@ -166,3 +165,22 @@ ol {
 
 section h1 {
   font-size: 2em; }
+
+@media screen and (max-width: 600px) {
+  #sidebar {
+    float: none;
+    clear: both;
+    width: 100%; }
+    #sidebar ul {
+      list-style: none; }
+    #sidebar #twtr-widget-1 {
+      display: none; }
+
+  #container.container header {
+    width: 100%; }
+  #container.container section {
+    width: 100%; }
+  #container.container #sidebar {
+    float: none;
+    clear: both;
+    width: 100%; } }

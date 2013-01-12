@@ -38,80 +38,80 @@ div#container {
           text-decoration: underline; }
         div#container header .page-title#h1-page-title#h2-page-title {
           font-size: 1.4em; }
+  div#container section {
+    float: left;
+    width: 70%; }
+  div#container #content h1 {
+    margin-top: 1.4em; }
+  div#container #content table.key-value {
+    width: 42em;
+    border-radius: 0.36em;
+    margin: 0em 0em 0em 0em; }
+    div#container #content table.key-value tr {
+      vertical-align: top; }
+    div#container #content table.key-value th {
+      text-align: left;
+      width: 7.3em; }
+  div#container #content li.cv {
+    font-size: 1.286em; }
+  div#container #content div.cv-container {
+    border: solid 1px #efeff1;
+    border-radius: 0.36em; }
+  div#container #content .gist {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto; }
+    div#container #content .gist.gist .gist-data.gist-syntax {
+      width: 100% !important; }
+  div#container #content p {
+    color: #3a463d;
+    font-family: sans-serif;
+    font-size: 1.4em; }
+    div#container #content p.section-title {
+      font-family: "Vollkorn";
+      color: #282a2a;
+      font-weight: 600;
+      font-size: 1.4em; }
+  div#container #content .code {
+    overflow-x: scroll;
+    background-color: #efeff1;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 1.2em;
+    font-family: monospace;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+  div#container #content code {
+    font-size: 0.82em;
+    font-family: monospace;
+    background-color: #efeff1;
+    width: inherit; }
+  div#container #content h2 {
+    margin-top: 1.5em; }
+    div#container #content h2.sub {
+      text-decoration: underline; }
+  div#container #content pre {
+    overflow-x: auto;
+    background-color: #efeff1;
+    font-family: monospace;
+    font-size: 1.17em;
+    margin-left: 5%;
+    padding: 5px 10px;
+    width: 90%; }
   div#container #sidebar {
-    float: right;
+    float: left;
     width: 27%;
-    margin-top: 28px; }
+    margin-left: 1em; }
     div#container #sidebar ul {
-      margin: 2.857em 0em 0em 0em;
+      margin: 1em 0em 1.857em 0em;
       padding-left: 0;
       font-family: "Vollkorn";
       font-size: 1em;
       list-style: none; }
     div#container #sidebar .bitcoin {
       margin-top: 1.5em; }
-  div#container #content {
-    float: left;
-    width: 70%; }
-    div#container #content h1 {
-      margin-top: 1.4em; }
-    div#container #content table.key-value {
-      width: 42em;
-      border-radius: 0.36em;
-      margin: 0em 0em 0em 0em; }
-      div#container #content table.key-value tr {
-        vertical-align: top; }
-      div#container #content table.key-value th {
-        text-align: left;
-        width: 7.3em; }
-    div#container #content li.cv {
-      font-size: 1.286em; }
-    div#container #content div.cv-container {
-      border: solid 1px #efeff1;
-      border-radius: 0.36em; }
-    div#container #content .gist {
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto; }
-      div#container #content .gist.gist .gist-data.gist-syntax {
-        width: 100% !important; }
-    div#container #content p {
-      color: #3a463d;
-      font-family: sans-serif;
-      font-size: 1.4em; }
-      div#container #content p.section-title {
-        font-family: "Vollkorn";
-        color: #282a2a;
-        font-weight: 600;
-        font-size: 1.4em; }
-    div#container #content .code {
-      overflow-x: scroll;
-      background-color: #efeff1;
-      width: 90%;
-      margin-left: 5%;
-      font-size: 1.2em;
-      font-family: monospace;
-      padding-left: 10px;
-      padding-right: 10px;
-      padding-top: 5px;
-      padding-bottom: 5px; }
-    div#container #content code {
-      font-size: 0.82em;
-      font-family: monospace;
-      background-color: #efeff1;
-      width: inherit; }
-    div#container #content h2 {
-      margin-top: 1.5em; }
-      div#container #content h2.sub {
-        text-decoration: underline; }
-    div#container #content pre {
-      overflow-x: auto;
-      background-color: #efeff1;
-      font-family: monospace;
-      font-size: 1.17em;
-      margin-left: 5%;
-      padding: 5px 10px;
-      width: 90%; }
   div#container #footer {
     width: 70%;
     clear: both;
@@ -167,3 +167,25 @@ ol {
 
 section h1 {
   font-size: 2em; }
+
+@media screen and (max-width: 600px) {
+  #sidebar {
+    padding-top: 1em;
+    float: none;
+    clear: both;
+    width: 100%; }
+    #sidebar ul {
+      list-style: none; }
+      #sidebar ul li {
+        display: inline; }
+    #sidebar #twtr-widget-1 {
+      display: none; }
+
+  #container.container header {
+    width: 100%; }
+  #container.container section {
+    width: 100%; }
+  #container.container #sidebar {
+    float: none;
+    clear: both;
+    width: 100%; } }

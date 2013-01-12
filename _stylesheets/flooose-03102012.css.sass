@@ -41,21 +41,10 @@ div#container
             text-decoration: underline
         &#h2-page-title
           font-size: 1.4em
-  #sidebar
-    float: right
-    width: 27%
-    margin-top: 28px
-    ul
-      margin: 2.857em 0.0em 0.0em 0.0em
-      padding-left: 0
-      font-family: 'Vollkorn'
-      font-size: 1em
-      list-style: none
-    .bitcoin
-      margin-top: 1.5em
-  #content
+  section
     float: left
     width: 70%
+  #content
     h1
       margin-top: 1.4em
     table.key-value
@@ -118,6 +107,18 @@ div#container
       margin-left: 5%
       padding: 5px 10px
       width: 90%
+  #sidebar
+    float: left
+    width: 27%
+    margin-left: 1em
+    ul
+      margin: 1.0em 0.0em 1.857em 0.0em
+      padding-left: 0
+      font-family: 'Vollkorn'
+      font-size: 1em
+      list-style: none
+    .bitcoin
+      margin-top: 1.5em
   #footer
     width: 70%
     clear: both
@@ -176,3 +177,25 @@ ol
 section
   h1
     font-size: 2em
+
+@media screen and (max-width: 600px)
+  #sidebar
+    padding-top: 1em
+    float: none
+    clear: both
+    width: 100%
+    ul
+      list-style: none
+      li
+        display: inline
+    #twtr-widget-1
+      display: none
+  #container.container
+    header
+      width: 100%
+    section
+      width: 100%
+    #sidebar
+      float: none
+      clear: both
+      width: 100%

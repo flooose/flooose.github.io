@@ -1,6 +1,6 @@
 ---
 title: From Aliases to Functions. An introduction to bash Functions.
-layout: post
+layout: post-03102012
 published: true
 ---
 

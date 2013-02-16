@@ -1,6 +1,6 @@
 ---
 title: Exploring RVM's bash invocation
-layout: post
+layout: post-03102012
 published: true
 ---
 h2. Exploring the RVM Installation's %(italic)@bash@% Call.

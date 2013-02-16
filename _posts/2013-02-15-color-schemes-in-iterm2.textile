@@ -222,9 +222,9 @@ pre(gist){max-height: 300px}. <?xml version="1.0" encoding="UTF-8"?>
 </dict>
 </plist>
 
-Looking at this xml there really isn't a lot of complexity. It's mostly contexts of some sort and red, green and blue color definitions. What confused me though were the values that were in the @<real>@ tags. I thought that it might be some way of specifying colors that I wasn't familiar with. I know RBG and html colors, but I had never seen decimal numbers.
+Looking at this XML there really isn't a lot of complexity. It's mostly contexts of some sort and red, green and blue color definitions. What confused me though were the values that were in the @<real>@ tags. I thought that it might be some way of specifying colors that I wasn't familiar with. I know RBG and html colors, but I had never seen decimal numbers.
 
-I can't remember where I found it, but the trick was that these floating point numbers were actually perctentages of the respective RGB values. So let's say you have values of R=45, G=55 and B=67. You have to divide these numbers by 255 to get the percentages (values) for our @<real>@ tags. In my case, the RGB colors 45, 55, 67, were the values for the Background Color, so I put them in the Red, Blue and Green Components of the @<key>Background Color</key>@.
+I can't remember where I found it, but the trick was that these floating point numbers were actually percentages of the respective RGB values. So let's say you have values of R=45, G=55 and B=67. You have to divide these numbers by 255 to get the percentages (values) for our @<real>@ tags. In my case, the RGB colors 45, 55, 67, were the values for the Background Color, so I put them in the Red, Blue and Green Components of the @<key>Background Color</key>@.
 
 Once you've done this, creating a color scheme for iTerm2 is quite trivial.
 

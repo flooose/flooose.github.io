@@ -1,0 +1,19 @@
+---
+title: Quick Setups for Code Katas
+layout: post-03102012
+published: true
+---
+h1. Quick Setups for Code Katas
+
+Once I started using emacs, I developed an affinity for lisp, and I looked for any opportunity to get some practice with the language and the paradigms of functional programming. The problem was that it never occured to me that I could just call @clisp somefile.el@. In retrospect that seems like a silly oversight, but it did have the very real consequence of always doing things either in the REPL or doing things in a running emacs buffer, and never being able to have an isolated environment of just my functions/definitions and the interpreter.
+
+Since I've run into this with other languages/frameworks that I've wanted to dabble in, I'm starting this list of minimum necessary components for trying things out in a new language or framework.
+
+h2. Clisp
+
+Simple. Make a directory, create files, require them as needed, run everything with @clisp@
+
+p(code). $ mkdir experiments-el && cd experiments-el
+$ emacs experiments.el
+...edit file(s)...
+$ clisp experiments.el

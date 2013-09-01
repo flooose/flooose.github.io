@@ -229,3 +229,31 @@ I can't remember where I found it, but the trick was that these floating point n
 Once you've done this, creating a color scheme for iTerm2 is quite trivial.
 
 If you use emacs and use the Misterioso color theme, then you may want to check out my "iTerm2 scheme":https://github.com/flooose/public_dots/blob/master/Misterioso.itermcolors. I haven't quite finished it. The background, foreground, cursor color and so on are set, but you'll notice that in the above XML there are @<key>Ansi XX Color</key>@ tags. These are used for colored output in, for instance, the @ls@ command. Once I get those, I'll probably move the color theme to a separate repository.
+
+p{background-color:#2d3743}. background-color #2d3743
+
+p{background-color:#e1e1e0}. foreground-color #e1e1e0
+
+p{background-color:#415160}. cursor background #415160
+
+p{background-color:#338f86}. highlight background #338f86
+
+p{background-color:#e1e1e0}. highlight foreground #e1e1e0
+
+p{background-color:#23d7d7}. fontlock builtin #23d7d7
+
+p{background-color:#74af68}. fontlock comment #74af68
+
+p{background-color:#008b8b}. fontlock constant #008b8b
+
+p{background-color:#00ede1}. function name bold #00ede1
+
+p{background-color:#ffad29}. keyword #ffad29
+
+p{background-color:#e67128}. string foreground #e67128
+
+p{background-color:#34cae2}. typeface #34cae2
+
+p{background-color:#dbdb95}. variable name #dbdb95
+
+p{background-color:#ff4242}. warning #ff4242

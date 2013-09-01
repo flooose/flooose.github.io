@@ -80,4 +80,4 @@ Most linuxen have some sort of concept of dictionaries and spelling. I won't go 
 
 h3. Conclusion
 
-There were a couple of other cool features that I discovered recently, but I haven't really figured out how to incorporate theme into my work flow, so I left them out. I hope someone finds post useful.
+Well, that's it. I hope someone gets some use out of this.

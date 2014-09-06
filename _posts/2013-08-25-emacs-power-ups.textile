@@ -1,6 +1,6 @@
 ---
 title: Emacs power-ups
-layout: post-03102012
+layout: post-03242013
 published: true
 ---
 

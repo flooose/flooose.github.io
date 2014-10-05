@@ -34,6 +34,12 @@ header {
   margin-bottom: 0px; }
   header a {
     text-decoration: none; }
+    header a:link {
+      color: #1b1e1e; }
+    header a:visited {
+      color: #1b1e1e; }
+    header a:hover, header a:active {
+      color: #3a463d; }
 
 code {
   border-radius: 3px;
@@ -63,6 +69,12 @@ section {
   float: left;
   width: 27%;
   margin-left: 1em; }
+  #sidebar a:link {
+    color: #1b1e1e; }
+  #sidebar a:visited {
+    color: #3a463d; }
+  #sidebar a:hover, #sidebar a:active {
+    color: #3a463d; }
   #sidebar ul {
     margin: 1em 0em 1.857em 0em;
     padding-left: 0;

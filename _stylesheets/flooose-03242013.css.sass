@@ -3,6 +3,7 @@ $font-color: #3A463D
 $background-color: #FBFFF7
 $cool-green: #6CAF0E
 $link-hover: #1B1E1E
+$title-color: $link-hover
 
 // base
 html
@@ -41,6 +42,12 @@ header
   margin-top: 0px
   margin-bottom: 0px
   a
+    &:link
+      color: $title-color
+    &:visited
+      color: $title-color
+    &:hover, &:active
+      color: $font-color
     text-decoration: none
 
 code
@@ -67,6 +74,13 @@ section
     padding-top: 0.5em
 
 #sidebar
+  a
+    &:link
+      color: $title-color
+    &:visited
+      color: $font-color
+    &:hover, &:active
+      color: $font-color
   font-size: 1.5em
   float: left
   width: 27%

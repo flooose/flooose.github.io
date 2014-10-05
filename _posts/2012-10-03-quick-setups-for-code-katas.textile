@@ -1,6 +1,6 @@
 ---
 title: Quick Setups for Code Katas
-layout: post-03102012
+layout: post-03242013
 published: false
 ---
 h1. Quick Setups for Code Katas

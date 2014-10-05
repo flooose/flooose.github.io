@@ -1,6 +1,6 @@
 ---
 title: Emacs for pair programming
-layout: post-03102012
+layout: post-03242013
 published: true
 ---
 h1. Emacs for pair programming
@@ -66,7 +66,7 @@ The default @find-file-in-project@ setup doesn't include a lot of files in its s
 
 The only other minor issue I've noticed with @find-file-in-project@ is that it gets problematic if you have nested git repositories. One of my projects has this and if you're familiar with emacs' concept of @pwd@, then it isn't hard to wrap your head around. Here's a short summary of the problem.
 
-In emacs, @pwd@ is always the directory of the file you're currently editing, so editing @~/.emacs.d/somefile@ followed by @~/some_other_file@ means that you've implicitly also changed directories from "~/.emacs.d" to simply "~/". How this ties into @find-file-in-project@ is that when you invoke @find-file-in-project@, it actually looks at @pwd@ of the file you're currently editing and if it doesn't find a @.git@ file, it searches @pwd@'s parent directory. It continues this until it finds a @.git@ file.
+In emacs, @pwd@ is always the directory of the file you're currently editing, so editing @~/.emacs.d/somefile@ followed by @~/some_other_file@ means that you've implicitly also changed directories from "~/.emacs.d" to simply "~/". How this ties into @find-file-in-project@ is that when you invoke @find-file-in-project@, it actually looks at @pwd@ of the file you're currently editing and if it doesn't find a @.git@ file, it searches @pwd@ 's parent directory. It continues this until it finds a @.git@ file.
 
 So when you use @find-file-in-project@ to find a file that happens to reside in said nested git repository emacs changes to that file's directory, i.e a subdirectory of a different git repository and when you then invoke @find-file-in-project@ again, this time from this file's directory, @find-file-in-project@ will interpret the nested git repository's directory as the starting point for its search, resulting in files that you were expecting in your search result not to show up.
 

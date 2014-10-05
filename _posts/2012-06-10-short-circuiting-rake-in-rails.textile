@@ -1,6 +1,6 @@
 ---
 title: Short circuiting Rake in Rails
-layout: post-03102012
+layout: post-03242013
 published: true
 ---
 h2. Short circuiting Rake in Rails
@@ -34,7 +34,7 @@ Dir[File.expand_path("../lib/tasks/", __FILE__) + '/*.rake'].each do |file|
   load file
 end
 
-if all_tasks_defined? 
+if all_tasks_defined?
   Rake.application.top_level_tasks.each do |tlt|
     Rake.application.invoke_task(tlt)
   end

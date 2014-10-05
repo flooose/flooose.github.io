@@ -4,8 +4,8 @@ layout: cv
 
 table(key-value).
 |_. Name |Christopher Floess|
-|_. Geboren |04.07.1978|
-|_. Aktuell | Ruby on Rails Developer|
+|_. Born |04.07.1978|
+|_. Current | Ruby on Rails Developer|
 |_. Education	|Bachelor of Arts German Studies, Minor: Computer Science|
 |_. Citizenship |German/American Dual Citizenship|
 |_. Contact|+49.0176.77307255 or chris.floess@gmail.com|
@@ -13,6 +13,7 @@ table(key-value).
 h2(cv). Professional Career
 
 table(key-value).
+|_. 2012 - current|Ruby Developer – mindmatters GmbH|
 |_. 2011 - 2012|Ruby on Rails Developer – Propertybase GmbH|
 |_. 2009 - 2011|System Administrator/Developer – advaBusiness Software GmbH|
 |_. 2005 - 2009|Supervisor for Special events and sound – The University of Arizona University Bookstores|
@@ -23,7 +24,9 @@ table(key-value).
 h2(cv). Career Highlights
 
 table(key-value).
-|_. 2012 |Cofounder Rubyshift Ruby user group in Munich|
+|_. 2014 |Released first version of terminal based password manager https://github.com/flooose/password-utility|
+|_. 2013 |Coached in Hamburg's first Students on Rails event aimed, at introducing University students to Agile web development with Rails|
+|_. 2012 |Co-founder Rubyshift Ruby user group in Munich|
 |_. 2011 |Introduce Backbone.js for more maintainable and structured client-side application development|
 |_. 2011 |Migrated our application development from Ruby 1.8.x to Ruby 1.9.x  ensuring future compatibility with the language its libraries|
 |_. 2010 |Introduced Puppet server management to  automate the maintenance of our application stack|
@@ -32,11 +35,14 @@ h2(cv). Technology Skills
 
 <div class="cv-container">
 *(cv) Languages / Frameworks
-** Ruby 1.8.x – 1.9.x
-** Rails 2.3.5 – 3.2.x
-** Javascript / Coffeescript
+** Ruby 1.8.x – current
+** Rails 2.3.5 – current
+** JavaScript / CoffeeScript
+** Backbone.js / Marionette.js
 ** HTML5 / CSS3
 ** Puppet server management framework
+** Chef  server management framework
+** Docker container virtualization
 ** C (limited)
 ** Java (limited)
 
@@ -45,7 +51,7 @@ h2(cv). Technology Skills
 ** Postgresql
 ** SQL Server
 
-*(cv) Operationg Systems
+*(cv) Operating Systems
 ** Linux / FreeBSD – 10 Years
 ** OSX
 </div>
@@ -67,7 +73,7 @@ table(key-value).
 |_. 1999-2002 |Santa Fe Community College, Gainesville, Florida, USA|
 |_. 1997-1998 |Brevard Community College, Melbourne, Florida, USA|
 
-h2(cv). Academic Achievements and Acknoledgements
+h2(cv). Academic Achievements and Acknowledgments
 
 <div class="cv-container">
 *(cv) Charles Polzer, S. J., Grant for contributing to the translation of letters of the Swiss missionary Phillipp Segesser
@@ -79,6 +85,14 @@ h2(cv). Languages
 <div class="cv-container">
 *(cv) English (native)
 *(cv) German
+</div>
+
+h2(cv). Professional Interests
+
+<div class="cv-container">
+*(cv) Lisp
+*(cv) Virtualization with linux containers and docker
+*(cv) Privacy on the Internet
 </div>
 
 h2(cv). Hobbies

@@ -1,2 +1,5 @@
 permalink: date
 markdown: textile
+
+sass:
+  sass_dir: stylesheets

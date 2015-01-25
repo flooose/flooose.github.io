@@ -1,12 +1,13 @@
 ---
 ---
 
-// colors
 $font-color: #3A463D
 $background-color: #FBFFF7
 $cool-green: #6CAF0E
 $link-hover: #1B1E1E
 $title-color: $link-hover
+
+@import 'header'
 
 // base
 html
@@ -26,26 +27,6 @@ a
     color: $font-color
   &:hover, &:active
     color: $link-hover
-
-header
-  font-size: 1.5em
-  border-top-left-radius: 0.5em
-  border-top-right-radius: 0.5em
-  background-color: #EFEFF1
-  border: none
-  width: 70%
-  color: $link-hover
-  text-align: center
-  margin-top: 0px
-  margin-bottom: 0px
-  a
-    &:link
-      color: $title-color
-    &:visited
-      color: $title-color
-    &:hover, &:active
-      color: $font-color
-    text-decoration: none
 
 h1, h2, h3, h4, h5, h6
   font-family: 'Vollkorn'

@@ -83,4 +83,5 @@ DEPENDENCIES
   RedCloth
   foreman
   jekyll (~> 2.5.3)
+  kramdown
   rb-inotify

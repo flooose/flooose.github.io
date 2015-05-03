@@ -2,3 +2,9 @@ permalink: date
 
 sass:
   sass_dir: stylesheets
+
+encoding: "utf-8"
+
+kramdown:
+  input: GFM
+  hard_wrap: false

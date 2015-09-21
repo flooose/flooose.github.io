@@ -2,6 +2,7 @@
 title: Broken gps on cyanogenmod
 layout: post-03242013
 published: true
+tags: [android, cyanogenmod]
 ---
 
 ## gps needs ntp on cyanogenmod

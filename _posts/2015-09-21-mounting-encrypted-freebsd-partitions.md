@@ -9,7 +9,7 @@ tags: [freebsd, geli]
 
 For people running FreeBSD with encrypted `geli` partitions on their
 old laptop-turned-server, here's how you you can mount that partition
-in, say, a FreeBSD live VM, when said laptop crashes finally crashes.
+in, say, a FreeBSD live VM, when said laptop finally crashes.
 
 From the live console:
 

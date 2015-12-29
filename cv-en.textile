@@ -5,73 +5,41 @@ layout: cv
 table(key-value).
 |_. Name |Christopher Floess|
 |_. Born |04.07.1978|
-|_. Current | Ruby on Rails Developer|
+|_. Current | Web Developer|
 |_. Education	|Bachelor of Arts German Studies, Minor: Computer Science|
 |_. Citizenship |German/American Dual Citizenship|
 |_. Contact|+49.0176.77307255 or chris.floess@gmail.com|
 
-h2(cv). Professional Career
+h2(cv). Experience
 
 table(key-value).
-|_. 2012 - current|Ruby Developer – mindmatters GmbH|
-|_. 2011 - 2012|Ruby on Rails Developer – Propertybase GmbH|
-|_. 2009 - 2011|System Administrator/Developer – advaBusiness Software GmbH|
-|_. 2005 - 2009|Supervisor for Special events and sound – The University of Arizona University Bookstores|
-|_. 2002 - 2005|Production Supervisor OfficeMax Copy Center|
-|_. 2000 - 2002|Stock clerk Publix Supermarkets – Responsible for receiving, ordering, and inventory of the frozen food department|
-|_. 1997 - 2000|Receiver at Petsmart, Inc.|
-
-h2(cv). Career Highlights
-
-table(key-value).
-|_. 2014 |Released first version of terminal based password manager https://github.com/flooose/password-utility|
-|_. 2013 |Coached in Hamburg's first Students on Rails event aimed, at introducing University students to Agile web development with Rails|
-|_. 2012 |Co-founder Rubyshift Ruby user group in Munich|
-|_. 2011 |Introduce Backbone.js for more maintainable and structured client-side application development|
-|_. 2011 |Migrated our application development from Ruby 1.8.x to Ruby 1.9.x  ensuring future compatibility with the language its libraries|
-|_. 2010 |Introduced Puppet server management to  automate the maintenance of our application stack|
-
-h2(cv). Technology Skills
-
-<div class="cv-container">
-*(cv) Languages / Frameworks
-** Ruby 1.8.x – current
-** Rails 2.3.5 – current
-** JavaScript / CoffeeScript
-** Backbone.js / Marionette.js
-** HTML5 / CSS3
-** Puppet server management framework
-** Chef  server management framework
-** Docker container virtualization
-** C (limited)
-** Java (limited)
-
-*(cv) Databases
-** MySQL
-** Postgresql
-** SQL Server
-
-*(cv) Operating Systems
-** Linux / FreeBSD – 10 Years
-** OSX
-</div>
-
-h2(cv). Methodology Skills
-
-<div class="cv-container">
-*(cv) Scrum/Agile
-*(cv) Test driven design and development
-*(cv) Behavior-driven outside-in development (Cucumber)
-</div>
+|_. 2015 |mindmatters GmbH - Worked on first electron application with React.js and ES6.|
+|_. 2015 |mindmatters GmbH - Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated chef configurations to system-installable packages (RPMs).|
+|_. 2013 - 2015 |mindmatters GmbH - Worked on the development of a single-page Rails application with backbone.js/marionette.js. Furthered devops skills with puppet for production systems. Helped introduce docker as the core component of our testing infrastructure.|
+|_. 2012 - 2013 |mindmatters GmbH - More devops work helping to migrate server management of a Rails project to chef.|
+|_. 2011 - 2012 |Propertybase GmbH - Introduced backbone.js to a Rails project for better client-side code structure.|
+|_. 2009 - 2011 |advaBusiness Software GmbH - First contact with devops concepts. Introduced Puppet server management to automate the maintenance of our Rails application stack.|
+|_. 2005 - 2009|The University of Arizona University Bookstores - Supervisor for Special Events|
+|_. 2002 - 2005|OfficeMax Copy Center - Production Supervisor|
+|_. 2000 - 2002|Publix Supermarkets - Responsible for receiving, ordering, and inventory of the frozen food department|
+|_. 1997 - 2000|Petsmart, Inc. - Receiver|
 
 h2(cv). Academic Background
 
 table(key-value).
-|_. 2005-2010 |University of Arizona, Tucson, Arizona, USA – Major: German Studies, Minor: Computer Science|
-|_. 2003-2005 |Pima Community College, Tucson, Arizona, USA – Welding Technology|
-|_. 2002-2003 |University of Arizona, Tucson, Arizona, USA – Major, Mathematics|
-|_. 1999-2002 |Santa Fe Community College, Gainesville, Florida, USA|
-|_. 1997-1998 |Brevard Community College, Melbourne, Florida, USA|
+|_. 2015 - current |coursera.org, Johns Hopkins Data Science Track|
+|_. 2005 - 2010 |University of Arizona, Tucson, Arizona, USA – Major: German Studies, Minor: Computer Science|
+|_. 2003 - 2005 |Pima Community College, Tucson, Arizona, USA – Welding Technology|
+|_. 2002 - 2003 |University of Arizona, Tucson, Arizona, USA – Major, Mathematics|
+|_. 1999 - 2002 |Santa Fe Community College, Gainesville, Florida, USA|
+|_. 1997 - 1998 |Brevard Community College, Melbourne, Florida, USA|
+
+h2(cv). Extracurricular
+
+table(key-value).
+|_. 2015 |Coached in Hamburg's second Students on Rails event|
+|_. 2013 |Coached in Hamburg's first Students on Rails event aimed at introducing university students to Agile web development with Rails|
+|_. 2012 |Co-founder Rubyshift Ruby user group in Munich|
 
 h2(cv). Academic Achievements and Acknowledgments
 
@@ -91,8 +59,26 @@ h2(cv). Professional Interests
 
 <div class="cv-container">
 *(cv) Lisp
+*(cv) Functional programming
+*(cv) R
+*(cv) Statistics and data mining
 *(cv) Virtualization with linux containers and docker
 *(cv) Privacy on the Internet
+</div>
+
+h2(cv). Open Source
+
+<div class="cv-container">
+*(cv) Simple terminal based password manager https://github.com/flooose/password-utility
+*(cv) A simple android client for runkeeper.com https://github.com/flooose/gpxkept
+</div>
+
+h2(cv). Process
+
+<div class="cv-container">
+*(cv) Scrum/Agile
+*(cv) Test driven design and development
+*(cv) Behavior-driven outside-in development (Cucumber)
 </div>
 
 h2(cv). Hobbies
@@ -100,5 +86,33 @@ h2(cv). Hobbies
 <div class="cv-container">
 *(cv) Running
 *(cv) Surfing
-*(cv) Bouldering
+*(cv) Bicycles
+*(cv) Outdoors
+</div>
+
+h2(cv). Summary of Technologies
+
+<div class="cv-container">
+*(cv) Languages / Frameworks
+**(sublist) Ruby 1.8.x – current
+** Rails 2.3.5 – current
+** ES6 / JavaScript / CoffeeScript
+** Backbone.js / Marionette.js
+** React.js
+** Electron platform
+** HTML5 / CSS3
+** Puppet server management framework
+** Chef  server management framework
+** Docker container virtualization
+** R
+** Java (limited)
+
+*(cv) Databases
+**(sublist) MySQL
+** Postgresql
+** SQL Server
+
+*(cv) Operating Systems
+**(sublist) Linux / FreeBSD – 10 Years
+** OSX
 </div>

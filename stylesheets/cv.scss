@@ -1,6 +1,8 @@
 ---
 ---
 
+$table-cell-padding: 8px;
+
 body {
   font-size: 10px;
   align: "center";
@@ -8,8 +10,7 @@ body {
 }
 
 div#container {
-  width: auto;
-  max-width: 1024px;
+  width: 1024px;
   margin: auto;
   font-size: 1.4em;
 }
@@ -20,43 +21,44 @@ h1, h2 {
   color: #282A2A;
 }
 
-.sublist {
+li:first-child {
   padding-top: 10px;
 }
 
-div.cv-section {
+@mixin cv-section() {
   border: solid 1px #EFEFF1;
-  border-radius: 0.36em;
-  margin-bottom: 25px;
+  border-radius: 5px;
+  margin-bottom: 39px;
+  margin-top: 14px;
 }
 
-@mixin cv-section-item() {
+@mixin cv-section-entry() {
   font-size: 1.2em;
   padding: 5px;
+  padding-left: 15px;
 }
 
-li.cv {
-  @include cv-section-item();
+.cv-section {
+  @include cv-section();
+}
+
+.cv-section-entry {
+  @include cv-section-entry();
 }
 
 table.key-value {
+  @include cv-section();
   width: 1024px;
-  border: none;
-  margin: 14px 0;
-  padding: 5px;
-  border-collapse: collapse;
   tr {
-    @include cv-section-item();
-    height: 20px;
-    vertical-align: middle;
+    @include cv-section-entry();
   }
   th {
-    padding: 8px;
+    padding: $table-cell-padding;
     padding-left: 23px;
     text-align: left;
     width: 15%;
   }
   td {
-    padding: 8px;
+    padding: $table-cell-padding;
   }
 }

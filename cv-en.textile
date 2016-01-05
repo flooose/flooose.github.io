@@ -2,7 +2,6 @@
 layout: cv
 ---
 
-<div class="cv-section">
 table(key-value).
 |_. Name |Christopher Floess|
 |_. Born |04.07.1978|
@@ -10,11 +9,9 @@ table(key-value).
 |_. Education	|Bachelor of Arts German Studies, Minor: Computer Science|
 |_. Citizenship |German/American Dual Citizenship|
 |_. Contact|+49.0176.77307255 or chris.floess@gmail.com|
-</div>
 
-h2(cv). Experience
+h2. Experience
 
-<div class="cv-section">
 table(key-value).
 |_. 2015 |mindmatters GmbH - Worked on first electron application with React.js and ES6.|
 |_. 2015 |mindmatters GmbH - Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated chef configurations to system-installable packages (RPMs).|
@@ -26,83 +23,65 @@ table(key-value).
 |_. 2002 - 2005|OfficeMax Copy Center - Production Supervisor|
 |_. 2000 - 2002|Publix Supermarkets - Responsible for receiving, ordering, and inventory of the frozen food department|
 |_. 1997 - 2000|Petsmart, Inc. - Receiver|
-</div>
 
-h2(cv). Academic Background
+h2. Academic Background
 
-<div class="cv-section">
 table(key-value).
-|_. 2015 - current |coursera.org, Johns Hopkins Data Science Track|
+|_. 2015 - |coursera.org, Johns Hopkins Data Science Track|
 |_. 2005 - 2010 |University of Arizona, Tucson, Arizona, USA – Major: German Studies, Minor: Computer Science|
 |_. 2003 - 2005 |Pima Community College, Tucson, Arizona, USA – Welding Technology|
 |_. 2002 - 2003 |University of Arizona, Tucson, Arizona, USA – Major, Mathematics|
 |_. 1999 - 2002 |Santa Fe Community College, Gainesville, Florida, USA|
 |_. 1997 - 1998 |Brevard Community College, Melbourne, Florida, USA|
-</div>
 
-h2(cv). Extracurricular
+h2. Extracurricular
 
-<div class="cv-section">
 table(key-value).
 |_. 2015 |Coached in Hamburg's second Students on Rails event|
 |_. 2013 |Coached in Hamburg's first Students on Rails event aimed at introducing university students to Agile web development with Rails|
 |_. 2012 |Co-founder Rubyshift Ruby user group in Munich|
-</div>
 
-h2(cv). Academic Achievements and Acknowledgments
+h2. Academic Achievements and Acknowledgments
 
-<div class="cv-section">
-*(cv) Charles Polzer, S. J., Grant for contributing to the translation of letters of the Swiss missionary Phillipp Segesser
-*(cv) Participant in the STORK research project for secure package management – www.cs.arizona.edu/stork/packagemanagersecurity
-</div>
+(cv-section)*(cv-section-entry) Charles Polzer, S. J., Grant for contributing to the translation of letters of the Swiss missionary Phillipp Segesser
+*(cv-section-entry) Participant in the STORK research project for secure package management – www.cs.arizona.edu/stork/packagemanagersecurity
 
-h2(cv). Languages
+h2. Languages
 
-<div class="cv-section">
-*(cv) English (native)
-*(cv) German
-</div>
+(cv-section)*(cv-section-entry) English (native)
+*(cv-section-entry) German
 
-h2(cv). Professional Interests
+h2. Professional Interests
 
-<div class="cv-section">
-*(cv) Lisp
-*(cv) Functional programming
-*(cv) R
-*(cv) Statistics and data mining
-*(cv) Virtualization with linux containers and docker
-*(cv) Privacy on the Internet
-</div>
+(cv-section)*(cv-section-entry) Lisp
+*(cv-section-entry) Functional programming
+*(cv-section-entry) R
+*(cv-section-entry) Statistics and data mining
+*(cv-section-entry) Virtualization with linux containers and docker
+*(cv-section-entry) Privacy on the Internet
 
-h2(cv). Open Source
+h2. Open Source
 
-<div class="cv-section">
-*(cv) Simple terminal based password manager https://github.com/flooose/password-utility
-*(cv) A simple android client for runkeeper.com https://github.com/flooose/gpxkept
-</div>
+(cv-section)*(cv-section-entry) Simple terminal based password manager https://github.com/flooose/password-utility
+*(cv-section-entry) A simple android client for runkeeper.com https://github.com/flooose/gpxkept
 
-h2(cv). Process
+h2. Process
 
-<div class="cv-section">
-*(cv) Scrum/Agile
-*(cv) Test driven design and development
-*(cv) Behavior-driven outside-in development (Cucumber)
-</div>
+(cv-section)*(cv-section-entry) Scrum/Agile
+*(cv-section-entry) Test driven design and development
+*(cv-section-entry) Behavior-driven outside-in development (Cucumber)
 
-h2(cv). Hobbies
+h2. Hobbies
 
-<div class="cv-section">
-*(cv) Running
-*(cv) Surfing
-*(cv) Bicycles
-*(cv) Outdoors
-</div>
+(cv-section)*(cv-section-entry) Running
+*(cv-section-entry) Surfing
+*(cv-section-entry) Bicycles
+*(cv-section-entry) Outdoors
 
-h2(cv). Summary of Technologies
+h2. Summary of Technologies
 
-<div class="cv-section">
-*(cv) Languages / Frameworks
-**(sublist) Ruby 1.8.x – current
+(cv-section)*(cv-section-entry) Languages / Frameworks
+** Ruby 1.8.x – current
 ** Rails 2.3.5 – current
 ** ES6 / JavaScript / CoffeeScript
 ** Backbone.js / Marionette.js
@@ -114,13 +93,10 @@ h2(cv). Summary of Technologies
 ** Docker container virtualization
 ** R
 ** Java (limited)
-
-*(cv) Databases
-**(sublist) MySQL
+*(cv-section-entry) Databases
+** MySQL
 ** Postgresql
 ** SQL Server
-
-*(cv) Operating Systems
-**(sublist) Linux / FreeBSD – 10 Years
+*(cv-section-entry) Operating Systems
+** Linux / FreeBSD – 10 Years
 ** OSX
-</div>

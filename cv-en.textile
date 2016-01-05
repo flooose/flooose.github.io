@@ -2,6 +2,7 @@
 layout: cv
 ---
 
+<div class="cv-section">
 table(key-value).
 |_. Name |Christopher Floess|
 |_. Born |04.07.1978|
@@ -9,9 +10,11 @@ table(key-value).
 |_. Education	|Bachelor of Arts German Studies, Minor: Computer Science|
 |_. Citizenship |German/American Dual Citizenship|
 |_. Contact|+49.0176.77307255 or chris.floess@gmail.com|
+</div>
 
 h2(cv). Experience
 
+<div class="cv-section">
 table(key-value).
 |_. 2015 |mindmatters GmbH - Worked on first electron application with React.js and ES6.|
 |_. 2015 |mindmatters GmbH - Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated chef configurations to system-installable packages (RPMs).|
@@ -23,9 +26,11 @@ table(key-value).
 |_. 2002 - 2005|OfficeMax Copy Center - Production Supervisor|
 |_. 2000 - 2002|Publix Supermarkets - Responsible for receiving, ordering, and inventory of the frozen food department|
 |_. 1997 - 2000|Petsmart, Inc. - Receiver|
+</div>
 
 h2(cv). Academic Background
 
+<div class="cv-section">
 table(key-value).
 |_. 2015 - current |coursera.org, Johns Hopkins Data Science Track|
 |_. 2005 - 2010 |University of Arizona, Tucson, Arizona, USA – Major: German Studies, Minor: Computer Science|
@@ -33,31 +38,34 @@ table(key-value).
 |_. 2002 - 2003 |University of Arizona, Tucson, Arizona, USA – Major, Mathematics|
 |_. 1999 - 2002 |Santa Fe Community College, Gainesville, Florida, USA|
 |_. 1997 - 1998 |Brevard Community College, Melbourne, Florida, USA|
+</div>
 
 h2(cv). Extracurricular
 
+<div class="cv-section">
 table(key-value).
 |_. 2015 |Coached in Hamburg's second Students on Rails event|
 |_. 2013 |Coached in Hamburg's first Students on Rails event aimed at introducing university students to Agile web development with Rails|
 |_. 2012 |Co-founder Rubyshift Ruby user group in Munich|
+</div>
 
 h2(cv). Academic Achievements and Acknowledgments
 
-<div class="cv-container">
+<div class="cv-section">
 *(cv) Charles Polzer, S. J., Grant for contributing to the translation of letters of the Swiss missionary Phillipp Segesser
 *(cv) Participant in the STORK research project for secure package management – www.cs.arizona.edu/stork/packagemanagersecurity
 </div>
 
 h2(cv). Languages
 
-<div class="cv-container">
+<div class="cv-section">
 *(cv) English (native)
 *(cv) German
 </div>
 
 h2(cv). Professional Interests
 
-<div class="cv-container">
+<div class="cv-section">
 *(cv) Lisp
 *(cv) Functional programming
 *(cv) R
@@ -68,14 +76,14 @@ h2(cv). Professional Interests
 
 h2(cv). Open Source
 
-<div class="cv-container">
+<div class="cv-section">
 *(cv) Simple terminal based password manager https://github.com/flooose/password-utility
 *(cv) A simple android client for runkeeper.com https://github.com/flooose/gpxkept
 </div>
 
 h2(cv). Process
 
-<div class="cv-container">
+<div class="cv-section">
 *(cv) Scrum/Agile
 *(cv) Test driven design and development
 *(cv) Behavior-driven outside-in development (Cucumber)
@@ -83,7 +91,7 @@ h2(cv). Process
 
 h2(cv). Hobbies
 
-<div class="cv-container">
+<div class="cv-section">
 *(cv) Running
 *(cv) Surfing
 *(cv) Bicycles
@@ -92,7 +100,7 @@ h2(cv). Hobbies
 
 h2(cv). Summary of Technologies
 
-<div class="cv-container">
+<div class="cv-section">
 *(cv) Languages / Frameworks
 **(sublist) Ruby 1.8.x – current
 ** Rails 2.3.5 – current

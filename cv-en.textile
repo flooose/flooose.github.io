@@ -13,12 +13,12 @@ table(key-value).
 h2. Experience
 
 table(key-value).
-|_. 2015 |mindmatters GmbH - Worked on first electron application with React.js and ES6.|
-|_. 2015 |mindmatters GmbH - Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated chef configurations to system-installable packages (RPMs).|
-|_. 2013 - 2015 |mindmatters GmbH - Worked on the development of a single-page Rails application with backbone.js/marionette.js. Furthered devops skills with puppet for production systems. Helped introduce docker as the core component of our testing infrastructure.|
-|_. 2012 - 2013 |mindmatters GmbH - More devops work helping to migrate server management of a Rails project to chef.|
-|_. 2011 - 2012 |Propertybase GmbH - Introduced backbone.js to a Rails project for better client-side code structure.|
-|_. 2009 - 2011 |advaBusiness Software GmbH - First contact with devops concepts. Introduced Puppet server management to automate the maintenance of our Rails application stack.|
+|_. 2015 |_mindmatters GmbH_ - Worked on first Electron project with React.js and ES6.|
+|_. 2015 |_mindmatters GmbH_ - Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated Chef configurations to system-installable packages (RPMs).|
+|_. 2013 - 2015 |_mindmatters GmbH_ - Worked on the development of a single-page Rails application with Backbone.js/Marionette.js. Furthered devops skills with Puppet for production systems. Helped introduce Docker as the core component of our testing infrastructure.|
+|_. 2012 - 2013 |_mindmatters GmbH_ - More devops work helping to migrate server management of a Rails project to Chef.|
+|_. 2011 - 2012 |_Propertybase GmbH_ - Introduced Backbone.js to a Rails project for better client-side code structure.|
+|_. 2009 - 2011 |_advaBusiness Software GmbH_ - First contact with devops concepts. Introduced Puppet server management to automate the maintenance of our Rails application stack.|
 |_. 2005 - 2009|The University of Arizona University Bookstores - Supervisor for Special Events|
 |_. 2002 - 2005|OfficeMax Copy Center - Production Supervisor|
 |_. 2000 - 2002|Publix Supermarkets - Responsible for receiving, ordering, and inventory of the frozen food department|
@@ -34,17 +34,17 @@ table(key-value).
 |_. 1999 - 2002 |Santa Fe Community College, Gainesville, Florida, USA|
 |_. 1997 - 1998 |Brevard Community College, Melbourne, Florida, USA|
 
+h2. Academic Achievements and Acknowledgments
+
+(cv-section)*(cv-section-entry) Charles Polzer, S. J., Grant for contributing to the translation of letters of the Swiss missionary Phillipp Segesser
+*(cv-section-entry) Participant in the STORK research project for secure package management – www.cs.arizona.edu/stork/packagemanagersecurity
+
 h2. Extracurricular
 
 table(key-value).
 |_. 2015 |Coached in Hamburg's second Students on Rails event|
 |_. 2013 |Coached in Hamburg's first Students on Rails event aimed at introducing university students to Agile web development with Rails|
 |_. 2012 |Co-founder Rubyshift Ruby user group in Munich|
-
-h2. Academic Achievements and Acknowledgments
-
-(cv-section)*(cv-section-entry) Charles Polzer, S. J., Grant for contributing to the translation of letters of the Swiss missionary Phillipp Segesser
-*(cv-section-entry) Participant in the STORK research project for secure package management – www.cs.arizona.edu/stork/packagemanagersecurity
 
 h2. Languages
 

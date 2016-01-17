@@ -1,5 +1,5 @@
 ---
-title: Mounting encrypted geli partitions
+title: Getting ElsterFormular 2016 Running with Wine on linux
 layout: post-03242013
 published: true
 tags: [elsterformular, elsterformular-2016, 2016, ericliste, ericprozess, ericprozess.exe, wine]

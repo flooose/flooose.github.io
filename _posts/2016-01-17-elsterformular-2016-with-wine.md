@@ -13,7 +13,7 @@ the help of `wine` on linux. This year after installing
 [Elster website](https://www.elster.de) I was presented with a handful
 of error messages. Depending on where I was in the application I was
 either getting something along the lines of `...Eric-Liste nicht
-vorhanden...`, or `...ericprozess.exe unerwartet beendet...`.
+vorhanden...`, or `...ericprozess.exe unerwartet beendet...`
 
 Here's how I fixed it. I simply started by finding the
 `ericprozess.exe` file in my `wine` install and ran the program from

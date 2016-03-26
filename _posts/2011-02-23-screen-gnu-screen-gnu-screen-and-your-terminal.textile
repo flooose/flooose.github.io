@@ -13,7 +13,8 @@ Perhaps the most immediate motivation for using screen, is that it can be starte
 
 Here's an example of one of my typical screen sessions that takes advantage of this functionality:
 
-p(code). [my_computer] $ ssh someserver.com
+<pre>
+[my_computer] $ ssh someserver.com
 [their_puter] $ screen
 [their_puter] $ rake import:really_huge_db_dump
 starting import of 1.5 GB sql dump
@@ -22,15 +23,18 @@ starting import of 1.5 GB sql dump
 [their_puter] $ exit
 Connection to someserver.com closed
 [my_computer] $
+</pre>
 
 ...time passes...
 
+<pre>
 p(code). [my_computer] $ ssh someserver.com
 [their_puter] $ screen -r
 [their_puter] $ rake import:really:huge:db_dump
 starting import of 1.5 GB sql dump
 finished import of 1.5 GB sql dump. Took 15 hours.
 [their_puter] $
+</pre>
 
 p. The motivation for this experiment simply came after discovering screen and its ability to do the above, and wondering if I could eliminate reaching for the mouse while I'm programming. I don't use the mouse much to begin with and I find that it interrupts my work flow when I do have to reach for it.
 
@@ -59,11 +63,13 @@ p(section-title). Disconnecting from screen
 
 Once I could do the above, I had everything necessary to do some real work. Now, how do we not interrupt that when it's time to go home after work? @^a ^d@ gets that done. After issuing this command, it's safe to completely close your terminal or sever the ssh session. When you're ready to reconnect, you simply log into your server and issue the command @screen -r@. If you've got multiple screen sessions running (also a possibility), this command will fail and show you a list of running sessions similar to:
 
-p(code). [my_computer] $ screen -r
+<pre>
+[my_computer] $ screen -r
 There are several suitable screens on:
       29594.ttys007.my_computer	(Multi, detached)
       57888.ttys002.my_computer	(Multi, detached)
 Type "screen [-d] -r [pid.]tty.host" to resume one of them.
+</pre>
 
 You get some instructions about reconnecting to one of them, but I've discovered that the number directly before the "tty..." part of each item in the list is the PID of the process and simply issuing the command @screen -r 29594@ will get you reconnected to that session. So in summary:
 
@@ -77,10 +83,12 @@ I discovered something else. Screen is pretty configurable. For instance, you do
 
 Luckily I found this config:
 
-p(code). $ cat ~/.screenrc
+<pre>
+$ cat ~/.screenrc
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 $
+</pre>
 
 I can't remember where I found it, but a simple "search":http://www.google.com/search?hl=en&q=gnu+screen+status+bar&aq=f&oq yielded results well worth exploring.
 
@@ -124,8 +132,8 @@ After navigating to various parts of the buffer as highlighted above, the @space
 I really found this to be a great feature. Whatever small discomforts there might have been when I first started working with output like this were really surpassed by this feature.
 
 |_.Description|_.Command|
-(even). | mark beginning of region  | space |
-(odd). | copy highlighted region  | space  |
+(even). | mark beginning of region  | @space@ |
+(odd). | copy highlighted region  | @space@  |
 (even). | paste  | @^]@ |
 
 p(section-title). Extras
@@ -147,7 +155,7 @@ That's really all that's too it. Here once more are the relevant commands:
 
 |_.Description|_.Command|
 (even). | split screen horizonatally  | @^a ^s@ |
-(odd). | split screen vertically  | ^a &#124; |
+(odd). | split screen vertically  | @^a@ <span style="font-family: monospace; font-size: 0.82em;">&#124;</span> |
 (even). | switch section | @^a tab@ |
 
 p(section-title). Literal ctrl-a

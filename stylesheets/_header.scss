@@ -1,0 +1,24 @@
+header {
+  font-size: 1.5em;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  background-color: #EFEFF1;
+  border: none;
+  width: 70%;
+  color: $link-hover;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  a {
+    text-decoration: none;
+    &:link {
+      color: $title-color;
+    }
+    &:visited {
+      color: $title-color;
+    }
+    &:hover, &:active {
+      color: $font-color;
+    }
+  }
+}

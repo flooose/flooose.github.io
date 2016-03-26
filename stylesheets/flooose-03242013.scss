@@ -20,6 +20,10 @@ body {
   max-width: 800px;
 }
 
+#container {
+  padding: 10px;
+}
+
 a {
   &:link {
     color: $font-color;

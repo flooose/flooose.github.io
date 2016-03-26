@@ -167,4 +167,3 @@ p(section-title). Summary and Documentation
 So that's it. I've been using gnu screen for some time and with the exception of some minor things, what I've covered above is all that it takes to have a satisfying experience in gnu screen. It really doesn't feel like there is anything missing by foregoing graphical, clickable functionality. There are other great features too and I might cover them in a follow-up post.
 
 Like all gnu projects, screen is very well documented, and here's a "link":http://www.gnu.org/software/screen/manual/screen.pdf to an (actually) rather short and easy-to-read copy of the gnu-screen manual. I suggest you check it out. It really was easy to get through and it quickly turned into a reference more than a monolith of recondite information, like so many other powerful tools do.
-

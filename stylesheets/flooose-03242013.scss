@@ -1,0 +1,98 @@
+---
+---
+$font-color: #3A463D;
+$background-color: #FBFFF7;
+$link-hover: #1B1E1E;
+$title-color: $link-hover;
+
+@import 'header';
+
+// base
+html {
+  background-color: $background-color;
+  font-size: 10px;
+  font-family: sans-serif;
+  color: $font-color;
+}
+
+body {
+  margin: auto;
+  max-width: 800px;
+}
+
+a {
+  &:link {
+    color: $font-color;
+  }
+  &:visited {
+    color: $font-color;
+  }
+  &:hover, &:active {
+    color: $link-hover;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Vollkorn';
+}
+
+pre, code {
+  font-family: monospace;
+}
+
+code {
+  border-radius: 3px;
+  font-size: .82em;
+  font-family: monospace;
+  background-color: #EFEFF1;
+}
+
+pre {
+  border-radius: 5px;
+  overflow-x: auto;
+  background-color: #EFEFF1;
+  font-size: .82em;
+  font-family: monospace;
+  margin-left: 5%;
+  padding: 5px 10px;
+  width: 90%;
+}
+
+table {
+  margin-left: 5%;
+  color: #3A463D;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #EFEFF1;
+  td,th {
+    padding: 10px;
+  }
+  tr {
+    &.odd {
+      code {
+        background-color: white;
+      }
+    }
+    &.even {
+      background-color: #EFEFF1;
+    }
+    td.even {
+      border-style: solid;
+      border-width: 1px;
+    }
+  }
+}
+
+ol {
+  padding-left: 20px;
+  pre{
+    margin-left: 0;
+  }
+}
+
+section {
+  font-size: 2em;
+  h1, h2, h3, h4, h5, h6 {
+    padding-top: 0.5em;
+  }
+}

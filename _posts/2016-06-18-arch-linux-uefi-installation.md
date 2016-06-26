@@ -1,5 +1,5 @@
 ---
-title: emacs, ansi-term, and ssh, a story about a prompt
+title: arch linux install with UEFI booting
 layout: post-03242013.html
 published: true
 tags: [emacs, ansi-term, ps1, ssh]

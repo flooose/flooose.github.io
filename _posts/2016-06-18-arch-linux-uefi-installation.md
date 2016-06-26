@@ -1,6 +1,6 @@
 ---
 title: arch linux install with UEFI booting
-layout: post-03242013.html
+layout: post-03242013
 published: true
 tags: [emacs, ansi-term, ps1, ssh]
 ---

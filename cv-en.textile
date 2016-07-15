@@ -13,6 +13,7 @@ table(key-value).
 h2. Experience
 
 table(key-value).
+|_. 2016 |_liquidlabs GmbH_ - Contracted as external help from employer mindmatters GmbH to help scale a project built on react.js and the StrongLoop framework. Helped develop end-to-end tests and build an open source DSL in javascript for clicking through and testing web-apps.|
 |_. 2015 |_mindmatters GmbH_ - Worked on first Electron project with React.js and ES6.|
 |_. 2015 |_mindmatters GmbH_ - Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated Chef configurations to system-installable packages (RPMs).|
 |_. 2013 - 2015 |_mindmatters GmbH_ - Worked on the development of a single-page Rails application with Backbone.js/Marionette.js. Furthered devops skills with Puppet for production systems. Helped introduce Docker as the core component of our testing infrastructure.|

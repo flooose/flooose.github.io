@@ -38,11 +38,11 @@ The partitioning scheme:
 
 ## The Boot Loader
 
-Here I ended up with some problems with the boot loader. After a lot of trying
-things out, I started to suspect, that there was something wrong with the UEFI
-setup. Did I need an arch install image that had this enabled? Did I miss
-anything in the documentation? I wasn't sure, but all I saw after `grub-install`
-and a reboot, was that there was no sign of any sort of bootable hard drive.
+Here I ended up with some problems. After a lot of trying things out, I started
+to suspect, that there was something wrong with the UEFI setup. Did I need an
+arch install image that had this enabled? Did I miss anything in the
+documentation? I wasn't sure, but all I saw after `grub-install` and a reboot,
+was that there was no sign of any sort of bootable hard drive.
 
 The magic moment came when I noticed, there was nothing in `/sys/firmware/efi`.
 This came after seeing that `efivar -l` didn't return anything. Looking at the
@@ -55,7 +55,9 @@ I guess the computer booted differently and the arch system loaded different
 kernel modules than in the previous attempts. This was the important part to
 getting the system bootable.
 
-After that I was able to set the following mounts from the install system, run `arch-chroot` and run `grub-install` as described in the above mention gist
+After that I was able to set the following mounts from the install system, run
+`arch-chroot` and run `grub-install` as described in the above mention gist.
+Actually you can pretty much use that gist verbatim to install you system.
 
 ```
 mount sda3 /mnt

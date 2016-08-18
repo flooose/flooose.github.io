@@ -82,6 +82,7 @@ h2. Hobbies
 h2. Summary of Technologies
 
 (cv-section)*(cv-section-entry) Languages / Frameworks
+** Android
 ** Ruby 1.8.x – current
 ** Rails 2.3.5 – current
 ** ES6 / JavaScript / CoffeeScript
@@ -93,7 +94,7 @@ h2. Summary of Technologies
 ** Chef  server management framework
 ** Docker container virtualization
 ** R
-** Java (limited)
+** Java
 *(cv-section-entry) Databases
 ** MySQL
 ** Postgresql

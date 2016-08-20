@@ -72,13 +72,13 @@ table {
     padding: 10px;
   }
   tr {
-    &.odd {
+    &:nth-child(even) {
+      background-color: #EFEFF1;
+    }
+    &:nth-child(odd) {
       code {
         background-color: white;
       }
-    }
-    &.even {
-      background-color: #EFEFF1;
     }
     td.even {
       border-style: solid;

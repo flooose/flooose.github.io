@@ -5,6 +5,16 @@ sass:
 
 encoding: "utf-8"
 
+collections:
+  cooking:
+    output: true
+
 kramdown:
   input: GFM
   hard_wrap: false
+
+exclude:
+  - node_modules
+
+gems:
+  - octopress-debugger

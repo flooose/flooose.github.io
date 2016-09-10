@@ -6,7 +6,7 @@ sass:
 encoding: "utf-8"
 
 collections:
-  cooking:
+  bread:
     output: true
 
 kramdown:

@@ -15,14 +15,22 @@ div#container {
   font-size: 1.4em;
 }
 
-h1, h2 {
+h1, h2, h3 {
   margin: 0.286em 0;
   font-family: 'Vollkorn';
   color: #282A2A;
 }
 
+h3 {
+  margin-top: 16px;
+}
+
 li:first-child {
   padding-top: 10px;
+}
+
+li:last-child {
+  padding-bottom: 10px;
 }
 
 @mixin cv-section() {
@@ -38,25 +46,37 @@ li:first-child {
   padding-left: 15px;
 }
 
-.cv-section {
+td:nth-child(1) {
+  font-weight: bold;
+  padding-left: 23px;
+  padding: $table-cell-padding;
+  padding-left: 23px;
+  text-align: left;
+  width: 15%;
+}
+
+ul {
   @include cv-section();
 }
 
-.cv-section-entry {
+ul.nested {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  li {
+    font-size: 1em;
+  }
+}
+
+li {
   @include cv-section-entry();
 }
 
-table.key-value {
+table {
   @include cv-section();
   width: 1024px;
   tr {
     @include cv-section-entry();
-  }
-  th {
-    padding: $table-cell-padding;
-    padding-left: 23px;
-    text-align: left;
-    width: 15%;
   }
   td {
     padding: $table-cell-padding;

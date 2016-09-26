@@ -1,0 +1,112 @@
+---
+title: "Temperature fun in Hamburg"
+layout: Rmd
+author: Christopher Floess
+output:
+  # pdf_document: default
+  html_document:
+    default: true
+    self_contained: false
+    keep_md: yes
+    mathjax: default
+references:
+- id: rhelp
+  title: 'R: A Language and Environment for Statistical Computing'
+  author:
+  - family: The R Core Team
+  URL: 'https://cran.r-project.org/doc/manuals/r-release/fullrefman.pdf'
+  issued:
+    year: 2015
+    month: 12
+
+---
+
+# Weather fun Hamburg
+
+Looking at data collected from the [DWD Weste site](http://www.dwd.de/DE/leistungen/weste/westexl/weste_xl.html?nn=342632)
+
+```{R)
+install.packages('weathermetrics')
+install.packages('dplyr')
+```
+
+```{R, cache  = T}
+# install.packages('weathermetrics')
+library(weathermetrics)
+library(dplyr)
+library(ggplot2)
+```
+
+## Read and combine the data
+
+Four files with identical data structures over the past 40 years or so.
+
+```{R, cache = T}
+dwd1 <- read.csv2("assets/weste_product_2016_08_28__09_58_19.csv")
+dwd2 <- read.csv2("assets/weste_product_2016_08_28__10_05_34.csv")
+dwd3 <- read.csv2("assets/weste_product_2016_08_28__10_09_10.csv")
+dwd4 <- read.csv2("assets/weste_product_2016_08_28__10_13_44.csv")
+dwd5 <- read.csv2("assets//weste_product_2016_09_25__08_06_59.csv")
+dwdHamburg <- rbind(dwd1, dwd2, dwd3, dwd4, dwd5)
+```
+
+## Clean up the data
+
+```{R}
+str(dwdHamburg)
+
+```
+
+There are two types of data collected.
+
+```{R}
+levels(dwdHamburg$Element)
+```
+
+
+"Datum" should be of type `Date`
+
+```{R}
+dwdHamburg$Datum <- as.Date(dwdHamburg$Datum)
+```
+
+Since we'll be working with monthly aggregates over years, let's add a "year" column and a "month" column that represents the year and month of each value
+
+```{R}
+dwdHamburg$mYear <- as.factor(format(dwdHamburg$Datum, format = "%Y"))
+dwdHamburg$mYearMonth <- as.factor(format(dwdHamburg$Datum, format = "%Y-%m"))
+```
+
+In the web interface, it looked like there were some gaps in the years. Specifically in the 1950s it looked like only even numbered years.
+
+```{R}
+levels(as.factor(format(dwdHamburg$Datum, format = "%Y")))
+```
+
+One more sanity check. The years should all have about the same number of days.
+
+```{R}
+dwdHamburg %>%
+  group_by(mYear) %>%
+  summarise(no_rows = length(mYear))
+```
+
+So, looks good. The first year is incomplete because we started in August, but with two factors 730 is the right amount of values for a normal year while 732 corresponds to a leap year.
+
+## Average Temperature by year
+
+```{R, cache = T}
+out <-  aggregate(Wert~mYear, data = dwdTemps, FUN=mean, simplify = F)
+dwdTemps <- filter(dwdHamburg, Element == "Lufttemperatur Tagesmittel")
+annualAverages <-  aggregate(Wert~mYear, data = dwdTemps, FUN=mean, simplify = F)
+annualAverages$Wert <- as.numeric(annualAverages$Wert)
+g <- ggplot(data=annualAverages)
+g + geom_point() + aes(x=mYear, y=Wert)
+#g + coord_fixed(ratio = 0.5)
+#g + scale_x_continuous(breaks=c(1, 64))
+g + theme(axis.text.x = element_text(face="bold", color="#993333",
+                           size=14, angle=45),
+          axis.text.y = element_text(face="bold", color="#993333",
+                           size=14, angle=45))
+g
+```

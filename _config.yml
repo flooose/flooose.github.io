@@ -15,6 +15,3 @@ kramdown:
 
 exclude:
   - node_modules
-
-gems:
-  - octopress-debugger

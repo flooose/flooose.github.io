@@ -12,11 +12,12 @@ ingredients is as follows:
 
 |Weight|Ingredient|Baker's Percentage|
 |------|----------|------------------|
-|489g  |Wheat Flour (Type 550)|86.94%|
+|489g  |Wheat Flour (Type 550)|85.94%|
 |56g|Whole Wheat Flour (Type not specified)|9.84%|
-|24g|Rye Flour (Type 1150)|4.21%|
+|24g|Rye Flour (Type 1150)|4.22%|
 |344g|Tap Water|60.46%|
 |9g|Salt|1.58%|
+
 
 ### Day one
 

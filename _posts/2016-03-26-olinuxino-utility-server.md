@@ -8,11 +8,11 @@ tags: [arch-linux-arm, olinuxino]
 ## An olinuxino Utility Server hack
 
 I needed a utility server to do some experiments and sync some data
-between systems. After setting up
+between systems. After setting up the
 [system](https://www.olimex.com/Products/OLinuXino/A20/A20-OLinuXino-MICRO/open-source-hardware)
 with [arch linux arm](https://archlinuxarm.org/) I realized that the
-io on the sdcard was simply too slow for there server to function as a
-dependable system, so I devised the following hack that boots system
+io on the sdcard was simply too slow for the server to function as a
+dependable system, so I devised the following hack that boots the system
 from sdcard, but mounts the root file system from the attached
 external hard drive resulting in a system whose io performs just like
 that of a normal system.
@@ -51,7 +51,7 @@ Assuming you've finished the installation instructions [here](https://archlinuxa
    that the root file system is on `/dev/sda1` instead of the same
    file system as the boot partition.
 
-And that's it. Now when you reboot, you should be able to call `mount`
+That's it. Now when you reboot, you should be able to call `mount`
 and get output similar to:
 
     # mount

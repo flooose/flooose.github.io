@@ -3,7 +3,7 @@ layout: cv
 ---
 
 |Name| Christopher Floess|
-| Born |04.07.1978|
+| Born |July 04, 1978   |
 | Current | Web Developer|
 | Education	|Bachelor of Arts German Studies, Minor: Computer Science|
 | Citizenship |German/American Dual Citizenship|
@@ -16,9 +16,9 @@ layout: cv
 | 2016 |_liquidlabs GmbH_ &ndash; Contracted externally from employer mindmatters GmbH to help scale a project built on _**react.js**_ and the _**StrongLoop**_ framework. Helped develop end-to-end tests and build an open source DSL in javascript for clicking through and testing web-apps.|
 | 2015 |_mindmatters GmbH_ &ndash; Worked on first _**electron**_ project with _**react.js**_ and _**ES6**_.|
 | 2015 |_mindmatters GmbH_ &ndash; Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated _**chef**_ configurations to system-installable packages (RPMs).|
-| 2013 &ndash; 2015 |_mindmatters GmbH_ &ndash; Worked on the development of a single-page _**Rails**_ application with _**Backbone.js/Marionette.js**_. Furthered devops skills with _**Puppet**) for production systems. Helped introduce _**Docker**_ as the core component of our testing infrastructure.|
+| 2013 &ndash; 2015 |_mindmatters GmbH_ &ndash; Worked on the development of a single-page _**Rails**_ application with _**Backbone.js/Marionette.js**_. Furthered devops skills with _**Puppet**_ for production systems. Helped introduce _**Docker**_ as the core component of our testing infrastructure. |
 | 2012 &ndash; 2013 |_mindmatters GmbH_ &ndash; More devops work helping to migrate server management of a _**Rails**_ project to _**Chef**_.|
-| 2011 &ndash; 2012 |_Propertybase GmbH_ &ndash; Introduced _**Backbone.js**_ to a _**Rails**_ project for better client-side code structure.|
+| 2011 &ndash; 2012 |_Propertybase GmbH_ &ndash; Development of a real estate CRM using _**Backbone.js**_ and _**Rails**_. |
 | 2009 &ndash; 2011 |_advaBusiness Software GmbH_ &ndash; First contact with devops concepts. Introduced _**Puppet**_ server management to automate the maintenance of our _**Rails**_ application stack.|
 | 2005 &ndash; 2009|The University of Arizona University Bookstores &ndash; Supervisor for Special Events|
 | 2002 &ndash; 2005|OfficeMax Copy Center &ndash; Production Supervisor|

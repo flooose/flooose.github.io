@@ -20,8 +20,9 @@ layout: cv
 | 2012 &ndash; 2013 |_mindmatters GmbH_ &ndash; Infrastructure management for a custom CRM, helped to migrate server management of a _**Rails**_ app to _**Chef**_. |
 | 2011 &ndash; 2012 |_Propertybase GmbH_ &ndash; Development of a real estate CRM using _**Backbone.js**_ and _**Rails**_. |
 | 2009 &ndash; 2011 |_advaBusiness Software GmbH_ &ndash; Infrastructure management for an SAAS CRM aimed at small businesses. Introduced _**Puppet**_ server management to automate the maintenance of our _**Rails**_ application stack.   |
-| 2005 &ndash; 2009|The University of Arizona University Bookstores &ndash; Supervisor for Special Events|
-| 2002 &ndash; 2005|OfficeMax Copy Center &ndash; Production Supervisor|
+| 2005 &ndash; 2009|The University of Arizona University Bookstores &ndash; Supervisor for Special Events and Retail Logistics (yes I was forced to do both, the special events part was cooler) |
+| 2005 | Welder
+| 2002 &ndash; 2004 |OfficeMax Copy Center &ndash; Production Supervisor|
 | 2000 &ndash; 2002|Publix Supermarkets &ndash; Responsible for receiving, ordering, and inventory of the frozen food department|
 | 1997 &ndash; 2000|Petsmart, Inc. &ndash; Receiver|
 

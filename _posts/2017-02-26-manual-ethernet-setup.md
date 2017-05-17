@@ -27,5 +27,6 @@ Some Things to Note
 * the ip address 192.168.1.151 is arbitrary. The important part is to pick an
    ip address that hasn't been assigned by the router to someone else.
 
-* the `/24` in the second step is vital. Although the command will succeed, the
-   network will not work without the `/24`
+* the `/24` in the second step is vital. Although the command will succeed, if
+   you accidentally omit it, the network will not work without the trailing
+   `/24`

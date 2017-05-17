@@ -7,19 +7,19 @@ layout: cv
 | Current | Web Developer|
 | Education	|Bachelor of Arts German Studies, Minor: Computer Science|
 | Citizenship |German/American Dual Citizenship|
-| Contact|+49.0176.77307255 or chris.floess@gmail.com|
+| Contact|+49.0176.77307255 or chris.floess@jjff.de|
 
 ## Experience
 
-| 2016 &ndash; 2017 |_mindmatters GmbH_ &ndash; Development of an onboarding formula for an online payment provider, using _**TypeScript**_, _**angularjs**_, _**rxjs**_ and _**Spring Bootstrap**_.|
-| 2016 |_mindmatters GmbH_ &ndash; _**android**_ development of online hardware store. Used _**hockeyapp**_ and _**circleci**_ for automated testing and deployment.|
-| 2016 |_liquidlabs GmbH_ &ndash; Contracted externally from employer mindmatters GmbH to help scale a project built on _**react.js**_ and the _**StrongLoop**_ framework. Helped develop end-to-end tests and build an open source DSL in javascript for clicking through and testing web-apps.|
-| 2015 |_mindmatters GmbH_ &ndash; Worked on first _**electron**_ project with _**react.js**_ and _**ES6**_.|
+| 2016 &ndash; 2017 |_mindmatters GmbH_ &ndash; Development of an onboarding formula for an online payment provider using _**TypeScript**_, _**angularjs**_, _**rxjs**_ and _**Spring Bootstrap**_. |
+| 2016 |_mindmatters GmbH_ &ndash; _**android**_ development for hardware store app. Used _**hockeyapp**_ and _**circleci**_ for automated testing and deployment. |
+| 2016 |_liquidlabs GmbH_ &ndash; Contracted externally from employer mindmatters GmbH to help scale a project built on _**react.js**_ and  _**StrongLoop**_. Helped develop end-to-end tests and build an open source DSL in javascript for clicking through and testing web-apps.  |
+| 2015 |mindmatters GmbH – Graphical "Teaser" configurator for online shop built on _**electron**_ and _**react.js**_ |
 | 2015 |_mindmatters GmbH_ &ndash; Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated _**chef**_ configurations to system-installable packages (RPMs).|
-| 2013 &ndash; 2015 |_mindmatters GmbH_ &ndash; Worked on the development of a single-page _**Rails**_ application with _**Backbone.js/Marionette.js**_. Furthered devops skills with _**Puppet**_ for production systems. Helped introduce _**Docker**_ as the core component of our testing infrastructure. |
-| 2012 &ndash; 2013 |_mindmatters GmbH_ &ndash; More devops work helping to migrate server management of a _**Rails**_ project to _**Chef**_.|
+| 2013 &ndash; 2015 |_mindmatters GmbH_ &ndash; Development of a single-page _**Rails**_ application with _**Backbone.js/Marionette.js**_. Furthered devops skills with _**Puppet**_ for production systems. Helped introduce _**Docker**_ as the core component of our testing infrastructure.  |
+| 2012 &ndash; 2013 |_mindmatters GmbH_ &ndash; Infrastructure management for a custom CRM, helped to migrate server management of a _**Rails**_ app to _**Chef**_. |
 | 2011 &ndash; 2012 |_Propertybase GmbH_ &ndash; Development of a real estate CRM using _**Backbone.js**_ and _**Rails**_. |
-| 2009 &ndash; 2011 |_advaBusiness Software GmbH_ &ndash; First contact with devops concepts. Introduced _**Puppet**_ server management to automate the maintenance of our _**Rails**_ application stack.|
+| 2009 &ndash; 2011 |_advaBusiness Software GmbH_ &ndash; Infrastructure management for an SAAS CRM aimed at small businesses. Introduced _**Puppet**_ server management to automate the maintenance of our _**Rails**_ application stack.   |
 | 2005 &ndash; 2009|The University of Arizona University Bookstores &ndash; Supervisor for Special Events|
 | 2002 &ndash; 2005|OfficeMax Copy Center &ndash; Production Supervisor|
 | 2000 &ndash; 2002|Publix Supermarkets &ndash; Responsible for receiving, ordering, and inventory of the frozen food department|
@@ -63,6 +63,7 @@ layout: cv
 
 - Simple terminal based password manager https://github.com/flooose/password-utility
 - A simple android client for runkeeper.com https://github.com/flooose/gpxkept
+- _Copy Buddy_ Firefox and Chromium plugin for storing things that you want to copy and paste later
 
 ## Process
 

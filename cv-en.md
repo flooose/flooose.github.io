@@ -40,6 +40,7 @@ layout: cv
 
 ## Extracurricular
 
+| 2017 |Category Theory for Programmers - by Bartosz Milewski
 | 2015 |coursera.org, Johns Hopkins Data Science Track|
 | 2015 |Coached in Hamburg's second Students on Rails event|
 | 2013 |Coached in Hamburg's first Students on Rails event aimed at introducing university students to Agile web development with Rails|

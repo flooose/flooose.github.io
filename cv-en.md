@@ -4,14 +4,14 @@ layout: cv
 
 |Name| Christopher Floess|
 | Born |July 04, 1978   |
-| Current | Web Developer|
+| Current | Full Stack Web Developer|
 | Education	|Bachelor of Arts German Studies, Minor: Computer Science|
 | Citizenship |German/American Dual Citizenship|
-| Contact|+49.0176.77307255 or chris.floess@jjff.de|
+| Contact|+1.321.266.0505 or chris.floess@jjff.de |
 
 ## Experience
 
-| 2016 &ndash; 2017 |_mindmatters GmbH_ &ndash; Development of an onboarding formula for an online payment provider using _**TypeScript**_, _**angularjs**_, _**rxjs**_ and _**Spring Bootstrap**_. |
+| 2016 &ndash;  |_mindmatters GmbH_ &ndash; Development of an onboarding formula for an online payment provider using _**TypeScript**_, _**angularjs**_, _**rxjs**_ and _**Spring Bootstrap**_. |
 | 2016 |_mindmatters GmbH_ &ndash; _**android**_ development for hardware store app. Used _**hockeyapp**_ and _**circleci**_ for automated testing and deployment. |
 | 2016 |_liquidlabs GmbH_ &ndash; Contracted externally from employer mindmatters GmbH to help scale a project built on _**react.js**_ and  _**StrongLoop**_. Helped develop end-to-end tests and build an open source DSL in javascript for clicking through and testing web-apps.  |
 | 2015 |mindmatters GmbH – Graphical "Teaser" configurator for online shop built on _**electron**_ and _**react.js**_ |

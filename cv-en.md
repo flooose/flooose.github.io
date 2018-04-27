@@ -9,22 +9,28 @@ layout: cv
 | Citizenship |German/American Dual Citizenship|
 | Contact|+1.321.266.0505 or chris.floess@jjff.de |
 
+## Summary
+
+I'm a full-stack web developer with experience in modern front-end and back-end
+technologies. I focus on agile, iterative development practices like scrum and
+kanban and have experience developing software "in house", as well as remote.
+
 ## Experience
 
-| 2016 &ndash;  |_mindmatters GmbH_ &ndash; Development of an onboarding formula for an online payment provider using _**TypeScript**_, _**angularjs**_, _**rxjs**_ and _**Spring Bootstrap**_. |
-| 2016 |_mindmatters GmbH_ &ndash; _**android**_ development for hardware store app. Used _**hockeyapp**_ and _**circleci**_ for automated testing and deployment. |
-| 2016 |_liquidlabs GmbH_ &ndash; Contracted externally from employer mindmatters GmbH to help scale a project built on _**react.js**_ and  _**StrongLoop**_. Helped develop end-to-end tests and build an open source DSL in javascript for clicking through and testing web-apps.  |
-| 2015 |mindmatters GmbH – Graphical "Teaser" configurator for online shop built on _**electron**_ and _**react.js**_ |
-| 2015 |_mindmatters GmbH_ &ndash; Devops from scratch: continuing work started in 2012, helped to further automate provisioning of servers on legacy systems. Migrated _**chef**_ configurations to system-installable packages (RPMs).|
-| 2013 &ndash; 2015 |_mindmatters GmbH_ &ndash; Development of a single-page _**Rails**_ application with _**Backbone.js/Marionette.js**_. Furthered devops skills with _**Puppet**_ for production systems. Helped introduce _**Docker**_ as the core component of our testing infrastructure.  |
-| 2012 &ndash; 2013 |_mindmatters GmbH_ &ndash; Infrastructure management for a custom CRM, helped to migrate server management of a _**Rails**_ app to _**Chef**_. |
-| 2011 &ndash; 2012 |_Propertybase GmbH_ &ndash; Development of a real estate CRM using _**Backbone.js**_ and _**Rails**_. |
-| 2009 &ndash; 2011 |_advaBusiness Software GmbH_ &ndash; Infrastructure management for an SAAS CRM aimed at small businesses. Introduced _**Puppet**_ server management to automate the maintenance of our _**Rails**_ application stack.   |
-| 2005 &ndash; 2009|The University of Arizona University Bookstores &ndash; Supervisor for Special Events and Retail Logistics (yes I was forced to do both, the special events part was cooler) |
-| 2005 | Welder
-| 2002 &ndash; 2004 |OfficeMax Copy Center &ndash; Production Supervisor|
-| 2000 &ndash; 2002|Publix Supermarkets &ndash; Responsible for receiving, ordering, and inventory of the frozen food department|
-| 1997 &ndash; 2000|Petsmart, Inc. &ndash; Receiver|
+| 2016 &ndash;      | _**Onboarding Platform for an Online Payment Provider**_ &ndash; _mindmatters GmbH_<br /><br />Technologies: TypeScript, Angular &ge; 2, rxjs, Spring Bootstrap, MSSQL, Docker for local development, Heroku + Azure Cloud-DB, CircleCI 2                                                                                                                                              |
+| 2016              | _**Android: Hardware Store App**_  &ndash; _mindmatters GmbH_<br /><br />Technologies: android, hockeyapp for continuous deployment, circleci for automated testing and deployment.                                                                                                                                                                      |
+| 2016              | _**Collection Services Platform**_  &ndash; _LiquidLabs GmbH_ &ndash; Facilitated development of agile practices and principles while helping a growing team develop their project.<br /><br />Technologies: react.js, StrongLoop, ES6, CircleCI                                                                                                                                       |
+| 2015              | _**Desktop "Teaser" Configurator For Online Shop**_ &ndash; _mindmatters GmbH_<br /><br />Technologies: Electron, react.js, ES6                                                                                                                                                                                                                                                        |
+| 2015              | _**Infrastructure Management of Legacy Systems**_ &ndash; _mindmatters GmbH_ &ndash; Building on lessons learned in 2012, helped to further automate provisioning and maintenance of servers. Migrated configuration management from chef to system-installable packages (RPMs). <br /><br /> Technologies: Chef, opensuse, nodejs, shell script (bash)         |
+| 2013 &ndash; 2015 | _**Management Tool for online Ad Campaigns**_ &ndash; _mindmatters GmbH_ &ndash; Full stack role developing a single page app. First contact with docker developing our CI-Pipeline.<br /><br />**Technlogies:** Rails, Backbone.js/Marionette.js, Puppet before we migrated to docker, coffeescript, Docker as the core component of our testing and CI infrastructure, nodejs, Postgresql |
+| 2012 &ndash; 2013 | _**Media-Contact CRM**_  &ndash; _mindmatters GmbH_ <br /><br /> Technologies: Rails, jQueryUI, Solr, Postgresql, Chef.                                                                                                                                                                                                                            |
+| 2011 &ndash; 2012 | _**Real Estate CRM**_ &ndash; _Propertybase GmbH_<br /><br />Technologies: Backbone.js, Rails, heroku.                                                                                                                                                                                                                                                                          |
+| 2009 &ndash; 2011 | _**Infrastructure Management for an SAAS**_ &ndash; _advaBusiness Software GmbH_ &ndash; <br /><br /> Technologies: Puppet for server management, Rails, Cucumber for testing                                                                                                                                                                                                       |
+| 2005 &ndash; 2009 | _**The University of Arizona University Bookstores**_ &ndash; Supervisor for Special Events and Retail Logistics (yes I was forced to do both, the special events part was cooler)                                                                                                                                                                                                              |
+| 2005              | _**Welder**_                                                                                                                                                                                                                                                                                                                                                                                  |
+| 2002 &ndash; 2004 | _**OfficeMax Copy Center**_ &ndash; Production Supervisor                                                                                                                                                                                                                                                                                                                                     |
+| 2000 &ndash; 2002 | _**Publix Supermarkets**_ &ndash; Responsible for receiving, ordering, and inventory of the frozen food department                                                                                                                                                                                                                                                                            |
+| 1997 &ndash; 2000 | _**Petsmart, Inc.**_ &ndash; Receiver                                                                                                                                                                                                                                                                                                                                                 |
 
 ## Academic Background
 

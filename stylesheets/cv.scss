@@ -25,6 +25,10 @@ h3 {
   margin-top: 16px;
 }
 
+p {
+  font-size: 1.2em;
+}
+
 li:first-child {
   padding-top: 10px;
 }
@@ -47,6 +51,7 @@ li:last-child {
 }
 
 td:nth-child(1) {
+  vertical-align: top;
   font-weight: bold;
   padding-left: 23px;
   padding: $table-cell-padding;

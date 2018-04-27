@@ -15,3 +15,6 @@ kramdown:
 
 exclude:
   - node_modules
+
+plugins:
+  - jekyll-feed

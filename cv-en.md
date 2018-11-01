@@ -17,12 +17,13 @@ kanban and have experience developing software "in house", as well as remote.
 
 ## Experience
 
-| 2016 &ndash;      | _**Onboarding Platform for an Online Payment Provider**_ &ndash; _mindmatters GmbH_<br /><br />Technologies: TypeScript, Angular &ge; 2, rxjs, SalesForce Lightning Design CSS-Framework, MSSQL, Docker for local development, Heroku + Azure Cloud-DB, CircleCI 2                                                                                                     |
+| 2018 &ndash;      | _**Management tool for Ad Campaign Management**_ &ndash; _mindmatters GmbH_<br /><br /> Revisited project started in 2013 with similar technologies.|
+| 2016 &ndash; 2018 | _**Onboarding Platform for an Online Payment Provider**_ &ndash; _mindmatters GmbH_<br /><br />Technologies: TypeScript, Angular &ge; 2, rxjs, SalesForce Lightning Design CSS-Framework, MSSQL, Docker for local development, Heroku + Azure Cloud-DB, CircleCI 2                                                                                                     |
 | 2016              | _**Android: Hardware Store App**_  &ndash; _mindmatters GmbH_<br /><br />Technologies: android, hockeyapp for continuous deployment, circleci for automated testing and deployment.                                                                                                                                                                      |
-| 2016              | _**Collection Services Platform**_  &ndash; _LiquidLabs GmbH_ &ndash; Facilitated development of agile practices and principles while helping a growing team develop their project.<br /><br />Technologies: react.js, StrongLoop, ES6, CircleCI                                                                                                                                       |
+| 2016              | _**Collection Services Platform**_  &ndash; _LiquidLabs GmbH_ &ndash; Supporting role in development of agile practices and principles while helping a growing team develop their project.<br /><br />Technologies: react.js, StrongLoop, ES6, CircleCI                                                                                                                    |
 | 2015              | _**Desktop "Teaser" Configurator For Online Shop**_ &ndash; _mindmatters GmbH_<br /><br />Technologies: Electron, react.js, ES6                                                                                                                                                                                                                                                        |
-| 2015              | _**Infrastructure Management of Legacy Systems**_ &ndash; _mindmatters GmbH_ &ndash; Building on lessons learned in 2012, helped to further automate provisioning and maintenance of servers. Migrated configuration management from chef to system-installable packages (RPMs). <br /><br /> Technologies: Chef, opensuse, nodejs, shell script (bash)         |
-| 2013 &ndash; 2015 | _**Management Tool for online Ad Campaigns**_ &ndash; _mindmatters GmbH_ &ndash; Full stack role developing a single page app. First contact with docker developing our CI-Pipeline.<br /><br />**Technlogies:** Rails, Backbone.js/Marionette.js, Puppet before we migrated to docker, coffeescript, Docker as the core component of our testing and CI infrastructure, nodejs, Postgresql |
+| 2015              | _**Infrastructure Management of Legacy Systems**_ &ndash; _mindmatters GmbH_ &ndash; Building on work started in 2012, helped to further automate provisioning and maintenance of servers. Migrated configuration management from chef to system-installable packages (RPMs). <br /><br /> Technologies: Chef, opensuse, nodejs, shell script (bash) |
+| 2013 &ndash; 2015 | _**Management Tool for online Ad Campaigns**_ &ndash; _mindmatters GmbH_ &ndash; Full stack role developing a single page app. Early adopters of docker, used in developing our CI-Pipeline.<br /><br />**Technlogies:** Rails, Backbone.js/Marionette.js, Puppet before we migrated to docker, coffeescript, Docker, nodejs, Postgresql   |
 | 2012 &ndash; 2013 | _**Media-Contact CRM**_  &ndash; _mindmatters GmbH_ <br /><br /> Technologies: Rails, jQueryUI, Solr, Postgresql, Chef.                                                                                                                                                                                                                            |
 | 2011 &ndash; 2012 | _**Real Estate CRM**_ &ndash; _Propertybase GmbH_<br /><br />Technologies: Backbone.js, Rails, heroku.                                                                                                                                                                                                                                                                          |
 | 2009 &ndash; 2011 | _**Infrastructure Management for an SAAS**_ &ndash; _advaBusiness Software GmbH_ &ndash; <br /><br /> Technologies: Puppet for server management, Rails, Cucumber for testing                                                                                                                                                                                                       |
@@ -75,7 +76,7 @@ kanban and have experience developing software "in house", as well as remote.
 
 ## Hobbies
 
-- Running
 - Surfing
+- Sourdough
+- Running
 - Bicycles
-- Outdoors

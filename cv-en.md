@@ -3,19 +3,19 @@ layout: cv
 ---
 
 |Name| Christopher Floess|
-| Born |July 04, 1978   |
-| Current | Full Stack Web Developer|
+| Location | Melbourne, Florida |
 | Education	|Bachelor of Arts German Studies, Minor: Computer Science|
-| Citizenship |German/American Dual Citizenship|
+| Github | https://github.com/flooose |
+| Citizenship |German/U.S. Dual Citizenship|
 | Contact|+1.321.266.0505 or chris.floess@jjff.de |
 
-## Summary
+## About
 
 I'm a full-stack web developer with experience in modern front-end and back-end
-technologies. I focus on agile, iterative development practices like scrum and
-kanban and have experience developing software "in house", as well as remote.
+technologies. I focus on agile, iterative development practices like Scrum and
+Kanban and have experience developing software "in house", as well as remote.
 
-## Experience
+## Projects
 
 | 2018 &ndash; present | _**Planning tool for Ad Campaign Management**_ &ndash; _mindmatters GmbH_<br /><br /> Revisited a project started in 2013 with similar technologies.|
 | 2016 &ndash; 2018 | _**Onboarding Platform for an Online Payment Provider**_ &ndash; _mindmatters GmbH_<br /><br />Technologies: TypeScript, Angular &ge; 2, rxjs, SalesForce Lightning Design CSS-Framework, MSSQL, Docker for local development, Heroku + Azure Cloud-DB, CircleCI 2                                                                                                     |
@@ -41,17 +41,14 @@ kanban and have experience developing software "in house", as well as remote.
 | 1999 &ndash; 2002 |Santa Fe Community College, Gainesville, Florida, USA|
 | 1997 &ndash; 1998 |Brevard Community College, Melbourne, Florida, USA|
 
-## Academic Achievements and Acknowledgments
+## Academic Achievements and Participation
 
 - Charles Polzer, S. J., Grant for constributions made to the translations of letters of the Swiss missionary Phillipp Segesser
 - Participant in the STORK research project for secure package management – www.cs.arizona.edu/stork/packagemanagersecurity
 
 ## Extracurricular
 
-| 2018 |Member of the coordinating group for Co-workers at mindmatters GmbH|
-| 2018 |Host of the After Work Activities coordinating group at mindmatters GmbH|
 | 2018 |Host of the Remote Work coordinating group at mindmatters GmbH   |
-| 2017 |Category Theory for Programmers - by Bartosz Milewski|
 | 2015 |coursera.org, Johns Hopkins Data Science Track|
 | 2015 |Coached in Hamburg's second Students on Rails event|
 | 2013 |Coached in Hamburg's first Students on Rails event aimed at introducing university students to Agile web development with Rails|
@@ -67,6 +64,7 @@ kanban and have experience developing software "in house", as well as remote.
 - Lisp
 - Functional programming
 - R
+- Math
 - Statistics and data mining
 - Virtualization with linux containers and docker
 - Privacy on the Internet

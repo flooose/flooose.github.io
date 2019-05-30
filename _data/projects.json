@@ -1,0 +1,72 @@
+[
+  {
+    "when": "2018 &ndash; present",
+    "who": "mindmatters GmbH",
+    "description": "Management tool for online advertising campaigns",
+    "role": "Transition team, fullstack developer. Helped with knowledge transfer and migration of a project from one development team to another",
+    "technologies": "Docker, Rails, Backbone.js/Marionette.js, Bootstrap, jQuery"
+  },
+  {
+    "when": "2016 &ndash; 2018",
+    "who": "mindmatters GmbH",
+    "description": "Onboarding Platform for an Online Payment Provider",
+    "role": "Full stack developer",
+    "technologies": "TypeScript, Angular &ge; 2, Rxjs, SalesForce Lightning Design, MSSQL, Docker (for local development), Heroku, CircleCI 2"
+  },
+  {
+    "when": "2016",
+    "who": "mindmatters GmbH",
+    "description": "Hardware store app: Android",
+    "role": "Developer, Android",
+    "technologies": "Android, Hockeyapp, Circleci"
+  },
+  {
+    "when": "2016",
+    "who": "LiquidLabs GmbH",
+    "description": "Debt collection services platform",
+    "role": "Facilitated agile practices and priciples for young team",
+    "technologies": "React.js, StrongLoop, CircleCI"
+  },
+  {
+    "when": "2015",
+    "who": "mindmatters GmbH",
+    "description": "Desktop \"teaser\" configurator for online shop",
+    "role": "Fullstack developer: electron",
+    "technologies": "Electron, React.js"
+  },
+  {
+    "when": "2015",
+    "who": "mindmatters GmbH",
+    "description": "Infrastructure management of legacy systems",
+    "role": "Backend developer",
+    "technologies": "Chef, Opensuse, Nodejs, shell script (bash), RPM packages"
+  },
+  {
+    "when": "2013 &ndash; 2015",
+    "who": "mindmatters GmbH",
+    "description": "Management tool for online advertising campaigns",
+    "role": "Full stack developer",
+    "technologies": "Rails, Docker, Backbone.js/Marionette.js, Puppet before we migrated to Docker, Coffeescript, Nodejs, Postgresql"
+  },
+  {
+    "when": "2012 &ndash; 2013",
+    "who": "mindmatters GmbH",
+    "description": "Media-contact CRM",
+    "role": "Full stack developer",
+    "technologies": "Rails, jQueryUI, Solr, Postgresql, Chef"
+  },
+  {
+    "when": "2011 &ndash; 2012",
+    "who": "Propertybase GmbH",
+    "description": "Real Estate CRM",
+    "role": "Junior developer",
+    "technologies": "Backbone.js, Rails, Heroku"
+  },
+  {
+    "when": "2009 &ndash; 2011",
+    "who": "advaBusiness Software GmbH",
+    "description": "Infrastructure Management for an SAAS CMS",
+    "role": "Junior developer: backend",
+    "technologies": "Rails, Cucumber, Puppet"
+  }
+]

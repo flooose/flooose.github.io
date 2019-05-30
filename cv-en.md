@@ -17,21 +17,21 @@ Kanban and have experience developing software "in house", as well as remote.
 
 ## Projects
 
-| 2018 &ndash; present | _**Planning tool for Ad Campaign Management**_ &ndash; _mindmatters GmbH_<br /><br /> Revisited a project started in 2013 with similar technologies.|
-| 2016 &ndash; 2018 | _**Onboarding Platform for an Online Payment Provider**_ &ndash; _mindmatters GmbH_<br /><br />Technologies: TypeScript, Angular &ge; 2, rxjs, SalesForce Lightning Design CSS-Framework, MSSQL, Docker for local development, Heroku + Azure Cloud-DB, CircleCI 2                                                                                                     |
-| 2016              | _**Android: Hardware Store App**_  &ndash; _mindmatters GmbH_<br /><br />Technologies: android, hockeyapp for continuous deployment, circleci for automated testing and deployment.                                                                                                                                                                      |
-| 2016              | _**Collection Services Platform**_  &ndash; _LiquidLabs GmbH_ &ndash; Supporting role in development of agile practices and principles while helping a growing team develop their project.<br /><br />Technologies: react.js, StrongLoop, ES6, CircleCI                                                                                                                    |
-| 2015              | _**Desktop "Teaser" Configurator For Online Shop**_ &ndash; _mindmatters GmbH_<br /><br />Technologies: Electron, react.js, ES6                                                                                                                                                                                                                                                        |
-| 2015              | _**Infrastructure Management of Legacy Systems**_ &ndash; _mindmatters GmbH_ &ndash; Building on work started in 2012, I helped to further automate provisioning and maintenance of servers. Migrated configuration management from chef to system-installable packages (RPMs). <br /><br /> Technologies: Chef, opensuse, nodejs, shell script (bash) |
-| 2013 &ndash; 2015 | _**Management Tool for online Ad Campaigns**_ &ndash; _mindmatters GmbH_ &ndash; I had a full stack role developing a single page app. Early adopters of docker, used in developing our CI-Pipeline.<br /><br />**Technlogies:** Rails, Backbone.js/Marionette.js, Puppet before we migrated to docker, coffeescript, Docker, nodejs, Postgresql, react.js |
-| 2012 &ndash; 2013 | _**Media-Contact CRM**_  &ndash; _mindmatters GmbH_ <br /><br /> Technologies: Rails, jQueryUI, Solr, Postgresql, Chef.                                                                                                                                                                                                                            |
-| 2011 &ndash; 2012 | _**Real Estate CRM**_ &ndash; _Propertybase GmbH_<br /><br />Technologies: Backbone.js, Rails, heroku.                                                                                                                                                                                                                                                                          |
-| 2009 &ndash; 2011 | _**Infrastructure Management for an SAAS**_ &ndash; _advaBusiness Software GmbH_ &ndash; <br /><br /> Technologies: Puppet for server management, Rails, Cucumber for testing                                                                                                                                                                                                       |
-| 2005 &ndash; 2009 | _**The University of Arizona University Bookstores**_ &ndash; Supervisor for Special Events and Retail Logistics (yes I was forced to do both, the special events part was cooler)                                                                                                                                                                                                              |
-| 2005              | _**Welder**_                                                                                                                                                                                                                                                                                                                                                                                  |
-| 2002 &ndash; 2004 | _**OfficeMax Copy Center**_ &ndash; Production Supervisor                                                                                                                                                                                                                                                                                                                                     |
-| 2000 &ndash; 2002 | _**Publix Supermarkets**_ &ndash; Responsible for receiving, ordering, and inventory of the frozen food department                                                                                                                                                                                                                                                                            |
-| 1997 &ndash; 2000 | _**Petsmart, Inc.**_ &ndash; Receiver                                                                                                                                                                                                                                                                                                                                                 |
+<table>
+	{% for project in site.data.projects %}
+	<tr>
+		<td>{{project.when}}</td>
+		<td>
+			<em>{{project.who}}</em>
+			<ul class="project-details">
+				<li>Project description: {{project.description}}</li>
+				<li>Role: {{project.role}}</li>
+				<li>Technologies: {{project.technologies}}</li>
+			</ul>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
 
 ## Academic Background
 
@@ -81,3 +81,21 @@ Kanban and have experience developing software "in house", as well as remote.
 - Sourdough
 - Running
 - Bicycles
+
+## Other Employment
+
+<table>
+	{% for job in site.data.jobs %}
+	<tr>
+		<td>{{job.when}}</td>
+		<td>
+			<em>{{job.who}}</em>
+			<ul class="project-details">
+				<li>Project description: {{job.description}}</li>
+				<li>Role: {{job.role}}</li>
+				<li>Technologies: {{job.technologies}}</li>
+			</ul>
+		</td>
+	</tr>
+	{% endfor %}
+</table>

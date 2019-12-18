@@ -1,0 +1,102 @@
+---
+---
+
+$table-cell-padding: 8px;
+
+body {
+  font-size: 12px;
+  align: "center";
+  color: #3A463D;
+}
+
+div#container {
+  width: 1024px;
+  margin: auto;
+  font-size: 1.4em;
+}
+
+h1, h2, h3 {
+  margin: 0.286em 0;
+  font-family: 'Vollkorn';
+  color: #282A2A;
+}
+
+h3 {
+  margin-top: 16px;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 39px;
+}
+
+li:first-child {
+  padding-top: 10px;
+}
+
+li:last-child {
+  padding-bottom: 10px;
+}
+
+@mixin cv-section() {
+  border: solid 1px #EFEFF1;
+  border-radius: 5px;
+  margin-bottom: 39px;
+  margin-top: 14px;
+}
+
+@mixin cv-section-entry() {
+  font-size: 1.2em;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+td:nth-child(1) {
+  vertical-align: top;
+  font-weight: bold;
+  padding-left: 23px;
+  padding: $table-cell-padding;
+  padding-left: 23px;
+  text-align: left;
+  width: 15%;
+}
+
+ul {
+  @include cv-section();
+}
+
+ul.project-details {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  li {
+    font-size: 1em;
+  }
+}
+
+li {
+  @include cv-section-entry();
+}
+
+table {
+  @include cv-section();
+  width: 1024px;
+  tr {
+    @include cv-section-entry();
+  }
+  td {
+    padding: $table-cell-padding;
+  }
+}
+
+.mt-6 {
+  margin-top: 6em;
+}
+
+.mb-1_5 {
+  margin-bottom: 1.5em;
+}
+
+@page {
+  @size: letter;
+}

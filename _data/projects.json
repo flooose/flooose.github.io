@@ -3,7 +3,7 @@
     "when": "2018 &ndash; present",
     "who": "mindmatters GmbH",
     "description": "Management tool for online advertising campaigns",
-    "role": "Transition team, fullstack developer. Helped with knowledge transfer and migration of a project from one development team to another",
+    "role": "Transition team senior; fullstack developer. Helped migrate project from one developer team to another",
     "technologies": "Docker, Rails, Backbone.js/Marionette.js, Bootstrap, jQuery"
   },
   {
@@ -24,7 +24,7 @@
     "when": "2016",
     "who": "LiquidLabs GmbH",
     "description": "Debt collection services platform",
-    "role": "Facilitated agile practices and priciples for young team",
+    "role": "Facilitated agile practices and principles for young team",
     "technologies": "React.js, StrongLoop, CircleCI"
   },
   {
@@ -32,7 +32,7 @@
     "who": "mindmatters GmbH",
     "description": "Desktop \"teaser\" configurator for online shop",
     "role": "Fullstack developer: electron",
-    "technologies": "Electron, React.js"
+    "technologies": "Electron, React.js, Node.js"
   },
   {
     "when": "2015",

@@ -1,0 +1,24 @@
+{
+  "main": [
+    "AngularJS",
+    "ReactJS",
+    "Typescript",
+    "RxJS",
+    "Ruby on Rails",
+    "Docker",
+    "CSS",
+    "Postgresql",
+  ],
+  "secondary": [
+    "NodeJS",
+    "CircleCI",
+    "BackboneJS",
+    "jQuery",
+    "Spring Boot",
+    "Heroku",
+    "Electron",
+    "Puppet",
+    "Chef",
+    "Shell script (bash)"
+  ]
+}

@@ -1,10 +1,10 @@
 [
   {
-    "when": "2018 &ndash; present",
+    "when": "2018 &ndash; 2020",
     "who": "mindmatters GmbH",
     "description": "Management tool for online advertising campaigns",
     "role": "Transition team senior; fullstack developer. Helped migrate project from one developer team to another",
-    "technologies": "Docker, Rails, Backbone.js/Marionette.js, Bootstrap, jQuery"
+    "technologies": "Docker, Rails, Backbone.js/Marionette.js, Elm, Twitter Bootstrap, jQuery"
   },
   {
     "when": "2016 &ndash; 2018",

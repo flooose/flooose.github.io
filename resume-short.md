@@ -7,7 +7,7 @@ layout: resume
 | Education	|Bachelor of Arts German Studies, Minor: Computer Science|
 | Github | https://github.com/flooose |
 | Citizenship |German/U.S. Dual Citizenship|
-| Contact|+1.321.266.0505 or chris.floess@jjff.de |
+| Contact|+1.321.266.0505 or chris.floess@mailbox.org |
 
 ## About
 

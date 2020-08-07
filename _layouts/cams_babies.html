@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<script src='/javascripts/jquery-1.5.2.js'></script>
+	<head>
+    {% feed_meta %}
+		<title>{{ page.title }}</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Christopher Floess">
+		<meta name="description" content="Chris Floess' thoughts">
+		<meta name="keywords" content="software,web,ruby,rails,web,hacking,opensource,data,javascript">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-30657456-1']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	  </head>
+	  <body>
+      <div id="container" class="container">
+			  <header>
+<h1>Cam's Baby Sitting and Tanning Paradise!</h1>
+			  </header>
+			  <section>
+				  <div id="content" class="content">
+					  {{ content }}
+
+				  </div>
+			  </section>
+			  <br />
+			  <div id="footer" class="footer"></div>
+      </div>
+	</body>
+</html>

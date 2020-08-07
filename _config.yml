@@ -8,6 +8,8 @@ encoding: "utf-8"
 collections:
   bread:
     output: true
+  garden:
+    output: true
 
 kramdown:
   input: GFM

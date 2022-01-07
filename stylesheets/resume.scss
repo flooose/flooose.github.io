@@ -46,6 +46,7 @@ li:last-child {
 }
 
 @mixin cv-section-entry() {
+  break-inside: avoid-page;
   font-size: 1.2em;
   padding: 5px;
   padding-left: 15px;
@@ -98,5 +99,5 @@ table {
 }
 
 @page {
-  @size: letter;
+  @size: A4;
 }

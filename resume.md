@@ -1,5 +1,6 @@
 ---
 layout: resume
+title: Resume
 ---
 
 {{ site.data.introduction.name }}

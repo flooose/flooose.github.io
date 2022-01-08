@@ -2,18 +2,16 @@
 layout: resume
 ---
 
-|Name| Christopher Floess|
-| Location | Melbourne, Florida |
-| Education	|Bachelor of Arts German Studies, Minor: Computer Science|
-| Github | https://github.com/flooose |
-| Citizenship |German/U.S. Dual Citizenship|
-| Contact|+1.321.266.0505 or chris.floess@mailbox.org |
+{{ site.data.introduction.name }}
+{{ site.data.introduction.location }}
+{{ site.data.introduction.education }}
+{{ site.data.introduction.github }}
+{{ site.data.introduction.country }}
+{{ site.data.introduction.contact }}
 
 ## About
 
-I'm a full-stack web developer with experience in modern front-end and back-end
-technologies. I focus on agile, iterative development practices like Scrum and
-Kanban and have experience developing software "in house", as well as remote.
+{{ site.data.about.text }}
 
 ## Projects
 
@@ -35,4 +33,4 @@ Kanban and have experience developing software "in house", as well as remote.
 
 ## Non-Developer Employment
 
-Available upon request
+{{ site.data.upon_request.text }}

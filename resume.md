@@ -17,7 +17,7 @@ layout: resume
 
 <table>
 	{% for project in site.data.projects %}
-	<tr>
+    <tr>
 		<td>{{project.when}}</td>
 		<td>
 			<em>{{project.who}}</em>
@@ -31,38 +31,6 @@ layout: resume
 	{% endfor %}
 </table>
 
-## Academic Background
+## Non-Developer Employment
 
-| 2005 &ndash; 2010 |University of Arizona, Tucson, Arizona, USA – Major: German Studies, Minor: Computer Science|
-| 2003 &ndash; 2005 |Pima Community College, Tucson, Arizona, USA – Welding Technology|
-| 2002 &ndash; 2003 |University of Arizona, Tucson, Arizona, USA – Major, Mathematics|
-| 1999 &ndash; 2002 |Santa Fe Community College, Gainesville, Florida, USA|
-| 1997 &ndash; 1998 |Brevard Community College, Melbourne, Florida, USA|
-
-## Academic Achievements and Participation
-
-- Charles Polzer, S. J., Grant for constributions made to the translations of letters of the Swiss missionary Phillipp Segesser
-- Participant in the STORK research project for secure package management – www.cs.arizona.edu/stork/packagemanagersecurity
-
-## Languages
-
-- English (native)
-- German (fluent)
-
-## Other Employment
-
-<table>
-	{% for job in site.data.jobs %}
-	<tr>
-		<td>{{job.when}}</td>
-		<td>
-			<em>{{job.who}}</em>
-			<ul class="project-details">
-				<li>Project description: {{job.description}}</li>
-				<li>Role: {{job.role}}</li>
-				<li>Technologies: {{job.technologies}}</li>
-			</ul>
-		</td>
-	</tr>
-	{% endfor %}
-</table>
+{{ site.data.upon_request.text }}

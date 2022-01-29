@@ -10,9 +10,17 @@ title: Resume
 {{ site.data.introduction.country }}
 {{ site.data.introduction.contact }}
 
-## About
+## About and Core Skills
 
+<p class="mb-1_0">
 {{ site.data.about.text }}
+</p>
+
+<ul class="no-border">
+    {% for c in site.data.about.core_competencies %}
+    <li>{{c}}</li>
+    {% endfor %}
+</ul>
 
 ## Projects
 

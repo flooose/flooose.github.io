@@ -1,5 +1,10 @@
 text: >
   I'm a full-stack web developer with experience in modern front-end
   and back-end technologies.  I focus on agile, iterative development
-  practices like Scrum and Kanban and have experience developing
-  software "in house", as well as remote.
+  practices like Scrum and Kanban with core competencies in the
+  following:
+
+core_competencies:
+  - Fullstack web development with Ruby on Rails, Spring Boot,  Angular+Typescript and Vue.js
+  - CI/CD pipeline management and optimization with docker and cloud infrastructure
+  - Pair programming, team culture, and collaborative problem solving, identification and analysis

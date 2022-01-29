@@ -66,6 +66,12 @@ ul {
   @include cv-section();
 }
 
+ul.no-border {
+  border: none;
+  border-radius: none;
+  padding-left: 44px;
+}
+
 ul.project-details {
   border: none;
   margin-bottom: 0;
@@ -96,6 +102,9 @@ table {
 
 .mb-1_5 {
   margin-bottom: 1.5em;
+}
+.mb-1_0 {
+  margin-bottom: 1.0em;
 }
 
 @page {

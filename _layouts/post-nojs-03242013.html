@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/stylesheets/flooose-03242013.css" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911&v1' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Vollkorn&v1' rel='stylesheet' type='text/css' />
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <script src='/javascripts/jquery-1.5.2.js'></script>
+  <head>
+    {% feed_meta %}
+    <title>{{ page.title }}</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Christopher Floess" />
+    <meta name="description" content="Chris Floess' thoughts" />
+    <meta name="keywords" content="software,web,ruby,rails,web,hacking,opensource,data,javascript" />
+  </head>
+  <body>
+    <div id="container" class="container">
+      <header>
+        {% include title.html %}
+      </header>
+      <section>
+	<div id="content" class="content">
+	  {{ content }}
+	</div>
+      </section>
+      <br />
+      <div id="footer" class="footer"></div>
+    </div>
+  </body>
+</html>

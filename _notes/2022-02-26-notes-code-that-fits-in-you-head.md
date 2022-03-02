@@ -1,5 +1,5 @@
 ---
-title: Notes: Code that Fits in Your Head
+title: "Notes: Code that Fits in Your Head"
 layout: post-03242013
 published: true
 ---

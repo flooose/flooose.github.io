@@ -1,6 +1,6 @@
 ---
 title: "Notes: Code that Fits in Your Head"
-layout: post-03242013
+layout: post-nojs-03242013
 published: true
 ---
 

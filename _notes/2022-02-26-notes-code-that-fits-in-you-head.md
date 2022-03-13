@@ -86,6 +86,61 @@ internalized.
 
 - (according to chapter 9), you should merge into "main" at least
   twice a day? I'm not sure how I feel about this. In most of my
-      experience, that should mean merging incomplete features.
+  experience, that should mean merging incomplete features.
 - Important to learn: the difference/relationship between OpenAPI and
   Rest
+- I'm having a hard time seeing the advantage of creating small,
+  feature-toggled MRs for a feature that I'm developing.
+- OpenAPI builds its feature set on REST and is simply a framework for
+  creating rest APIs from configuration (yaml, json) files.
+- Feature flags are good in cases of refactoring. Add a new, more
+  well-designed method to your class, leave the old one. That's one
+  MR. Then _one after the other_ replace the usages. For simple
+  refactorings, this may be overkill, but for more complicated ones,
+  each call to the method can be its own MR.
+- Strangler pattern: In refactoring, adding a new method and then
+  one-by-one migrating the places that called the old implementation
+  to calling the new implementation.
+
+### 11. Editing Unit Tests
+
+- "formally speaking...you can't refactor unit tests" p. 224
+- Test code has a dependency on production code and vice versa. For
+  this reason you should edit them independent of one-another. If the
+  test code is working, you can change production code. If production
+  code is working, you can change test code. Changes to either one
+  aren't guaranteed to be safe.
+- Interaction with the external world should happen in the shape of
+  polymorphic types, e.g. interfaces.
+- How do you get similar help out of a dynamic language as static
+  typing gives you in static languages? There has to be some other way
+  of achieving the same. In the end, you do have more flexibility with
+  dynamic languages.
+- When you're struggling through code, it might be good to describe
+  what's happeinging and then explicitly "tagging" anything that's a
+  black hole.
+
+### 12. Troubleshooting
+
+- race conditions are fixed by serializing reads and writes p. 249
+
+### 13. Separation of Concerns
+
+- Things that change at the same rate belong together. Things that
+  change at a different rate belong apart. p. 257
+- Maybe you should be the driver of decomposing code
+- ActiveRecord method chains are an example of sequential
+  composition. p 262
+- a pure function is equal to its output. In that sense, they amplify
+  the essential p. 264
+- I think cross-cutting concerns in Rails tends to be handled by
+  middleware, not decorators.
+
+### 14. Rhythm
+
+- Take breaks, even if you're in the zone. It might help you realize
+  that you're going the wrong way. Usually if you're in the zone and
+  you are on the right way, a five minute break won't hurt your
+  rhythm.
+- I don't recall having had a single revelation while sitting in front
+  of the computer. p 278
